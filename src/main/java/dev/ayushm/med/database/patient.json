@@ -1,0 +1,8 @@
+{
+  "patientName": "John Doe",
+  "patientEmail": "john.doe@gmail.com",
+  "patientPhone": "+1-(916)-442-5654",
+  "patientAge": 24,
+  "patientGender": "male",
+  "patientAllergicTo": "ibuprofen"
+}
