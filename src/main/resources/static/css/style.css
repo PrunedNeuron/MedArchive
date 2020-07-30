@@ -17,6 +17,7 @@ a {
 
 .cardContainer {
     display: inline-block !important;
+    margin: 1rem;
 }
 
 .bodyContainer {

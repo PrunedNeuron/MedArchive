@@ -15,7 +15,7 @@
         <c:if test="${consultation.consultationId != null}">
 
             <div class="cards">
-                <div class="centered cardContainer">
+                <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
                     <div class="uk-card uk-card-default">
 
                         <div class="uk-card-header">
@@ -54,24 +54,22 @@
         <c:if test="${consultation.consultationId == null}">
             <h4>All Consultations</h4>
             <c:forEach var="consultationEntry" items="${consultationList}">
-                <div class="cards">
-                    <div class="centered cardContainer">
-                        <div class="uk-card uk-card-default">
-                            <div class="uk-card-body">
-                                <div class="uk-card-badge uk-label">${consultationDate}</div>
-                                <div>
-                                    <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Patient</span>
-                                        ${consultationEntry.patient.patientName}
-                                </div>
-                                <div>
-                                    <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Consultant</span>
-                                        ${consultationEntry.consultant.consultantName}
-                                </div>
+                <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-body">
+                            <div class="uk-card-badge uk-label">${consultationDate}</div>
+                            <div>
+                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Patient</span>
+                                    ${consultationEntry.patient.patientName}
                             </div>
-                            <div class="uk-card-footer">
-                                <a href="/consultations/${consultationEntry.consultationId}" class="uk-button uk-button-default">View Consultation</a>
+                            <div>
+                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Consultant</span>
+                                    ${consultationEntry.consultant.consultantName}
+                            </div>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="/consultations/${consultationEntry.consultationId}" class="uk-button uk-button-default">View Consultation</a>
 
-                            </div>
                         </div>
                     </div>
                 </div>

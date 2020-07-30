@@ -20,6 +20,10 @@ public class ConsultantService {
         return consultants;
     }
 
+    public Consultant getConsultant(Integer consultantId) {
+        return  consultantRepository.findById(consultantId).get();
+    }
+
     public void addConsultant(Consultant consultant) {
         consultantRepository.save(consultant);
     }

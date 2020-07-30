@@ -1,5 +1,5 @@
 <div class="navContainer">
-    <nav class="uk-navbar-container" uk-navbar>
+    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 
         <div class="uk-navbar-left">
 
@@ -35,4 +35,5 @@
 
         </div>
     </nav>
+    <hr class="uk-divider-icon">
 </div>

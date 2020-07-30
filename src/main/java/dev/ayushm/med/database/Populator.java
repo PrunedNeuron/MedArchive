@@ -110,7 +110,6 @@ public class Populator {
 
         HttpEntity<String> entity = new HttpEntity<>(requestJson, headers);
         String answer = restTemplate.postForObject(url, entity, String.class);
-        System.out.println(answer);
     }
 
 }

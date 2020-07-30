@@ -1,16 +1,99 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ayush
-  Date: 7/28/20
-  Time: 8:18 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
+    <%@include file="components/stylesheets.jsp" %>
 </head>
 <body>
 
+<div class="bodyContainer">
+    <%@include file="components/navigation.jsp" %>
+    <div class="mainBody">
+        <c:if test="${consultant.consultantId != null}">
+
+            <div class="cards">
+                <div class="centered cardContainer">
+                    <div class="uk-card uk-card-default">
+
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">consultant #${consultant.consultantId}</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-card-body">
+                            <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
+                                    ${consultant.consultantName}
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Age</span>
+                                    ${consultant.consultantAge}
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Gender</span>
+                                <span style="text-transform: capitalize">${consultant.consultantGender}</span>
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Phone</span>
+                                    ${consultant.consultantPhone}
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Allergic to</span>
+                                <span style="text-transform: capitalize">${consultant.consultantAllergicTo}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </c:if>
+        <c:if test="${consultant.consultantId == null}">
+            <h4>All consultants</h4>
+            <div class="cards">
+                <c:forEach var="consultantEntry" items="${consultants}">
+                    <div class="centered cardContainer">
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-body">
+                                <div class="uk-card-badge uk-label">${consultantDate}</div>
+                                <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
+                                        ${consultantEntry.consultantName}
+                                </div>
+                                <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Age</span>
+                                        ${consultantEntry.consultantAge}
+                                </div>
+                                <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Gender</span>
+                                    <span style="text-transform: capitalize">${consultantEntry.consultantGender}</span>
+                                </div>
+                            </div>
+                            <div class="uk-card-footer">
+                                <a href="/consultants/${consultantEntry.consultantId}" class="uk-button uk-button-default">View
+                                    consultant</a>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </c:if>
+    </div>
+</div>
+
+<%@include file="components/scripts.jsp" %>
 </body>
 </html>

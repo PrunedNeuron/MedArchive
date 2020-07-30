@@ -44,7 +44,7 @@ consultantPhone.addEventListener("change", function (event) {
 })
 
 submitButton.addEventListener("click", function() {
-    if (validatePatient()){
+    if (validateConsultant()){
         removeClass(submitButton, "uk-animation-shake");
         removeClass(submitButton, "uk-button-danger");
         addAnotherClass(submitButton, "uk-button-primary");
@@ -75,9 +75,9 @@ function makeIconInvisible(icon) {
     icon.style.display = "none";
 }
 
-function validatePatient() {
+function validateConsultant() {
     return (
-        validateName(consultantName.name)
+        validateName(consultantName.value)
         &&
         validateEmail(consultantEmail.value)
         &&
