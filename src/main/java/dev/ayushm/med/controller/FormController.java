@@ -1,7 +1,7 @@
 package dev.ayushm.med.controller;
 
-import dev.ayushm.med.model.Patient;
-import dev.ayushm.med.service.PatientService;
+import dev.ayushm.med.model.*;
+import dev.ayushm.med.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,24 @@ public class FormController {
 
     @Autowired
     private PatientService patientService;
+
+    @Autowired
+    private ConsultantService consultantService;
+
+    @Autowired
+    private ConsultationService consultationService;
+
+    @Autowired
+    private IllnessService illnessService;
+
+    @Autowired
+    private DiagnosisService diagnosisService;
+
+    @Autowired
+    private DrugService drugService;
+
+    @Autowired
+    private TreatmentService treatmentService;
 
     @GetMapping("/added")
     public String getAddedPage() {
@@ -55,9 +73,44 @@ public class FormController {
         return "/add/consultant";
     }
 
+    @PostMapping("/consultant")
+    public String postAddConsultant(@ModelAttribute("consultant") Consultant consultant, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added consultant: " + consultant.toString());
+        logger.info("Added consultant: " + consultant.getConsultantName());
+
+        consultantService.addConsultant(consultant);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", consultant != null);
+        model.addAttribute("modelName", "consultant");
+
+        return "add/added";
+    }
+
     @GetMapping("/consultation")
     public String getAddConsultation() {
         return "/add/consultation";
+    }
+
+    @PostMapping("/consultation")
+    public String postAddConsultation(@ModelAttribute("consultation") Consultation consultation, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added consultant: " + consultation.toString());
+
+        consultationService.addConsultation(consultation);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", consultation != null);
+        model.addAttribute("modelName", "consultation");
+
+        return "add/added";
     }
 
     @GetMapping("/illness")
@@ -65,9 +118,44 @@ public class FormController {
         return "/add/illness";
     }
 
+    @PostMapping("/illness")
+    public String postAddIllness(@ModelAttribute("illness") Illness illness, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added illness: " + illness.toString());
+
+        illnessService.addIllness(illness);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", illness != null);
+        model.addAttribute("modelName", "illness");
+
+        return "add/added";
+    }
+
+
     @GetMapping("/diagnosis")
     public String getAddDiagnosis() {
         return "/add/diagnosis";
+    }
+
+    @PostMapping("/diagnosis")
+    public String postAddDiagnosis(@ModelAttribute("diagnosis") Diagnosis diagnosis, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added diagnosis: " + diagnosis.toString());
+
+        diagnosisService.addDiagnosis(diagnosis);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", diagnosis != null);
+        model.addAttribute("modelName", "diagnosis");
+
+        return "add/added";
     }
 
     @GetMapping("/drug")
@@ -75,9 +163,43 @@ public class FormController {
         return "/add/drug";
     }
 
+    @PostMapping("/drug")
+    public String postAddDrug(@ModelAttribute("drug") Drug drug, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added drug: " + drug.toString());
+
+        drugService.addDrug(drug);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", drug != null);
+        model.addAttribute("modelName", "drug");
+
+        return "add/added";
+    }
+
     @GetMapping("/treatment")
     public String getAddTreatment() {
         return "/add/treatment";
+    }
+
+    @PostMapping("/treatment")
+    public String postAddTreatment(@ModelAttribute("treatment") Treatment treatment, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added treatment: " + treatment.toString());
+
+        treatmentService.addTreatment(treatment);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", treatment != null);
+        model.addAttribute("modelName", "treatment");
+
+        return "add/added";
     }
 
 }

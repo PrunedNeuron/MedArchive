@@ -12,7 +12,6 @@
     <%@include file="components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-
         </div>
     </main>
 </div>

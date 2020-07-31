@@ -1,12 +1,7 @@
 
 const illnessForm = document.getElementById("illness");
-
 const illnessName = document.getElementById("illnessName");
 
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
-
-const namePattern = /^[a-zA-Z ]{2,30}$/;
 
 illnessName.addEventListener("change", function (event) {
     if (!validateName(illnessName.value)) {
@@ -42,39 +37,8 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function validateIllness() {
     return (
         validateName(illnessName.value)
     );
-}
-
-function validateName(name) {
-    return namePattern.test(name);
-}
-
-function validateAddress(address) {
-    return addressPattern.test(address)
-}
-
-function validateId(id) {
-    return id > 0;
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

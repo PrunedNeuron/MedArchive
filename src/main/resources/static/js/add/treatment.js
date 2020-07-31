@@ -1,11 +1,7 @@
 
 const treatmentForm = document.getElementById("treatment");
-
 const diagnosisId = document.getElementById("diagnosisId");
 const drugId = document.getElementById("drugId");
-
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
 
 
 diagnosisId.addEventListener("change", function (event) {
@@ -52,33 +48,10 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function validateTreatment() {
     return (
         validateId(diagnosisId.value)
         &&
         validateId(drugId.value)
     );
-}
-
-function validateId(id) {
-    return id > 0;
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

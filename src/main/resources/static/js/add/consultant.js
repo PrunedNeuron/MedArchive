@@ -5,14 +5,6 @@ const consultantName = document.getElementById("consultantName");
 const consultantEmail = document.getElementById("consultantEmail");
 const consultantPhone = document.getElementById("consultantPhone");
 
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
-
-const namePattern = /^[a-zA-Z ]{2,30}$/;
-const emailPattern = /\S+@\S+\.\S+/;
-const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
-
 consultantName.addEventListener("change", function (event) {
     if (!namePattern.test(consultantName.value)) {
         removeClass(consultantName, "uk-form-success");
@@ -67,14 +59,6 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function validateConsultant() {
     return (
         validateName(consultantName.value)
@@ -83,27 +67,4 @@ function validateConsultant() {
         &&
         validatePhone(consultantPhone.value)
     );
-}
-
-function validatePhone(phone) {
-    return phonePattern.test(phone)
-}
-
-function validateEmail(email) {
-    return emailPattern.test(email);
-}
-
-function validateName(name) {
-    return namePattern.test(name);
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

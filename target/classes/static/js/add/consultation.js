@@ -5,15 +5,6 @@ const patientId = document.getElementById("patientId");
 const consultantId = document.getElementById("consultantId");
 const consultationLocation = document.getElementById("consultationLocation");
 
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
-
-const addressPattern = /^[a-zA-Z ]+$/;
-const namePattern = /^[a-zA-Z ]{2,30}$/;
-const emailPattern = /\S+@\S+\.\S+/;
-const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
-
 patientId.addEventListener("change", function (event) {
     if (!validateId(patientId.value)) {
         removeClass(patientId, "uk-form-success");
@@ -68,13 +59,7 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
 
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
 
 function validateConsultation() {
     return (
@@ -84,24 +69,4 @@ function validateConsultation() {
         &&
         validateAddress(consultationLocation.value)
     );
-}
-
-
-function validateAddress(address) {
-    return addressPattern.test(address)
-}
-
-function validateId(id) {
-    return id > 0;
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

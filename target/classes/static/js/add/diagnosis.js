@@ -4,10 +4,6 @@ const diagnosisForm = document.getElementById("diagnosis");
 const consultationId = document.getElementById("consultationId");
 const illnessId = document.getElementById("illnessId");
 
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
-
-
 consultationId.addEventListener("change", function (event) {
     if (!validateId(consultationId.value)) {
         removeClass(consultationId, "uk-form-success");
@@ -52,33 +48,10 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function validateDiagnosis() {
     return (
         validateId(illnessId.value)
         &&
         validateId(consultationId.value)
     );
-}
-
-function validateId(id) {
-    return id > 0;
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

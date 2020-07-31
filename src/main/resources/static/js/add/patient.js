@@ -1,6 +1,5 @@
 
 const patientForm = document.getElementById("patient");
-
 const patientName = document.getElementById("patientName");
 const patientEmail = document.getElementById("patientEmail");
 const patientAge = document.getElementById("patientAge");
@@ -8,12 +7,6 @@ const patientPhone = document.getElementById("patientPhone");
 const patientGenderMale = document.getElementById("patientGenderMale");
 const patientGenderFemale = document.getElementById("patientGenderFemale");
 
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
-
-const namePattern = /^[a-zA-Z ]{2,30}$/;
-const emailPattern = /\S+@\S+\.\S+/;
-const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
 
 patientName.addEventListener("change", function (event) {
@@ -80,14 +73,6 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function validatePatient() {
     return (
         validateName(patientName.name)
@@ -100,35 +85,4 @@ function validatePatient() {
         &&
         validateRadios(patientGenderMale, patientGenderFemale)
     );
-}
-
-function validatePhone(phone) {
-    return phonePattern.test(phone)
-}
-
-function validateRadios(radioA, radioB) {
-    return radioA.checked || radioB.checked;
-}
-
-function validateAge(age) {
-    return parseInt(age) <= 122 && parseInt(age) >= 1;
-}
-
-function validateEmail(email) {
-    return emailPattern.test(email);
-}
-
-function validateName(name) {
-    return namePattern.test(name);
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

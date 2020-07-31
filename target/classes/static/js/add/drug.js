@@ -1,12 +1,6 @@
 
 const drugForm = document.getElementById("drug");
-
 const drugName = document.getElementById("drugName");
-
-const checkIcon = document.getElementById("checkIcon");
-const submitButton = document.getElementById("submitButton");
-
-const namePattern = /^[a-zA-Z ]{2,30}$/;
 
 drugName.addEventListener("change", function (event) {
     if (!namePattern.test(drugName.value)) {
@@ -42,31 +36,8 @@ submitButton.addEventListener("click", function() {
 
 })
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function validateDrug() {
     return (
         validateName(drugName.value)
     );
-}
-
-function validateName(name) {
-    return namePattern.test(name);
-}
-
-function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }
-}
-
-function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
 }

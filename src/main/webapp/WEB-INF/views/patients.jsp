@@ -17,7 +17,7 @@
 
             <div class="cards">
                 <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                    <div class="uk-card uk-card-primary" >
+                    <div class="uk-card uk-card-default" >
 
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -84,34 +84,34 @@
         </c:if>
         <c:if test="${patient.patientId == null}">
             <h4>All patients</h4>
-            <div class="cards">
+            <div class="ui cards">
             <c:forEach var="patientEntry" items="${patients}">
-                    <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                        <div class="uk-card uk-card-primary" >
-                            <div class="uk-card-body">
-                                <div class="uk-card-badge uk-label">${patientDate}</div>
-                                <div>
+                <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
+                    <div class="uk-card uk-card-default" >
+                        <div class="uk-card-body">
+                            <div class="uk-card-badge uk-label">${patientDate}</div>
+                            <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
-                                        ${patientEntry.patientName}
-                                </div>
-                                <div>
+                                    ${patientEntry.patientName}
+                            </div>
+                            <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Age</span>
-                                        ${patientEntry.patientAge}
-                                </div>
-                                <div>
+                                    ${patientEntry.patientAge}
+                            </div>
+                            <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Gender</span>
-                                    <span style="text-transform: capitalize">${patientEntry.patientGender}</span>
-                                </div>
-                            </div>
-                            <div class="uk-card-footer">
-                                <a href="/patients/${patientEntry.patientId}" class="uk-button uk-button-default">View
-                                    Patient</a>
+                                <span style="text-transform: capitalize">${patientEntry.patientGender}</span>
                             </div>
                         </div>
+                        <div class="uk-card-footer">
+                            <a href="/patients/${patientEntry.patientId}" class="uk-button uk-button-default">View
+                                Patient</a>
+                        </div>
                     </div>
+                </div>
             </c:forEach>
             </div>
         </c:if>
