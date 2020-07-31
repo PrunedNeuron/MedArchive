@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="uk-card-footer">
-                            <a href="/patients/history/${consultation.patient.patientId}" class="uk-button uk-button-default">View Patient History</a>
+                            <a href="/patients/${patient.patientId}/history" class="uk-button uk-button-default">View Patient History</a>
                         </div>
                     </div>
                 </div>
