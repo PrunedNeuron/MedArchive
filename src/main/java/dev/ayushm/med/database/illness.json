@@ -1,3 +1,62 @@
-{
-  "illnessName": "Amyloidosis"
-}
+[
+  {
+    "illnessName": "Amyloidosis"
+  },
+  {
+    "illnessName": "Dyslipidemia"
+  },
+  {
+    "illnessName": "Salmonellosis"
+  },
+  {
+    "illnessName": "Legionellosis"
+  },
+  {
+    "illnessName": "Herpes Simplex"
+  },
+  {
+    "illnessName": "Hepatitis C"
+  },
+  {
+    "illnessName": "Epilepsy"
+  },
+  {
+    "illnessName": "Major Depressive Disorder"
+  },
+  {
+    "illnessName": "Meliodosis"
+  },
+  {
+    "illnessName": "Nephritis"
+  },
+  {
+    "illnessName": "Diabetes Mellitus"
+  },
+  {
+    "illnessName": "Atherosclerosis"
+  },
+  {
+    "illnessName": "Chronic Pain"
+  },
+  {
+    "illnessName": "Neuropathy"
+  },
+  {
+    "illnessName": "Sarcoidosis"
+  },
+  {
+    "illnessName": "Rickettsialpox"
+  },
+  {
+    "illnessName": "Hypothyroidism"
+  },
+  {
+    "illnessName": "Grave's Disease"
+  },
+  {
+    "illnessName": "Malaria"
+  },
+  {
+    "illnessName": "Parkinson's Disease"
+  }
+]

@@ -20,6 +20,10 @@ public class DrugService {
         return drugs;
     }
 
+    public Drug getDrug(Integer drugId) {
+        return drugRepository.findById(drugId).get();
+    }
+
     public void addDrug(Drug drug) {
         drugRepository.save(drug);
     }

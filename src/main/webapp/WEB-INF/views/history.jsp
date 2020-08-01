@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: ayush
@@ -18,6 +19,8 @@
     <%@include file="components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
+            <c:set var="length" scope="session" value="${fn:length(consultations)}" />
+            <h4>${consultations[0].patient.patientName} has had ${length} ${length > 1 ? "consultations" : "consultation"}.</h4>
             <div class="cards">
                 <c:forEach var="consultation" items="${consultations}">
                     <div class="centered cardContainer">
@@ -36,7 +39,7 @@
 
                             </div>
                             <div class="uk-card-footer">
-                                <a href="/consultants/${consultation.consultationId}" class="uk-button uk-button-default">View
+                                <a href="/consultations/${consultation.consultationId}" class="uk-button uk-button-default">View
                                     consultation</a>
                             </div>
                         </div>

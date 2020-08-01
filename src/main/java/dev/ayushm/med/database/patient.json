@@ -1,8 +1,129 @@
-{
-  "patientName": "John Doe",
-  "patientEmail": "john.doe@gmail.com",
-  "patientPhone": "+1-(916)-442-5654",
-  "patientAge": 24,
+[{
+  "patientName": "Michael Walker",
+  "patientEmail": "walker@mikeland.com",
+  "patientPhone": "4027164283",
+  "patientAge": 43,
   "patientGender": "male",
-  "patientAllergicTo": "ibuprofen"
-}
+  "patientAllergicTo": "Cefuroxime"
+},
+  {
+    "patientName": "James Sanderson",
+    "patientEmail": "sanders4429@outlook.com",
+    "patientPhone": "9738361666",
+    "patientAge": 22,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Jennifer Cole",
+    "patientEmail": "cole.jennifer05@gmail.com",
+    "patientPhone": "8474377355",
+    "patientAge": 29,
+    "patientGender": "female",
+    "patientAllergicTo": "ibuprofen"
+  },
+  {
+    "patientName": "Roger Bailey",
+    "patientEmail": "roger22511@gmail.com",
+    "patientPhone": "6057660492",
+    "patientAge": 19,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Patrick Rodriguez",
+    "patientEmail": "patrick251@gmail.com",
+    "patientPhone": "6097368348",
+    "patientAge": 48,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Larry Roth",
+    "patientEmail": "larryroth@gmail.com",
+    "patientPhone": "7046250719",
+    "patientAge": 44,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Carla Horowitz",
+    "patientEmail": "horowitzcarla@gmail.com",
+    "patientPhone": "6144964794",
+    "patientAge": 33,
+    "patientGender": "female",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Jessie Horton",
+    "patientEmail": "jessiehorton1@gmail.com",
+    "patientPhone": "9726630905",
+    "patientAge": 66,
+    "patientGender": "female",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Tony Murdock",
+    "patientEmail": "tonymurdock291@gmail.com",
+    "patientPhone": "9038252993",
+    "patientAge": 78,
+    "patientGender": "male",
+    "patientAllergicTo": "amlodipine"
+  },
+  {
+    "patientName": "Frederick Garrity",
+    "patientEmail": "fredgarrity@gmail.com",
+    "patientPhone": "7705989309",
+    "patientAge": 21,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Marie Maxwell",
+    "patientEmail": "mariemaxwell2224@gmail.com",
+    "patientPhone": "5623566712",
+    "patientAge": 37,
+    "patientGender": "female",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Steve Rouse",
+    "patientEmail": "steve22@gmail.com",
+    "patientPhone": "3139961854",
+    "patientAge": 16,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "William Torres",
+    "patientEmail": "will1am@gmail.com",
+    "patientPhone": "8016513647",
+    "patientAge": 29,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "Nancy Gibson",
+    "patientEmail": "nancy2662@gmail.com",
+    "patientPhone": "8503954250",
+    "patientAge": 30,
+    "patientGender": "female",
+    "patientAllergicTo": ""
+  },
+  {
+    "patientName": "John Doe",
+    "patientEmail": "john.doe@gmail.com",
+    "patientPhone": "+1-(916)-442-5654",
+    "patientAge": 24,
+    "patientGender": "male",
+    "patientAllergicTo": "ibuprofen"
+  },
+  {
+    "patientName": "Charles Lee",
+    "patientEmail": "lee.charles@gmail.com",
+    "patientPhone": "5419612970",
+    "patientAge": 25,
+    "patientGender": "male",
+    "patientAllergicTo": ""
+  }
+]

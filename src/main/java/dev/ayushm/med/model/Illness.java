@@ -3,6 +3,7 @@ package dev.ayushm.med.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "illness")
 public class Illness {
 
     @Id

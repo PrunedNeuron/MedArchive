@@ -20,6 +20,10 @@ public class DiagnosisService {
         return diagnoses;
     }
 
+    public Diagnosis getDiagnosis(Integer diagnosisId) {
+        return diagnosisRepository.findById(diagnosisId).get();
+    }
+
     public void addDiagnosis(Diagnosis diagnosis) {
         diagnosisRepository.save(diagnosis);
     }

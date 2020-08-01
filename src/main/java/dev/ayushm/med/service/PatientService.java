@@ -52,6 +52,7 @@ public class PatientService {
             if (diagnosis.getConsultation().getPatientId() == patientId)
                 diagnoses.add(diagnosis);
         });
+
         return diagnoses;
     }
 

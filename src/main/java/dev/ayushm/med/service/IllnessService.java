@@ -20,6 +20,10 @@ public class IllnessService {
         return illnesses;
     }
 
+    public Illness getIllness(Integer illnessId) {
+        return illnessRepository.findById(illnessId).get();
+    }
+
     public void addIllness(Illness illness) {
         illnessRepository.save(illness);
     }

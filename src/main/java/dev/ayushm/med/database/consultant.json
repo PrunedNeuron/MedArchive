@@ -1,5 +1,32 @@
-{
-  "consultantName": "Gregory House",
-  "consultantEmail": "greg.house@outlook.com",
-  "consultantPhone": "+1-(915)-662-8852"
-}
+[
+  {
+    "consultantName": "Jeff Caldwell",
+    "consultantEmail": "greg.house@outlook.com",
+    "consultantPhone": "8187563581"
+  },
+  {
+    "consultantName": "Viola Fadel",
+    "consultantEmail": "fadel@gmail.com",
+    "consultantPhone": "4086884712"
+  },
+  {
+    "consultantName": "Jerome Tucker",
+    "consultantEmail": "tucker.jerome@hotmail.com",
+    "consultantPhone": "9405383833"
+  },
+  {
+    "consultantName": "Thomas Jensen",
+    "consultantEmail": "thomas@jensen.me",
+    "consultantPhone": "9204472862"
+  },
+  {
+    "consultantName": "Gregory House",
+    "consultantEmail": "greg.house@fox.com",
+    "consultantPhone": "9156628852"
+  },
+  {
+    "consultantName": "Lisa Gray",
+    "consultantEmail": "lisagray15@gmail.com",
+    "consultantPhone": "8402702357"
+  }
+]

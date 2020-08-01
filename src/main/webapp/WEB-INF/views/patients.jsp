@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Patients</title>
     <%@include file="components/stylesheets.jsp" %>
 </head>
 <body>
@@ -67,11 +67,13 @@
                                 </span>
                                     ${drugs}
                             </div>
-                            <div>
+                            <c:if test="patient.allergicTo != '' && patient.allergicTo != null">
+                                <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted">Allergic to</span>
-                                <span style="text-transform: capitalize">${patient.patientAllergicTo}</span>
-                            </div>
+                                    <span style="text-transform: capitalize">${patient.patientAllergicTo}</span>
+                                </div>
+                            </c:if>
                         </div>
                         <div class="uk-card-footer">
                             <a href="/patients/${patient.patientId}/history" class="uk-button uk-button-default">View Patient History</a>

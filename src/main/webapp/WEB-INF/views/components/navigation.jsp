@@ -9,8 +9,20 @@
         <a href="/consultations" class="item ${requestScope['javax.servlet.forward.request_uri'] eq '/consultations' ? 'active' : ''}">
             Consultations
         </a>
+        <a class="item">
+            More
+        </a>
+        <div class="uk-navbar-dropdown uk-margin-remove" uk-dropdown="pos: bottom-right">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li><a href="/consultant">Consultants</a></li>
+                <li><a href="/illnesses">Illnesses</a></li>
+                <li><a href="/diagnoses">Diagnoses</a></li>
+                <li><a href="/drugs">Drugs</a></li>
+                <li><a href="/treatments">Treatments</a></li>
+            </ul>
+        </div>
         <div class="right menu centered">
-            <a href="#" style="text-decoration: none; color: inherit; margin: 1rem;">Add&nbsp;+</a>
+            <a href="#" class="item">Add&nbsp;+</a>
             <div class="uk-navbar-dropdown uk-margin-remove" uk-dropdown="pos: bottom-right">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
                     <li><a href="/add/patient">Patient</a></li>
@@ -22,6 +34,7 @@
                     <li><a href="/add/treatment">Treatment</a></li>
                 </ul>
             </div>
+            <a href="#" class="item">Logout</a>
         </div>
     </div>
 </nav>

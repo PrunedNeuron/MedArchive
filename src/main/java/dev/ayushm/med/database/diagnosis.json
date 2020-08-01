@@ -1,4 +1,34 @@
-{
-  "consultationId": 1,
-  "illnessId": 1
-}
+[
+  {
+    "consultationId": 1,
+    "illnessId": 2
+  },
+  {
+    "consultationId": 2,
+    "illnessId": 13
+  },
+  {
+    "consultationId": 3,
+    "illnessId": 5
+  },
+  {
+    "consultationId": 4,
+    "illnessId": 7
+  },
+  {
+    "consultationId": 5,
+    "illnessId": 5
+  },
+  {
+    "consultationId": 6,
+    "illnessId": 10
+  },
+  {
+    "consultationId": 7,
+    "illnessId": 19
+  },
+  {
+    "consultationId": 8,
+    "illnessId": 11
+  }
+]

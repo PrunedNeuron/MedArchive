@@ -1,4 +1,34 @@
-{
-  "diagnosisId": 1,
-  "drugId": 1
-}
+[
+  {
+    "diagnosisId": 1,
+    "drugId": 11
+  },
+  {
+    "diagnosisId": 2,
+    "drugId": 18
+  },
+  {
+    "diagnosisId": 2,
+    "drugId": 19
+  },
+  {
+    "diagnosisId": 4,
+    "drugId": 19
+  },
+  {
+    "diagnosisId": 5,
+    "drugId": 2
+  },
+  {
+    "diagnosisId": 6,
+    "drugId": 9
+  },
+  {
+    "diagnosisId": 7,
+    "drugId": 17
+  },
+  {
+    "diagnosisId": 8,
+    "drugId": 22
+  }
+]

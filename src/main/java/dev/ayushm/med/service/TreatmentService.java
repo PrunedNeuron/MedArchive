@@ -20,6 +20,10 @@ public class TreatmentService {
         return treatments;
     }
 
+    public Treatment getTreatment(Integer treatmentId) {
+        return treatmentRepository.findById(treatmentId).get();
+    }
+
     public void addTreatment(Treatment treatment) {
         treatmentRepository.save(treatment);
     }
