@@ -23,7 +23,7 @@
                         <h3 class="uk-heading-bullet">
                             <a href="https://en.wikipedia.org/wiki/${illnessUri}"
                                target="_blank" rel="noopener noreferrer">
-                                    ${illness.illnessName} <span uk-icon="icon: link"></span>
+                                    ${illness.illnessName} <i class="fas fa-external-link-alt"></i>
                             </a>
                         </h3>
                         <p>${illness.illnessDescription}

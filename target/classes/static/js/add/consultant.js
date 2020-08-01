@@ -4,6 +4,8 @@ const consultantForm = document.getElementById("consultant");
 const consultantName = document.getElementById("consultantName");
 const consultantEmail = document.getElementById("consultantEmail");
 const consultantPhone = document.getElementById("consultantPhone");
+const consultantSpecialty = document.getElementById("consultantSpecialty");
+const consultantExperience = document.getElementById("consultantExperience");
 
 consultantName.addEventListener("change", function (event) {
     if (!namePattern.test(consultantName.value)) {
@@ -35,6 +37,27 @@ consultantPhone.addEventListener("change", function (event) {
     }
 })
 
+consultantSpecialty.addEventListener("change", function (event) {
+    if (!validateSpecialty(consultantSpecialty.value)) {
+        removeClass(consultantSpecialty, "uk-form-success");
+        addAnotherClass(consultantSpecialty, "uk-form-danger");
+    } else {
+        removeClass(consultantSpecialty, "uk-form-danger");
+        addAnotherClass(consultantSpecialty, "uk-form-success");
+    }
+})
+
+consultantExperience.addEventListener("change", function (event) {
+    if (!validateExperience(consultantExperience.value)) {
+        removeClass(consultantExperience, "uk-form-success");
+        addAnotherClass(consultantExperience, "uk-form-danger");
+    } else {
+        removeClass(consultantExperience, "uk-form-danger");
+        addAnotherClass(consultantExperience, "uk-form-success");
+    }
+})
+
+
 submitButton.addEventListener("click", function() {
     if (validateConsultant()){
         removeClass(submitButton, "uk-animation-shake");
@@ -59,6 +82,14 @@ submitButton.addEventListener("click", function() {
 
 })
 
+function validateExperience() {
+    return parseInt(consultantExperience.value) > 0 && parseInt(consultantExperience.value) <= 80;
+}
+
+function validateSpecialty() {
+    return consultantSpecialty.selectedIndex > 0;
+}
+
 function validateConsultant() {
     return (
         validateName(consultantName.value)
@@ -66,5 +97,9 @@ function validateConsultant() {
         validateEmail(consultantEmail.value)
         &&
         validatePhone(consultantPhone.value)
+        &&
+        validateSpecialty()
+        &&
+        validateExperience()
     );
 }

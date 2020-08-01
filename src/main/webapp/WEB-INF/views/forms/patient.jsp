@@ -18,20 +18,20 @@
                         <fieldset class="uk-fieldset">
                             <legend class="uk-legend">Add a patient</legend>
                             <div class="uk-margin">
-                                <label>
-                                    <input id="patientName" name="patientName" class="uk-input uk-form-width-large" type="text" placeholder="Name">
-                                </label>
+                                <label class="uk-form-label" for="patientName">Name</label>
+                                <br />
+                                <input id="patientName" name="patientName" class="uk-input uk-form-width-large" type="text" placeholder="John Doe">
                             </div>
                             <div class="uk-margin">
-                                <label>
-                                    <input id="patientEmail" name="patientEmail" class="uk-input uk-form-width-large" type="email" placeholder="Email">
-                                </label>
+                                <label class="uk-form-label" for="patientEmail">Email Address</label>
+                                <br />
+                                <input id="patientEmail" name="patientEmail" class="uk-input uk-form-width-large" type="email" placeholder="johndoe@gmail.com">
                             </div>
 
                             <div class="uk-margin">
-                                <label>
-                                    <input id="patientAge" name="patientAge" class="uk-input uk-form-width-large" type="number" min="0" max="122" placeholder="Age">
-                                </label>
+                                <label class="uk-form-label" for="patientAge">Age</label>
+                                <br />
+                                <input id="patientAge" name="patientAge" class="uk-input uk-form-width-large" type="number" min="0" max="122" placeholder="27">
                             </div>
 
                             <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
@@ -40,15 +40,15 @@
                             </div>
 
                             <div class="uk-margin">
-                                <label>
-                                    <input id="patientPhone" name="patientPhone" class="uk-input uk-form-width-large" type="number" min="6000000000" minlength="10" maxlength="10" placeholder="Phone Number">
-                                </label>
+                                <label class="uk-form-label" for="patientPhone">Phone Number</label>
+                                <br />
+                                <input id="patientPhone" name="patientPhone" class="uk-input uk-form-width-large" type="number" min="6000000000" minlength="10" maxlength="10" placeholder="8485517336">
                             </div>
 
                             <div class="uk-margin">
-                                <label>
-                                    <textarea id="patientAllergicTo" name="patientAllergicTo" class="uk-textarea uk-form-width-large" rows="5" placeholder="Drugs the patient is allergic to (space separated)"></textarea>
-                                </label>
+                                <label class="uk-form-label" for="patientAllergicTo">Drugs the patient is allergic to</label>
+                                <br />
+                                <textarea id="patientAllergicTo" name="patientAllergicTo" class="uk-textarea uk-form-width-large" rows="5" placeholder="(space separated)"></textarea>
                             </div>
 
                             <div class="uk-margin">

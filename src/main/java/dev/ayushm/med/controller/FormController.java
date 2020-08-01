@@ -42,16 +42,16 @@ public class FormController {
 
     @GetMapping("/added")
     public String getAddedPage() {
-        return "/add/added";
+        return "/forms/added";
     }
 
     @GetMapping("/patient")
-    public String getAddPatient() {
-        return "/add/patient";
+    public String getPatientForm() {
+        return "/forms/patient";
     }
 
     @PostMapping("/patient")
-    public String postAddPatient(@ModelAttribute("patient") Patient patient, BindingResult result, Model model) {
+    public String postPatientForm(@ModelAttribute("patient") Patient patient, BindingResult result, Model model) {
         if (result.hasErrors())
             return "error";
 
@@ -69,12 +69,12 @@ public class FormController {
 
 
     @GetMapping("/consultant")
-    public String getAddConsultant() {
-        return "/add/consultant";
+    public String getConsultantForm() {
+        return "/forms/consultant";
     }
 
     @PostMapping("/consultant")
-    public String postAddConsultant(@ModelAttribute("consultant") Consultant consultant, BindingResult result, Model model) {
+    public String postConsultantForm(@ModelAttribute("consultant") Consultant consultant, BindingResult result, Model model) {
 
         if (result.hasErrors())
             return "error";
@@ -88,16 +88,16 @@ public class FormController {
         model.addAttribute("status", consultant != null);
         model.addAttribute("modelName", "consultant");
 
-        return "add/added";
+        return "forms/added";
     }
 
     @GetMapping("/consultation")
-    public String getAddConsultation() {
-        return "/add/consultation";
+    public String getConsultationForm() {
+        return "/forms/consultation";
     }
 
     @PostMapping("/consultation")
-    public String postAddConsultation(@ModelAttribute("consultation") Consultation consultation, BindingResult result, Model model) {
+    public String postConsultationForm(@ModelAttribute("consultation") Consultation consultation, BindingResult result, Model model) {
 
         if (result.hasErrors())
             return "error";
@@ -110,16 +110,16 @@ public class FormController {
         model.addAttribute("status", consultation != null);
         model.addAttribute("modelName", "consultation");
 
-        return "add/added";
+        return "forms/added";
     }
 
     @GetMapping("/illness")
-    public String getAddIllness() {
-        return "/add/illness";
+    public String getIllnessForm() {
+        return "/forms/illness";
     }
 
     @PostMapping("/illness")
-    public String postAddIllness(@ModelAttribute("illness") Illness illness, BindingResult result, Model model) {
+    public String postIllnessForm(@ModelAttribute("illness") Illness illness, BindingResult result, Model model) {
 
         if (result.hasErrors())
             return "error";
@@ -132,17 +132,17 @@ public class FormController {
         model.addAttribute("status", illness != null);
         model.addAttribute("modelName", "illness");
 
-        return "add/added";
+        return "forms/added";
     }
 
 
     @GetMapping("/diagnosis")
-    public String getAddDiagnosis() {
-        return "/add/diagnosis";
+    public String getDiagnosisForm() {
+        return "/forms/diagnosis";
     }
 
     @PostMapping("/diagnosis")
-    public String postAddDiagnosis(@ModelAttribute("diagnosis") Diagnosis diagnosis, BindingResult result, Model model) {
+    public String postDiagnosisForm(@ModelAttribute("diagnosis") Diagnosis diagnosis, BindingResult result, Model model) {
 
         if (result.hasErrors())
             return "error";
@@ -155,16 +155,16 @@ public class FormController {
         model.addAttribute("status", diagnosis != null);
         model.addAttribute("modelName", "diagnosis");
 
-        return "add/added";
+        return "forms/added";
     }
 
     @GetMapping("/drug")
-    public String getAddDrug() {
-        return "/add/drug";
+    public String getDrugForm() {
+        return "/forms/drug";
     }
 
     @PostMapping("/drug")
-    public String postAddDrug(@ModelAttribute("drug") Drug drug, BindingResult result, Model model) {
+    public String postDrugForm(@ModelAttribute("drug") Drug drug, BindingResult result, Model model) {
 
         if (result.hasErrors())
             return "error";
@@ -177,16 +177,16 @@ public class FormController {
         model.addAttribute("status", drug != null);
         model.addAttribute("modelName", "drug");
 
-        return "add/added";
+        return "forms/added";
     }
 
     @GetMapping("/treatment")
-    public String getAddTreatment() {
-        return "/add/treatment";
+    public String getTreatmentForm() {
+        return "/forms/treatment";
     }
 
     @PostMapping("/treatment")
-    public String postAddTreatment(@ModelAttribute("treatment") Treatment treatment, BindingResult result, Model model) {
+    public String postTreatmentForm(@ModelAttribute("treatment") Treatment treatment, BindingResult result, Model model) {
 
         if (result.hasErrors())
             return "error";
@@ -199,7 +199,7 @@ public class FormController {
         model.addAttribute("status", treatment != null);
         model.addAttribute("modelName", "treatment");
 
-        return "add/added";
+        return "forms/added";
     }
 
 }

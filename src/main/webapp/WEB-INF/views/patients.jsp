@@ -17,7 +17,7 @@
 
             <div class="cards">
                 <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                    <div class="uk-card uk-card-default" >
+                    <div class="uk-card uk-card-hover uk-card-default" >
 
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -94,7 +94,7 @@
             <div class="ui cards">
             <c:forEach var="patientEntry" items="${patients}">
                 <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                    <div class="uk-card uk-card-default" >
+                    <div class="uk-card uk-card-hover uk-card-default" >
                         <div class="uk-card-body">
 
                             <div>

@@ -22,7 +22,7 @@
                         <h3 class="uk-heading-bullet">
                             <a href="https://en.wikipedia.org/wiki/${drug.drugName}"
                                target="_blank" rel="noopener noreferrer">
-                                    ${drug.drugName} <span uk-icon="icon: link"></span>
+                                    ${drug.drugName} <i class="fas fa-external-link-alt"></i>
                             </a>
                             <br />
                             <span class="uk-text-muted" style="text-transform: capitalize; font-size: 1rem; font-weight: 300;">${drug.drugClassification}</span>

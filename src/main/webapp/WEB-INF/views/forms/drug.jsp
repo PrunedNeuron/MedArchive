@@ -19,10 +19,23 @@
                     <fieldset class="uk-fieldset">
                         <legend class="uk-legend">Add a drug</legend>
                         <div class="uk-margin">
-                            <label>
-                                <input id="drugName" name="drugName" class="uk-input uk-form-width-large" type="text" placeholder="Drug name">
-                            </label>
+                            <label class="uk-form-label" for="drugName">Drug name</label>
+                            <br />
+                            <input id="drugName" name="drugName" class="uk-input uk-form-width-large" type="text" placeholder="Selegiline">
                         </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="drugClassification">Drug classification</label>
+                            <br />
+                            <input id="drugClassification" name="drugClassification" class="uk-input uk-form-width-large" type="text" placeholder="MAO-B inhibitor">
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="drugMechanism">Drug mechanism</label>
+                            <br />
+                            <input id="drugMechanism" name="drugMechanism" class="uk-input uk-form-width-large" type="text" placeholder="Increases dopamine by inhibiting it's metabolism by MAO.">
+                        </div>
+
                         <div class="uk-margin">
                             <button id="submitButton" type="button" class="uk-button uk-button-primary">Submit</button>
                             &nbsp;&nbsp;

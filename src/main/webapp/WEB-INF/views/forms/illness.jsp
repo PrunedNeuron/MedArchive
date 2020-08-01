@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Add illness</title>
     <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
@@ -14,25 +14,26 @@
         <div class="mainBody">
 
             <div class="formContainer">
-                <form:form modelAttribute="consultant" action="/add/consultant" method="post" name="consultant"
-                           id="consultant">
+                <form:form modelAttribute="illness" action="/add/illness" method="post" name="illness"
+                           id="illness">
                     <fieldset class="uk-fieldset">
-                        <legend class="uk-legend">Add a medical consultant</legend>
+                        <legend class="uk-legend">Add an illness</legend>
                         <div class="uk-margin">
-                            <label>
-                                <input id="consultantName" name="consultantName" class="uk-input uk-form-width-large" type="text" placeholder="Name">
-                            </label>
-                        </div>
-                        <div class="uk-margin">
-                            <label>
-                                <input id="consultantEmail" name="consultantEmail" class="uk-input uk-form-width-large" type="email" placeholder="Email">
-                            </label>
+                            <label class="uk-form-label" for="illnessName">Illness Name</label>
+                            <br />
+                            <input id="illnessName" name="illnessName" class="uk-input uk-form-width-large" type="text" placeholder="e.g. Histoplasmosis">
                         </div>
 
                         <div class="uk-margin">
-                            <label>
-                                <input id="consultantPhone" name="consultantPhone" class="uk-input uk-form-width-large" type="number" min="6000000000" minlength="10" maxlength="10" placeholder="Phone Number">
-                            </label>
+                            <label class="uk-form-label" for="illnessDescription">Illness Description</label>
+                            <br />
+                            <input id="illnessDescription" name="illnessDescription" class="uk-input uk-form-width-large" type="text" placeholder="Histoplasmosis is caused by a fungus.">
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="illnessSymptoms">Illness Symptoms</label>
+                            <br />
+                            <input id="illnessSymptoms" name="illnessSymptoms" class="uk-input uk-form-width-large" type="text" placeholder="Fever, cough, fatigue, chills, headache">
                         </div>
 
                         <div class="uk-margin">
@@ -43,18 +44,17 @@
                         </div>
                         <div>
                             <c:if test="submittedForm">
-                                <h6>${status ? "Successfully added " : "Failed to add "}a consultant!</h6>
+                                <h6>${status ? "Successfully added " : "Failed to add "}an illness!</h6>
                             </c:if>
                         </div>
                     </fieldset>
                 </form:form>
             </div>
-
         </div>
     </main>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/add/consultant.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/add/illness.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

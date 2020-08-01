@@ -19,14 +19,14 @@
                     <fieldset class="uk-fieldset">
                         <legend class="uk-legend">Add a treatment</legend>
                         <div class="uk-margin">
-                            <label>
-                                <input id="consultationId" name="consultationId" class="uk-input uk-form-width-large" type="number" placeholder="Diagnosis ID">
-                            </label>
+                            <label class="uk-form-label" for="consultationId">Consultation ID</label>
+                            <br />
+                            <input id="consultationId" name="consultationId" class="uk-input uk-form-width-large" type="number" placeholder="3">
                         </div>
                         <div class="uk-margin">
-                            <label>
-                                <input id="illnessId" name="illnessId" class="uk-input uk-form-width-large" type="number" placeholder="Drug ID">
-                            </label>
+                            <label class="uk-form-label" for="illnessId">Illness ID</label>
+                            <br />
+                            <input id="illnessId" name="illnessId" class="uk-input uk-form-width-large" type="number" placeholder="12">
                         </div>
                         <div class="uk-margin">
                             <button id="submitButton" type="button" class="uk-button uk-button-primary">Submit</button>

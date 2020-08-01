@@ -19,28 +19,28 @@
                     <fieldset class="uk-fieldset">
                         <legend class="uk-legend">Add a consultation</legend>
                         <div class="uk-margin">
-                            <label>
-                                <input id="patientId" name="patientId" class="uk-input uk-form-width-large" type="number" placeholder="Patient ID">
-                            </label>
+                            <label class="uk-form-label" for="patientId">Patient ID</label>
+                            <br />
+                            <input id="patientId" name="patientId" class="uk-input uk-form-width-large" type="number" placeholder="5">
                         </div>
                         <div class="uk-margin">
-                            <label>
-                                <input id="consultantId" name="consultantId" class="uk-input uk-form-width-large" type="number" placeholder="Consultant ID">
-                            </label>
-                        </div>
+                            <label class="uk-form-label" for="consultantId">Consultant ID</label>
+                            <br />
+                            <input id="consultantId" name="consultantId" class="uk-input uk-form-width-large" type="number" placeholder="2">
+                            </div>
 
                         <div class="uk-margin">
-                            <label>
-                                <input id="consultationLocation" name="consultationLocation" class="uk-input uk-form-width-large" type="text" placeholder="Consultation location">
-                            </label>
+                            <label class="uk-form-label" for="consultationLocation">Consultation Location</label>
+                            <br />
+                            <input id="consultationLocation" name="consultationLocation" class="uk-input uk-form-width-large" type="text" placeholder="Newark, NY">
                         </div>
 
 
                         <div class="uk-margin">
-                            <label>
-                                <input id="consultationDate" name="consultationDate" class="uk-input uk-form-width-large" type="date" placeholder="Consultation Date">
-                            </label>
-                        </div>
+                            <label class="uk-form-label" for="consultationDate">Consultation Date</label>
+                            <br />
+                            <input id="consultationDate" name="consultationDate" class="uk-input uk-form-width-large" type="date" placeholder="Consultation Date">
+                            </div>
 
                         <div class="uk-margin">
                             <button id="submitButton" type="button" class="uk-button uk-button-primary">Submit</button>

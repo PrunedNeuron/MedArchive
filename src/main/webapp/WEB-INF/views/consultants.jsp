@@ -15,7 +15,7 @@
 
             <div class="cards">
                 <div class="centered cardContainer">
-                    <div class="uk-card uk-card-default">
+                    <div class="uk-card uk-card-hover uk-card-default">
 
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -34,7 +34,9 @@
                             <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Specialty</span>
-                                    ${consultant.consultantSpecialty}
+                                    <span style="text-transform: capitalize">
+                                            ${consultant.consultantSpecialty}
+                                    </span>
                             </div>
                             <div>
                                 <span style="display: inline-block"
@@ -49,7 +51,7 @@
                             <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Email</span>
-                                    <span style="font-family: monospace">${consultant.consultantEmail}</span>
+                                    <span style="font-family: monospace"><a href="mailto:${consultant.consultantEmail}">${consultant.consultantEmail}</a></span>
                             </div>
                         </div>
                     </div>
@@ -63,7 +65,7 @@
             <div class="cards">
                 <c:forEach var="consultantEntry" items="${consultants}">
                     <div class="centered cardContainer">
-                        <div class="uk-card uk-card-default">
+                        <div class="uk-card uk-card-hover uk-card-default">
                             <div class="uk-card-body">
                                 <div>
                                 <span style="display: inline-block"
