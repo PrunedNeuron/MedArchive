@@ -13,32 +13,31 @@
     <%@include file="components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-            <h4>All treatments</h4>
+            <h4>All treatments and diagnoses</h4>
             <div class="ui cards">
-                <c:forEach var="patientEntry" items="${patients}">
+                <c:forEach var="treatment" items="${treatments}">
                     <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
                         <div class="uk-card uk-card-default" >
                             <div class="uk-card-body">
 
                                 <div>
                                 <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
-                                        ${patientEntry.patientName}
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Diagnosis</span>
+                                        ${treatment.diagnosis.illness.illnessName}
                                 </div>
                                 <div>
                                 <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Age</span>
-                                        ${patientEntry.patientAge}
-                                </div>
-                                <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Gender</span>
-                                    <span style="text-transform: capitalize">${patientEntry.patientGender}</span>
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Drug</span>
+                                        ${treatment.drug.drugName}
                                 </div>
                             </div>
                             <div class="uk-card-footer" style="display: flex; justify-content: center">
-                                <a href="/patients/${patientEntry.patientId}" class="uk-button uk-button-default">View
-                                    Patient</a>
+                                <a href="/drugs" class="uk-button uk-button-default">
+                                    View drugs
+                                </a>
+                                <a href="/illnesses" class="uk-button uk-button-default">
+                                    View diagnoses
+                                </a>
                             </div>
                         </div>
                     </div>
