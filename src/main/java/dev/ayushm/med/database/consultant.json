@@ -1,32 +1,44 @@
 [
   {
     "consultantName": "Jeff Caldwell",
-    "consultantEmail": "greg.house@outlook.com",
-    "consultantPhone": "8187563581"
+    "consultantEmail": "caldwelljeff@outlook.com",
+    "consultantPhone": "8187563581",
+    "consultantSpecialty": "internal medicine",
+    "consultantExperience": 14
   },
   {
     "consultantName": "Viola Fadel",
     "consultantEmail": "fadel@gmail.com",
-    "consultantPhone": "4086884712"
+    "consultantPhone": "4086884712",
+    "consultantSpecialty": "internal medicine",
+    "consultantExperience": 6
   },
   {
     "consultantName": "Jerome Tucker",
     "consultantEmail": "tucker.jerome@hotmail.com",
-    "consultantPhone": "9405383833"
+    "consultantPhone": "9405383833",
+    "consultantSpecialty": "nephrology",
+    "consultantExperience": 19
   },
   {
     "consultantName": "Thomas Jensen",
     "consultantEmail": "thomas@jensen.me",
-    "consultantPhone": "9204472862"
+    "consultantPhone": "9204472862",
+    "consultantSpecialty": "neurology",
+    "consultantExperience": "8"
   },
   {
     "consultantName": "Gregory House",
     "consultantEmail": "greg.house@fox.com",
-    "consultantPhone": "9156628852"
+    "consultantPhone": "9156628852",
+    "consultantSpecialty": "infectious disease",
+    "consultantExperience": 10
   },
   {
-    "consultantName": "Lisa Gray",
-    "consultantEmail": "lisagray15@gmail.com",
-    "consultantPhone": "8402702357"
+    "consultantName": "Lisa Sanders",
+    "consultantEmail": "lisasanders15@gmail.com",
+    "consultantPhone": "8402702357",
+    "consultantSpecialty": "infectious disease",
+    "consultantExperience": 4
   }
 ]

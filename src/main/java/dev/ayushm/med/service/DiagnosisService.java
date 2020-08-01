@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DiagnosisService {
@@ -26,6 +28,16 @@ public class DiagnosisService {
 
     public void addDiagnosis(Diagnosis diagnosis) {
         diagnosisRepository.save(diagnosis);
+    }
+
+    public Set<Diagnosis> geDiagnosisByConsultationId(Integer consultationId) {
+        Set<Diagnosis> diagnoses = new HashSet<>();
+        diagnosisRepository.findAll().forEach(diagnosis -> {
+            if (diagnosis.getConsultationId() == consultationId)
+                diagnoses.add(diagnosis);
+        });
+
+        return diagnoses;
     }
 
 }

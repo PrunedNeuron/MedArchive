@@ -36,6 +36,11 @@
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Consultant</span>
                                         ${consultation.consultant.consultantName}
                                 </div>
+                                <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Location</span>
+                                        ${consultation.consultationLocation}
+                                </div>
 
                             </div>
                             <div class="uk-card-footer">

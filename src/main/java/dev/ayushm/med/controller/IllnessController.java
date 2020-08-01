@@ -28,6 +28,8 @@ public class IllnessController {
     public String getIllness(@PathVariable Integer illnessId, Model model) {
         Illness illness = illnessService.getIllness(illnessId);
         model.addAttribute("illness", "illness");
+
+        return "illnesses";
     }
 
 }

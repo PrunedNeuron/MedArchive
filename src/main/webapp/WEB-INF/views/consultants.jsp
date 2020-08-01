@@ -33,6 +33,16 @@
                             </div>
                             <div>
                                 <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Specialty</span>
+                                    ${consultant.consultantSpecialty}
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Experience</span>
+                                    ${consultant.consultantExperience} years
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Phone</span>
                                     ${consultant.consultantPhone}
                             </div>

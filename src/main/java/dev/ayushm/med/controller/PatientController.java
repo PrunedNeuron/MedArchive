@@ -2,6 +2,8 @@ package dev.ayushm.med.controller;
 
 import dev.ayushm.med.model.*;
 import dev.ayushm.med.service.PatientService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/patients")
 public class PatientController {
+
+    private static final Logger log = LoggerFactory.getLogger(PatientController.class);
 
     @Autowired
     private PatientService patientService;
@@ -43,14 +47,10 @@ public class PatientController {
                 .map(drug -> String.valueOf(drug.getDrugName()))
                 .collect(Collectors.joining(", "));
 
-        System.out.println(drugs);
-
         String illnesses = new HashSet<Illness>(illnessList)
                 .stream()
                 .map(illness -> String.valueOf(illness.getIllnessName()))
                 .collect(Collectors.joining(", "));
-
-        System.out.println(illnesses);
 
         model.addAttribute("consultations", consultationList);
         model.addAttribute("diagnoses", diagnosisList);

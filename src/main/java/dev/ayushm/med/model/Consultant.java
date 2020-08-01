@@ -20,15 +20,23 @@ public class Consultant {
     @Column(name = "consultant_phone")
     private String consultantPhone;
 
+    @Column(name = "consultant_specialty")
+    private String consultantSpecialty;
+
+    @Column(name = "consultant_experience")
+    private Integer consultantExperience;
+
     public Consultant() {
 
     }
 
-    public Consultant(Integer consultantId, String consultantName, String consultantEmail, String consultantPhone) {
+    public Consultant(Integer consultantId, String consultantName, String consultantEmail, String consultantPhone, String consultantSpecialty, Integer consultantExperience) {
         this.consultantId = consultantId;
         this.consultantName = consultantName;
         this.consultantEmail = consultantEmail;
         this.consultantPhone = consultantPhone;
+        this.consultantSpecialty = consultantSpecialty;
+        this.consultantExperience = consultantExperience;
     }
 
     public Integer getConsultantId() {
@@ -61,5 +69,21 @@ public class Consultant {
 
     public void setConsultantPhone(String consultantPhone) {
         this.consultantPhone = consultantPhone;
+    }
+
+    public String getConsultantSpecialty() {
+        return consultantSpecialty;
+    }
+
+    public void setConsultantSpecialty(String consultantSpecialty) {
+        this.consultantSpecialty = consultantSpecialty;
+    }
+
+    public Integer getConsultantExperience() {
+        return consultantExperience;
+    }
+
+    public void setConsultantExperience(Integer consultantExperience) {
+        this.consultantExperience = consultantExperience;
     }
 }

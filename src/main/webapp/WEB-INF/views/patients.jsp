@@ -50,6 +50,11 @@
                             </div>
                             <div>
                                 <span style="display: inline-block"
+                                      class="uk-text-muted uk-text-small uk-text-uppercase">Email</span>
+                                    <span style="font-family: monospace"><a href="mailto:${patient.patientEmail}}">${patient.patientEmail}</a></span>
+                            </div>
+                            <div>
+                                <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">
                                     <c:if test="${fn:containsIgnoreCase(illnesses, ',')}">
                                         Diagnoses
@@ -75,7 +80,7 @@
                                 </div>
                             </c:if>
                         </div>
-                        <div class="uk-card-footer">
+                        <div class="uk-card-footer" style="display: flex; justify-content: center">
                             <a href="/patients/${patient.patientId}/history" class="uk-button uk-button-default">View Patient History</a>
                         </div>
                     </div>
@@ -91,7 +96,7 @@
                 <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
                     <div class="uk-card uk-card-default" >
                         <div class="uk-card-body">
-                            <div class="uk-card-badge uk-label">${patientDate}</div>
+
                             <div>
                                 <span style="display: inline-block"
                                       class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
@@ -108,7 +113,7 @@
                                 <span style="text-transform: capitalize">${patientEntry.patientGender}</span>
                             </div>
                         </div>
-                        <div class="uk-card-footer">
+                        <div class="uk-card-footer" style="display: flex; justify-content: center">
                             <a href="/patients/${patientEntry.patientId}" class="uk-button uk-button-default">View
                                 Patient</a>
                         </div>

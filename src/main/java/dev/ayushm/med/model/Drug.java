@@ -14,12 +14,20 @@ public class Drug {
     @Column(name = "drug_name")
     private String drugName;
 
+    @Column(name = "drug_classification", length = 1000)
+    private String drugClassification;
+
+    @Column(name = "drug_mechanism", length = 3000)
+    private String drugMechanism;
+
     public Drug() {
     }
 
-    public Drug(Integer drugId, String drugName) {
+    public Drug(Integer drugId, String drugName, String drugClassification, String drugMechanism) {
         this.drugId = drugId;
         this.drugName = drugName;
+        this.drugClassification = drugClassification;
+        this.drugMechanism = drugMechanism;
     }
 
     public Integer getDrugId() {
@@ -36,5 +44,21 @@ public class Drug {
 
     public void setDrugName(String drugName) {
         this.drugName = drugName;
+    }
+
+    public String getDrugClassification() {
+        return drugClassification;
+    }
+
+    public void setDrugClassification(String drugClassification) {
+        this.drugClassification = drugClassification;
+    }
+
+    public String getDrugMechanism() {
+        return drugMechanism;
+    }
+
+    public void setDrugMechanism(String drugMechanism) {
+        this.drugMechanism = drugMechanism;
     }
 }

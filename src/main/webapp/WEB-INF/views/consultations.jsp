@@ -40,6 +40,10 @@
                                 <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Location</span>
                                     ${consultation.consultationLocation}
                             </div>
+                            <div>
+                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Diagnosis</span>
+                                    ${diagnoses}
+                            </div>
                         </div>
                         <div class="uk-card-footer">
                             <a href="/patients/${consultation.patient.patientId}" class="uk-button uk-button-default">View Patient</a>

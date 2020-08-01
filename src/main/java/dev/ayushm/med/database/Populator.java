@@ -46,7 +46,6 @@ public class Populator {
             Patient patient = mapper.readValue(parser, Patient.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(patient), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(patient);
         }
 
     }
@@ -63,7 +62,6 @@ public class Populator {
             Consultant consultant = mapper.readValue(parser, Consultant.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(consultant), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(consultant);
         }
     }
 
@@ -79,7 +77,6 @@ public class Populator {
             Consultation consultation = mapper.readValue(parser, Consultation.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(consultation), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(consultation);
         }
     }
 
@@ -95,7 +92,6 @@ public class Populator {
             Illness illness = mapper.readValue(parser, Illness.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(illness), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(illness);
         }
     }
 
@@ -111,7 +107,6 @@ public class Populator {
             Diagnosis diagnosis = mapper.readValue(parser, Diagnosis.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(diagnosis), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(diagnosis);
         }
     }
 
@@ -127,7 +122,6 @@ public class Populator {
             Drug drug = mapper.readValue(parser, Drug.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(drug), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(drug);
         }
     }
 
@@ -143,7 +137,6 @@ public class Populator {
             Treatment treatment = mapper.readValue(parser, Treatment.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(treatment), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
-            System.out.println(treatment);
         }
     }
 
