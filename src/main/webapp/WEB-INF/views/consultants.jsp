@@ -12,78 +12,58 @@
     <%@include file="components/navigation.jsp" %>
     <div class="mainBody">
         <c:if test="${consultant.consultantId != null}">
-
             <div class="cards">
-                <div class="centered cardContainer">
-                    <div class="uk-card uk-card-hover uk-card-default">
-
-                        <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Consultant #${consultant.consultantId}</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-card-body">
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
-                                    ${consultant.consultantName}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Specialty</span>
-                                    <span style="text-transform: capitalize">
-                                            ${consultant.consultantSpecialty}
-                                    </span>
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Experience</span>
-                                    ${consultant.consultantExperience} years
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Phone</span>
-                                    ${consultant.consultantPhone}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Email</span>
-                                    <span style="font-family: monospace"><a href="mailto:${consultant.consultantEmail}">${consultant.consultantEmail}</a></span>
-                            </div>
-                        </div>
+                <div class="card subcard">
+                    <div class="item capitalize">
+                        <span class="mutedText">ID</span> ${consultant.consultantId}
                     </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Name</span> ${consultant.consultantName}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Specialty</span> ${consultant.consultantSpecialty}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Experience</span> ${consultant.consultantExperience}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Phone</span> ${consultant.consultantPhone}
+                    </div>
+                    <div class="item">
+                        <span class="mutedText">Email</span>
+                        <span style="font-family: monospace">
+                            <a href="mailto:${consultant.consultantEmail}">
+                                    ${consultant.consultantEmail}
+                            </a>
+                        </span>
+                    </div>
+
                 </div>
             </div>
-
-
         </c:if>
         <c:if test="${consultant.consultantId == null}">
             <h4>All consultants</h4>
             <div class="cards">
-                <c:forEach var="consultantEntry" items="${consultants}">
-                    <div class="centered cardContainer">
-                        <div class="uk-card uk-card-hover uk-card-default">
-                            <div class="uk-card-body">
-                                <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
-                                        ${consultantEntry.consultantName}
-                                </div>
-
-                            </div>
-                            <div class="uk-card-footer">
-                                <a href="/consultants/${consultantEntry.consultantId}" class="uk-button uk-button-default">View
-                                    consultant</a>
-                            </div>
+                <c:forEach var="consultant" items="${consultants}">
+                    <div class="card subcard">
+                        <div class="item capitalize">
+                            <span class="mutedText">Name</span> ${consultant.consultantName}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Specialty</span> ${consultant.consultantSpecialty}
+                        </div>
+                        <hr />
+                        <div class="item capitalize cardFooterButton noselect">
+                            <a href="/consultants/${consultant.consultantId}" class="button">View Consultant</a>
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </c:if>
     </div>
+    <c:if test="${consultant.consultantId == null}">
+        <%@include file="components/footer.jsp"%>
+    </c:if>
 </div>
 
 <%@include file="components/scripts.jsp" %>

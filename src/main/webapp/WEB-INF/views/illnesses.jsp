@@ -37,6 +37,7 @@
 
         </div>
     </main>
+    <%@include file="components/footer.jsp"%>
 </div>
 
 <%@include file="components/scripts.jsp"%>

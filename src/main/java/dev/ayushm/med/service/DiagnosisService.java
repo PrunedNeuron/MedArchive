@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class DiagnosisService {
@@ -30,8 +28,8 @@ public class DiagnosisService {
         diagnosisRepository.save(diagnosis);
     }
 
-    public Set<Diagnosis> geDiagnosisByConsultationId(Integer consultationId) {
-        Set<Diagnosis> diagnoses = new HashSet<>();
+    public List<Diagnosis> geDiagnosisByConsultationId(Integer consultationId) {
+        List<Diagnosis> diagnoses = new ArrayList<>();
         diagnosisRepository.findAll().forEach(diagnosis -> {
             if (diagnosis.getConsultationId() == consultationId)
                 diagnoses.add(diagnosis);

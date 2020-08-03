@@ -5,52 +5,50 @@ const drugMechanism = document.getElementById("drugMechanism");
 
 drugName.addEventListener("change", function (event) {
     if (!namePattern.test(drugName.value)) {
-        removeClass(drugName, "uk-form-success");
-        addAnotherClass(drugName, "uk-form-danger");
+        removeClass(drugName, "formSuccess");
+        addAnotherClass(drugName, "formDanger");
     } else {
-        removeClass(drugName, "uk-form-danger");
-        addAnotherClass(drugName, "uk-form-success")
+        removeClass(drugName, "formDanger");
+        addAnotherClass(drugName, "formSuccess")
     }
 })
 
 drugClassification.addEventListener("change", function (event) {
     if (!validateClassification(drugClassification.value)) {
-        removeClass(drugClassification, "uk-form-success");
-        addAnotherClass(drugClassification, "uk-form-danger");
+        removeClass(drugClassification, "formSuccess");
+        addAnotherClass(drugClassification, "formDanger");
     } else {
-        removeClass(drugClassification, "uk-form-danger");
-        addAnotherClass(drugClassification, "uk-form-success")
+        removeClass(drugClassification, "formDanger");
+        addAnotherClass(drugClassification, "formSuccess")
     }
 })
 
 drugMechanism.addEventListener("change", function (event) {
     if (!validateMechanism(drugMechanism.value)) {
-        removeClass(drugMechanism, "uk-form-success");
-        addAnotherClass(drugMechanism, "uk-form-danger");
+        removeClass(drugMechanism, "formSuccess");
+        addAnotherClass(drugMechanism, "formDanger");
     } else {
-        removeClass(drugMechanism, "uk-form-danger");
-        addAnotherClass(drugMechanism, "uk-form-success")
+        removeClass(drugMechanism, "formDanger");
+        addAnotherClass(drugMechanism, "formSuccess")
     }
 })
 
 submitButton.addEventListener("click", function () {
     if (validateDrug()) {
-        removeClass(submitButton, "uk-animation-shake");
-        removeClass(submitButton, "uk-button-danger");
-        addAnotherClass(submitButton, "uk-button-primary");
+        removeClass(submitButton, "shakeAnimation");
+        removeClass(submitButton, "buttonDanger");
+        addAnotherClass(submitButton, "buttonPrimary");
         drugForm.submit();
         setTimeout(function () {
-            makeIconVisible(checkIcon);
             drugForm.reset();
         }, 3000);
     } else {
-        makeIconInvisible(checkIcon);
-        addAnotherClass(submitButton, "uk-animation-shake");
-        addAnotherClass(submitButton, "uk-button-danger");
+        addAnotherClass(submitButton, "shakeAnimation");
+        addAnotherClass(submitButton, "buttonDanger");
         setTimeout(function () {
-            removeClass(submitButton, "uk-animation-shake");
-            removeClass(submitButton, "uk-button-danger");
-            addAnotherClass(submitButton, "uk-button-primary");
+            removeClass(submitButton, "shakeAnimation");
+            removeClass(submitButton, "buttonDanger");
+            addAnotherClass(submitButton, "buttonPrimary");
         }, 1000);
     }
 

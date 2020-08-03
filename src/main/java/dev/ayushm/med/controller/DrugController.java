@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,6 +20,14 @@ public class DrugController {
     public String getAllDrugs(Model model) {
         List<Drug> drugs = drugService.getAllDrugs();
         model.addAttribute("drugs", drugs);
+
+        return "drugs";
+    }
+
+    @GetMapping("/drugs/{drugId}")
+    public String getDrug(@PathVariable Integer drugId, Model model) {
+        Drug drug = drugService.getDrug(drugId);
+        model.addAttribute("drug", drug);
 
         return "drugs";
     }

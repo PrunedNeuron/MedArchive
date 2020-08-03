@@ -40,6 +40,9 @@ public class FormController {
     @Autowired
     private TreatmentService treatmentService;
 
+    @Autowired
+    private TestService testService;
+
     @GetMapping("/added")
     public String getAddedPage() {
         return "/forms/added";
@@ -198,6 +201,28 @@ public class FormController {
         model.addAttribute("submittedForm", true);
         model.addAttribute("status", treatment != null);
         model.addAttribute("modelName", "treatment");
+
+        return "forms/added";
+    }
+
+    @GetMapping("/test")
+    public String getTestForm() {
+        return "/forms/test";
+    }
+
+    @PostMapping("/test")
+    public String postTestForm(@ModelAttribute("test") Test test, BindingResult result, Model model) {
+
+        if (result.hasErrors())
+            return "error";
+
+        logger.info("Added test: " + test.toString());
+
+        testService.addTest(test);
+
+        model.addAttribute("submittedForm", true);
+        model.addAttribute("status", test != null);
+        model.addAttribute("modelName", "test");
 
         return "forms/added";
     }

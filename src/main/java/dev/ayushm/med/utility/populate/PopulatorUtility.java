@@ -1,4 +1,4 @@
-package dev.ayushm.med.database;
+package dev.ayushm.med.utility.populate;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Populator {
+public class PopulatorUtility {
 
     static final String BASE_URL = "http://localhost:8080/api";
     static RestTemplate restTemplate = new RestTemplate();
@@ -30,13 +30,14 @@ public class Populator {
         populateDiagnoses();
         populateDrugs();
         populateTreatments();
+        populateTests();
 
     }
 
     public static void populatePatients() throws IOException {
         String url = BASE_URL + "/patients";
 
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/patient.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/patient.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -52,7 +53,7 @@ public class Populator {
 
     public static void populateConsultants() throws IOException {
         String url = BASE_URL + "/consultants";
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/consultant.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/consultant.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -67,7 +68,7 @@ public class Populator {
 
     public static void populateConsultations() throws IOException {
         String url = BASE_URL + "/consultations";
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/consultation.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/consultation.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -82,7 +83,7 @@ public class Populator {
 
     public static void populateIllnesses() throws IOException {
         String url = BASE_URL + "/illnesses";
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/illness.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/illness.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -97,7 +98,7 @@ public class Populator {
 
     public static void populateDiagnoses() throws IOException {
         String url = BASE_URL + "/diagnoses";
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/diagnosis.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/diagnosis.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -112,7 +113,7 @@ public class Populator {
 
     public static void populateDrugs() throws IOException {
         String url = BASE_URL + "/drugs";
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/drug.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/drug.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -127,7 +128,7 @@ public class Populator {
 
     public static void populateTreatments() throws IOException {
         String url = BASE_URL + "/treatments";
-        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/database/treatment.json")));
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/treatment.json")));
         JsonFactory factory = new JsonFactory();
         JsonParser parser = factory.createParser(json);
         parser.nextToken();
@@ -138,6 +139,23 @@ public class Populator {
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(treatment), headers);
             String answer = restTemplate.postForObject(url, entity, String.class);
         }
+    }
+
+    public static void populateTests() throws IOException {
+        String url = BASE_URL + "/tests";
+
+        String json = new String(Files.readAllBytes(Paths.get("src/main/java/dev/ayushm/med/utility/populate/json/test.json")));
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(json);
+        parser.nextToken();
+        ObjectMapper mapper = new ObjectMapper();
+
+        while (parser.nextToken() == JsonToken.START_OBJECT) {
+            Test test = mapper.readValue(parser, Test.class);
+            HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(test), headers);
+            String answer = restTemplate.postForObject(url, entity, String.class);
+        }
+
     }
 
 }

@@ -1,17 +1,36 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
 
-html, body {
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    overflow: auto;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, div {
     font-family: Inter, sans-serif !important;
+    color: #666666;
+    line-height: 1.5;
 }
 
-.cardContainer {
-    display: inline-block !important;
-    margin: 1rem;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
 }
 
-.bodyContainer {
-    margin: 1rem;
+p, div {
+    font-weight: 400;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 1rem 0;
+    padding: 0;
 }
 
 .mainBody {
@@ -42,6 +61,7 @@ html, body {
     color: black;
     background: #74ffe1; /* WebKit/Blink Browsers */
 }
+
 ::-moz-selection {
     color: black;
     background: #74ffe1; /* Gecko Browsers */
@@ -49,7 +69,9 @@ html, body {
 
 .navContainer {
     display: flex;
+    padding: 1rem;
 }
+
 .navLeft {
     display: flex;
     justify-content: flex-start;
@@ -75,7 +97,10 @@ html, body {
 }
 
 .navItem:hover {
+    background-color: #e2edff;
+}
 
+.active {
     background-color: #e2edff;
 }
 
@@ -96,4 +121,301 @@ a:hover {
 
 i {
     font-size: medium;
+}
+
+.subcard {
+    min-width: 30%;
+}
+
+.cardsContainer {
+    position: relative;
+}
+
+.card {
+    display: inline-block;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 2rem;
+    box-shadow: 0 0 20px rgba(135, 135, 135, 0.2);
+    transition: all 300ms;
+    -webkit-transition: all 0.3s ease;
+}
+
+.card:hover {
+    -webkit-transform: scale(1.025, 1.025);
+}
+
+.badge {
+    display: inline-block;
+    color: white;
+    background-color: #326eff;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+}
+
+.noselect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 100;
+}
+
+.dropdown-content {
+    margin-top: 2.5rem;
+    border-radius: 0.5rem;
+    list-style: none;
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(135, 135, 135, 0.2);
+}
+
+.dropdown-content li {
+    padding: 0.5rem;
+    margin-left: -2.5rem;
+}
+
+.dropdown-content li:hover {
+    background-color: #f8f8f8;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+}
+
+.mutedText {
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: small;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+
+.cardFooterButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button {
+    color: white;
+    background-color: #326eff;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    transition: all 300ms;
+}
+
+
+.button:hover {
+    color: white;
+    background-color: #0b52fa;
+    box-shadow: 0 0 10px rgba(135, 135, 135, 0.2);
+}
+
+.singleCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    height: 24rem;
+}
+
+::placeholder {
+    opacity: 0.25;
+}
+
+.formInputContainer {
+    margin: 1rem;
+
+}
+
+.formInput {
+    outline: none;
+    padding: 0.5rem;
+    border: 1px solid #d2d2d2;
+    border-radius: 0.25rem;
+
+}
+
+.formInput:focus {
+    border: 1px solid #326eff;
+}
+
+.formLabel {
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: small;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.submitButton {
+    color: white;
+    background-color: #326eff;
+    border-radius: 0.4rem;
+    border: none;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    transition: all 300ms;
+}
+
+.submitButton:hover {
+    color: white;
+    background-color: #0b52fa;
+    box-shadow: 0 0 10px rgba(135, 135, 135, 0.2);
+}
+
+.buttonDanger {
+    background-color: #ff1936;
+}
+
+.inputText {
+    width: 20rem;
+}
+
+.formInputContainer {
+    max-width: 20rem;
+}
+
+.inputRadio {
+    margin: 0 0.5rem;
+}
+
+textarea:focus, input:focus, button:focus {
+    outline: none;
+}
+
+.shakeAnimation {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.select option {
+    padding: 1rem;
+    border: none;
+    background-color: white;
+}
+
+.select {
+    background-color: white;
+    color: #666666;
+    border:0;
+    outline:0;
+    scroll-behavior: smooth;
+}
+
+.formSuccess {
+    transition: all 300ms;
+    border: 1px solid #32ff95;
+}
+
+.formDanger {
+    transition: all 300ms;
+    border: 1px solid #ff3654;
+}
+
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ededed;
+    padding: 1rem;
+}
+
+* {
+    font-display: auto;
+}
+
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+header,
+footer {
+    flex: 0 1 auto;
+}
+
+.greenFilter{
+    filter: invert(52%) sepia(100%) saturate(392%) hue-rotate(87deg) brightness(94%) contrast(96%);
+}
+
+.builtWithContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.builtWithContainer img {
+    margin-left: 0.5rem;
+}
+
+.smallFooterText {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footerLeft {
+    justify-content: flex-start;
+}
+
+.footerCenter {
+    justify-content: center;
+}
+
+.footerRight {
+    justify-content: flex-end;
+}
+
+.navItem a {
+    display: flex;
+    align-items: center;
 }

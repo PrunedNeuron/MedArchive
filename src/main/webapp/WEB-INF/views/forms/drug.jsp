@@ -13,7 +13,7 @@
     <main class="main">
         <div class="mainBody">
 
-            <div class="formContainer">
+            <%--<div class="formContainer">
                 <form:form modelAttribute="drug" action="/add/drug" method="post" name="drug"
                            id="drug">
                     <fieldset class="uk-fieldset">
@@ -49,12 +49,52 @@
                         </div>
                     </fieldset>
                 </form:form>
-            </div>
+            </div>--%>
+
+                <div class="formContainer">
+                    <div class="card">
+                        <form:form
+                                modelAttribute="drug"
+                                action="/add/drug"
+                                method="post"
+                                name="drug"
+                                id="drug"
+                        >
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="drugName">Drug Name</label>
+                                <br/>
+                                <input class="formInput inputText" id="drugName" name="drugName" type="text" placeholder="Selegiline">
+                            </div>
+
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="drugClassification">Drug Classification</label>
+                                <br/>
+                                <input class="formInput inputText" id="drugClassification" name="drugClassification" type="text" placeholder="MAO-B Inhibitor">
+                            </div>
+
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="drugMechanism">Drug Mechanism</label>
+                                <br/>
+                                <textarea class="formInput inputText" id="drugMechanism" name="drugMechanism" rows="5" placeholder="Selegiline increases dopamine by inhibiting it's metabolism by MAO-B."></textarea>
+                            </div>
+
+                            <div class="formInputContainer">
+                                <button id="submitButton" type="button" class="submitButton">Submit</button>
+                            </div>
+                            <div>
+                                <c:if test="submittedForm">
+                                    <h6>${status ? "Successfully added " : "Failed to add "}a patient!</h6>
+                                </c:if>
+                            </div>
+                        </form:form>
+                    </div>
+                </div>
+
         </div>
     </main>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/add/drug.js"></script>
+<script type="text/javascript" src="../resources/js/forms/drug.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

@@ -15,7 +15,7 @@
         <c:if test="${consultation.consultationId != null}">
 
             <div class="cards">
-                <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
+                <%--<div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
                     <div class="uk-card uk-card-hover uk-card-default">
 
                         <div class="uk-card-header">
@@ -50,38 +50,58 @@
                             <a href="/consultants/${consultation.consultant.consultantId}" class="uk-button uk-button-default">View Consultant</a>
                         </div>
                     </div>
-                </div>
+                </div>--%>
+                    <div class="card subcard patientLess">
+                        <div class="badge" style="float: right;">${consultationDate}</div>
+                        <div class="item capitalize">
+                            <span class="mutedText">ID</span> ${consultation.consultationId}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Patient</span> ${consultation.patient.patientName}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Consultant</span> ${consultation.consultant.consultantName}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Location</span> ${consultation.consultationLocation}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Diagnosis</span> ${diagnoses}
+                        </div>
+                        <hr />
+                        <div class="item capitalize cardFooterButton noselect">
+                            <a href="/patients/${consultation.patientId}" class="button">View Patient</a>
+                            <a href="/consultants/${consultation.consultantId}" class="button">View Consultant</a>
+                        </div>
+                    </div>
             </div>
-
-
         </c:if>
         <c:if test="${consultation.consultationId == null}">
             <h4>All Consultations</h4>
             <div class="cards">
-                <c:forEach var="consultationEntry" items="${consultationList}">
-                    <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                        <div class="uk-card uk-card-hover uk-card-default">
-                            <div class="uk-card-body">
-                                <div class="uk-card-badge uk-label">${consultationDate}</div>
-                                <div>
-                                    <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Patient</span>
-                                        ${consultationEntry.patient.patientName}
-                                </div>
-                                <div>
-                                    <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Consultant</span>
-                                        ${consultationEntry.consultant.consultantName}
-                                </div>
-                            </div>
-                            <div class="uk-card-footer">
-                                <a href="/consultations/${consultationEntry.consultationId}" class="uk-button uk-button-default">View Consultation</a>
-
-                            </div>
+                <c:forEach var="consultation" items="${consultationList}">
+                    <div class="card subcard patientLess">
+                        <div class="item capitalize">
+                            <span class="mutedText">Patient</span> ${consultation.patient.patientName}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Consultant</span> ${consultation.consultant.consultantName}
+                        </div>
+                        <hr />
+                        <div class="item capitalize cardFooterButton noselect">
+                            <a href="/consultations/${consultation.consultationId}" class="button">View Consultation</a>
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </c:if>
     </div>
+
+    <c:if test="${consultation.consultationId == null}">
+        <%@include file="components/footer.jsp"%>
+    </c:if>
+
+
 </div>
 
 <%@include file="components/scripts.jsp"%>

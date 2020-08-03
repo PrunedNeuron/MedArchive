@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -37,7 +36,7 @@ public class ConsultationController {
     @GetMapping("/consultations/{consultationId}")
     public String getConsultation(@PathVariable Integer consultationId, Model model) {
         Consultation consultation = consultationService.getConsultation(consultationId);
-        Set<Diagnosis> diagnoses = diagnosisService.geDiagnosisByConsultationId(consultationId);
+        List<Diagnosis> diagnoses = diagnosisService.geDiagnosisByConsultationId(consultationId);
 
         String illnesses = new HashSet<Diagnosis>(diagnoses)
                 .stream()

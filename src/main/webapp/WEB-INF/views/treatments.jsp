@@ -13,38 +13,27 @@
     <%@include file="components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-            <h4>All treatments and diagnoses</h4>
-            <div class="ui cards">
+            <h4>All diagnoses and their treatments</h4>
+            <div class="cards">
                 <c:forEach var="treatment" items="${treatments}">
-                    <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                        <div class="uk-card uk-card-default" >
-                            <div class="uk-card-body">
-
-                                <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Diagnosis</span>
-                                        ${treatment.diagnosis.illness.illnessName}
-                                </div>
-                                <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Drug</span>
-                                        ${treatment.drug.drugName}
-                                </div>
-                            </div>
-                            <div class="uk-card-footer" style="display: flex; justify-content: center">
-                                <a href="/drugs" class="uk-button uk-button-default">
-                                    View drugs
-                                </a>
-                                <a href="/illnesses" class="uk-button uk-button-default">
-                                    View diagnoses
-                                </a>
-                            </div>
+                    <div class="card subcard">
+                        <div class="item capitalize">
+                            <span class="mutedText">Diagnosis</span> ${treatment.diagnosis.illness.illnessName}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Treated with</span> ${treatment.drug.drugName}
+                        </div>
+                        <hr />
+                        <div class="item capitalize cardFooterButton noselect">
+                            <a href="/drugs" class="button">View drugs</a>
+                            <a href="/illnesses" class="button">View illnesses</a>
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </div>
     </main>
+    <%@include file="components/footer.jsp"%>
 </div>
 
 <%@include file="components/scripts.jsp"%>

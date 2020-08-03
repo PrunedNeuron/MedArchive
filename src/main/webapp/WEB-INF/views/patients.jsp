@@ -10,119 +10,105 @@
 </head>
 <body>
 
+<style>
+    .cards .badge {
+        float: right;
+        background-color: #ff1b3d;
+    }
+</style>
+
 <div class="bodyContainer">
     <%@include file="components/navigation.jsp" %>
     <div class="mainBody">
         <c:if test="${patient.patientId != null}">
 
             <div class="cards">
-                <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                    <div class="uk-card uk-card-hover uk-card-default" >
-
-                        <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Patient #${patient.patientId}</h3>
-                                </div>
-                            </div>
+                <div class="card subcard">
+                    <c:if test="${allergyAlert == true}">
+                        <div class="badge noselect">
+                            ALLERGIC DRUG ALERT!
                         </div>
-
-                        <div class="uk-card-body">
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
-                                    ${patient.patientName}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Age</span>
-                                    ${patient.patientAge}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Gender</span>
-                                <span style="text-transform: capitalize">${patient.patientGender}</span>
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Phone</span>
-                                    ${patient.patientPhone}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Email</span>
-                                    <span style="font-family: monospace"><a href="mailto:${patient.patientEmail}}">${patient.patientEmail}</a></span>
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">
-                                    <c:if test="${fn:containsIgnoreCase(illnesses, ',')}">
-                                        Diagnoses
-                                    </c:if>
-                                    <c:if test="${not fn:containsIgnoreCase(illnesses, ',')}">
-                                        Diagnosis
-                                    </c:if>
-                                </span>
-                                    ${illnesses}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">
-                                    Prescribed
-                                </span>
-                                    ${drugs}
-                            </div>
-                            <c:if test="patient.allergicTo != '' && patient.allergicTo != null">
-                                <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted">Allergic to</span>
-                                    <span style="text-transform: capitalize">${patient.patientAllergicTo}</span>
-                                </div>
-                            </c:if>
-                        </div>
-                        <div class="uk-card-footer" style="display: flex; justify-content: center">
-                            <a href="/patients/${patient.patientId}/history" class="uk-button uk-button-default">View Patient History</a>
-                        </div>
+                    </c:if>
+                    <div class="item capitalize">
+                        <span class="mutedText">ID</span> ${patient.patientId}
                     </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Name</span> ${patient.patientName}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Age</span> ${patient.patientAge}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Gender</span> ${patient.patientGender}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Phone</span> ${patient.patientPhone}
+                    </div>
+                    <div class="item">
+                        <span class="mutedText">Email</span>
+                        <span style="font-family: monospace">
+                            <a href="mailto:${patient.patientEmail}">
+                                    ${patient.patientEmail}
+                            </a>
+                        </span>
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">
+                            <c:if test="${fn:containsIgnoreCase(illnesses, ',')}">
+                                Diagnoses
+                            </c:if>
+                            <c:if test="${not fn:containsIgnoreCase(illnesses, ',')}">
+                                Diagnosis
+                            </c:if>
+                        </span> ${illnesses}
+                    </div>
+
+                    <div class="item capitalize">
+                        <span class="mutedText">Prescribed</span> ${drugs}
+                    </div>
+
+                    <div class="item capitalize">
+                        <span class="mutedText">Allergic to</span> ${patient.patientAllergicTo}
+                    </div>
+                    <hr />
+                    <div class="item capitalize cardFooterButton noselect">
+                        <a href="/patients/${patient.patientId}/history" class="button">View Patient History</a>
+                    </div>
+
                 </div>
             </div>
-
-
         </c:if>
         <c:if test="${patient.patientId == null}">
             <h4>All patients</h4>
-            <div class="ui cards">
-            <c:forEach var="patientEntry" items="${patients}">
-                <div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                    <div class="uk-card uk-card-hover uk-card-default" >
-                        <div class="uk-card-body">
-
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Name</span>
-                                    ${patientEntry.patientName}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Age</span>
-                                    ${patientEntry.patientAge}
-                            </div>
-                            <div>
-                                <span style="display: inline-block"
-                                      class="uk-text-muted uk-text-small uk-text-uppercase">Gender</span>
-                                <span style="text-transform: capitalize">${patientEntry.patientGender}</span>
-                            </div>
+            <div class="cards">
+                <c:forEach var="patient" items="${patients}">
+                    <div class="card subcard patientLess">
+                        <div class="item capitalize">
+                            <span class="mutedText">ID</span> ${patient.patientId}
                         </div>
-                        <div class="uk-card-footer" style="display: flex; justify-content: center">
-                            <a href="/patients/${patientEntry.patientId}" class="uk-button uk-button-default">View
-                                Patient</a>
+                        <div class="item capitalize">
+                            <span class="mutedText">Name</span> ${patient.patientName}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Age</span> ${patient.patientAge}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Gender</span> ${patient.patientGender}
+                        </div>
+                        <hr />
+                        <div class="item capitalize cardFooterButton noselect">
+                            <a href="/patients/${patient.patientId}" class="button">View Patient</a>
                         </div>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
             </div>
         </c:if>
     </div>
+
+    <c:if test="${patient.patientId == null}">
+        <%@include file="components/footer.jsp"%>
+    </c:if>
+
 </div>
 
 <%@include file="components/scripts.jsp" %>

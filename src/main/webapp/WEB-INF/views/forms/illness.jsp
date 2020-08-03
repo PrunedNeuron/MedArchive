@@ -12,8 +12,7 @@
     <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-
-            <div class="formContainer">
+            <%--<div class="formContainer">
                 <form:form modelAttribute="illness" action="/add/illness" method="post" name="illness"
                            id="illness">
                     <fieldset class="uk-fieldset">
@@ -49,12 +48,59 @@
                         </div>
                     </fieldset>
                 </form:form>
-            </div>
+            </div>--%>
+
+            <style>
+
+
+
+            </style>
+
+                <div class="formContainer">
+                    <div class="card">
+                        <form:form
+                                modelAttribute="illness"
+                                action="/add/illness"
+                                method="post"
+                                name="illness"
+                                id="illness"
+                        >
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="illnessName">Illness Name</label>
+                                <br/>
+                                <input class="formInput inputText" id="illnessName" name="illnessName" type="text"
+                                       placeholder="eg. Histoplasmosis">
+                            </div>
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="illnessDescription">Illness Description</label>
+                                <br/>
+                                <textarea class="formInput inputText" id="illnessDescription" name="illnessDescription" rows="5" placeholder="Histoplasmosis is caused by a fungus."></textarea>
+                            </div>
+
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="illnessSymptoms">Illness Symptoms</label>
+                                <br/>
+                                <textarea class="formInput inputText" id="illnessSymptoms" name="illnessSymptoms" rows="5" placeholder="Fever, cough, fatigue, chills"></textarea>
+                            </div>
+
+
+                            <div class="formInputContainer">
+                                <button id="submitButton" type="button" class="submitButton">Submit</button>
+                            </div>
+                            <div>
+                                <c:if test="submittedForm">
+                                    <h6>${status ? "Successfully added " : "Failed to add "}a patient!</h6>
+                                </c:if>
+                            </div>
+                        </form:form>
+                    </div>
+                </div>
+
         </div>
     </main>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/add/illness.js"></script>
+<script type="text/javascript" src="../resources/js/forms/illness.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

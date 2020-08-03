@@ -14,53 +14,54 @@
         <div class="mainBody">
 
             <div class="formContainer">
-                <form:form modelAttribute="consultation" action="/add/consultation" method="post" name="consultation"
-                           id="consultation">
-                    <fieldset class="uk-fieldset">
-                        <legend class="uk-legend">Add a consultation</legend>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="patientId">Patient ID</label>
-                            <br />
-                            <input id="patientId" name="patientId" class="uk-input uk-form-width-large" type="number" placeholder="5">
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="consultantId">Consultant ID</label>
-                            <br />
-                            <input id="consultantId" name="consultantId" class="uk-input uk-form-width-large" type="number" placeholder="2">
-                            </div>
-
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="consultationLocation">Consultation Location</label>
-                            <br />
-                            <input id="consultationLocation" name="consultationLocation" class="uk-input uk-form-width-large" type="text" placeholder="Newark, NY">
+                <div class="card">
+                    <form:form
+                            modelAttribute="consultation"
+                            action="/add/consultation"
+                            method="post"
+                            name="consultation"
+                            id="consultation"
+                    >
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="patientId">Patient ID</label>
+                            <br/>
+                            <input class="formInput inputText" id="patientId" name="patientId" type="number" min="1" placeholder="12">
                         </div>
 
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="consultantId">Consultant ID</label>
+                            <br/>
+                            <input class="formInput inputText" id="consultantId" name="consultantId" type="number" min="1" placeholder="15">
+                        </div>
 
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="consultationDate">Consultation Date</label>
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="consultationLocation">Consultation Location</label>
+                            <br/>
+                            <input class="formInput inputText" id="consultationLocation" name="consultationLocation" type="text" placeholder="Newark, NY">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="consultationDate">Consultation Date</label>
                             <br />
-                            <input id="consultationDate" name="consultationDate" class="uk-input uk-form-width-large" type="date" placeholder="Consultation Date">
-                            </div>
+                            <input class="formInput inputText" id="consultationDate" name="consultationDate" type="date" placeholder="Consultation Date">
+                        </div>
 
-                        <div class="uk-margin">
-                            <button id="submitButton" type="button" class="uk-button uk-button-primary">Submit</button>
-                            &nbsp;&nbsp;
-                            <span id="checkIcon" class="uk-margin-small-right" uk-icon="check" style="color: mediumspringgreen; display: none;"></span>
-
+                        <div class="formInputContainer">
+                            <button id="submitButton" type="button" class="submitButton">Submit</button>
                         </div>
                         <div>
                             <c:if test="submittedForm">
-                                <h6>${status ? "Successfully added " : "Failed to add "}a consultation!</h6>
+                                <h6>${status ? "Successfully added " : "Failed to add "}a patient!</h6>
                             </c:if>
                         </div>
-                    </fieldset>
-                </form:form>
+                    </form:form>
+                </div>
             </div>
         </div>
     </main>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/add/consultation.js"></script>
+<script type="text/javascript" src="../resources/js/forms/consultation.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

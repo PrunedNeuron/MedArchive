@@ -32,6 +32,8 @@ public class ApiController {
     @Autowired
     private TreatmentService treatmentService;
 
+    @Autowired
+    private TestService testService;
 
     @GetMapping("/patients")
     public List<Patient> getAllPatients() {
@@ -95,12 +97,22 @@ public class ApiController {
 
     @GetMapping("/treatments")
     public List<Treatment> getAllTreatments() {
-        return treatmentService.getAllTreatments();
+        return treatmentService.getAllTreatmentsSorted();
     }
 
     @PostMapping("/treatments")
     public void addTreatment(@RequestBody Treatment treatment) {
         treatmentService.addTreatment(treatment);
+    }
+
+    @GetMapping("/tests")
+    public List<Test> getAllTests() {
+        return testService.getAllTests();
+    }
+
+    @PostMapping("/tests")
+    public void addTest(@RequestBody Test test) {
+        testService.addTest(test);
     }
 
 }

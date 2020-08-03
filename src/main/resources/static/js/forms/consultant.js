@@ -9,60 +9,60 @@ const consultantExperience = document.getElementById("consultantExperience");
 
 consultantName.addEventListener("change", function (event) {
     if (!namePattern.test(consultantName.value)) {
-        removeClass(consultantName, "uk-form-success");
-        addAnotherClass(consultantName, "uk-form-danger");
+        removeClass(consultantName, "formSuccess");
+        addAnotherClass(consultantName, "formDanger");
     } else {
-        removeClass(consultantName, "uk-form-danger");
-        addAnotherClass(consultantName, "uk-form-success")
+        removeClass(consultantName, "formDanger");
+        addAnotherClass(consultantName, "formSuccess")
     }
 })
 
 consultantEmail.addEventListener("change", function (event) {
     if (!emailPattern.test(consultantEmail.value)) {
-        removeClass(consultantEmail, "uk-form-success");
-        addAnotherClass(consultantEmail, "uk-form-danger");
+        removeClass(consultantEmail, "formSuccess");
+        addAnotherClass(consultantEmail, "formDanger");
     } else {
-        removeClass(consultantEmail, "uk-form-danger");
-        addAnotherClass(consultantEmail, "uk-form-success");
+        removeClass(consultantEmail, "formDanger");
+        addAnotherClass(consultantEmail, "formSuccess");
     }
 })
 
 consultantPhone.addEventListener("change", function (event) {
     if (!phonePattern.test(consultantPhone.value)) {
-        removeClass(consultantPhone, "uk-form-success");
-        addAnotherClass(consultantPhone, "uk-form-danger");
+        removeClass(consultantPhone, "formSuccess");
+        addAnotherClass(consultantPhone, "formDanger");
     } else {
-        removeClass(consultantPhone, "uk-form-danger");
-        addAnotherClass(consultantPhone, "uk-form-success");
+        removeClass(consultantPhone, "formDanger");
+        addAnotherClass(consultantPhone, "formSuccess");
     }
 })
 
 consultantSpecialty.addEventListener("change", function (event) {
     if (!validateSpecialty(consultantSpecialty.value)) {
-        removeClass(consultantSpecialty, "uk-form-success");
-        addAnotherClass(consultantSpecialty, "uk-form-danger");
+        removeClass(consultantSpecialty, "formSuccess");
+        addAnotherClass(consultantSpecialty, "formDanger");
     } else {
-        removeClass(consultantSpecialty, "uk-form-danger");
-        addAnotherClass(consultantSpecialty, "uk-form-success");
+        removeClass(consultantSpecialty, "formDanger");
+        addAnotherClass(consultantSpecialty, "formSuccess");
     }
 })
 
 consultantExperience.addEventListener("change", function (event) {
     if (!validateExperience(consultantExperience.value)) {
-        removeClass(consultantExperience, "uk-form-success");
-        addAnotherClass(consultantExperience, "uk-form-danger");
+        removeClass(consultantExperience, "formSuccess");
+        addAnotherClass(consultantExperience, "formDanger");
     } else {
-        removeClass(consultantExperience, "uk-form-danger");
-        addAnotherClass(consultantExperience, "uk-form-success");
+        removeClass(consultantExperience, "formDanger");
+        addAnotherClass(consultantExperience, "formSuccess");
     }
 })
 
 
 submitButton.addEventListener("click", function() {
     if (validateConsultant()){
-        removeClass(submitButton, "uk-animation-shake");
-        removeClass(submitButton, "uk-button-danger");
-        addAnotherClass(submitButton, "uk-button-primary");
+        removeClass(submitButton, "shakeAnimation");
+        removeClass(submitButton, "buttonDanger");
+        addAnotherClass(submitButton, "buttonPrimary");
         consultantForm.submit();
         setTimeout(function() {
             makeIconVisible(checkIcon);
@@ -70,13 +70,12 @@ submitButton.addEventListener("click", function() {
         }, 3000);
     }
     else {
-        makeIconInvisible(checkIcon);
-        addAnotherClass(submitButton, "uk-animation-shake");
-        addAnotherClass(submitButton, "uk-button-danger");
+        addAnotherClass(submitButton, "shakeAnimation");
+        addAnotherClass(submitButton, "buttonDanger");
         setTimeout(function() {
-            removeClass(submitButton, "uk-animation-shake");
-            removeClass(submitButton, "uk-button-danger");
-            addAnotherClass(submitButton, "uk-button-primary");
+            removeClass(submitButton, "shakeAnimation");
+            removeClass(submitButton, "buttonDanger");
+            addAnotherClass(submitButton, "buttonPrimary");
         }, 1000);
     }
 

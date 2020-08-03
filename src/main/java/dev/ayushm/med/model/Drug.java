@@ -11,6 +11,16 @@ public class Drug {
     @Column(name = "drug_id")
     private Integer drugId;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "treatment_id",
+            referencedColumnName = "treatment_id",
+            insertable = false,
+            updatable = false)
+    private Treatment treatment;
+
+    @Column(name = "treatment_id")
+    private Integer treatmentId;
+
     @Column(name = "drug_name")
     private String drugName;
 
@@ -23,8 +33,10 @@ public class Drug {
     public Drug() {
     }
 
-    public Drug(Integer drugId, String drugName, String drugClassification, String drugMechanism) {
+    public Drug(Integer drugId, Treatment treatment, Integer treatmentId, String drugName, String drugClassification, String drugMechanism) {
         this.drugId = drugId;
+        this.treatment = treatment;
+        this.treatmentId = treatmentId;
         this.drugName = drugName;
         this.drugClassification = drugClassification;
         this.drugMechanism = drugMechanism;
@@ -36,6 +48,22 @@ public class Drug {
 
     public void setDrugId(Integer drugId) {
         this.drugId = drugId;
+    }
+
+    public Treatment getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(Treatment treatment) {
+        this.treatment = treatment;
+    }
+
+    public Integer getTreatmentId() {
+        return treatmentId;
+    }
+
+    public void setTreatmentId(Integer treatmentId) {
+        this.treatmentId = treatmentId;
     }
 
     public String getDrugName() {
@@ -61,4 +89,17 @@ public class Drug {
     public void setDrugMechanism(String drugMechanism) {
         this.drugMechanism = drugMechanism;
     }
+
+    @Override
+    public String toString() {
+        return "Drug{" +
+                "drugId=" + drugId +
+                ", treatment=" + treatment +
+                ", treatmentId=" + treatmentId +
+                ", drugName='" + drugName + '\'' +
+                ", drugClassification='" + drugClassification + '\'' +
+                ", drugMechanism='" + drugMechanism + '\'' +
+                '}';
+    }
+
 }

@@ -20,6 +20,12 @@ public class TreatmentService {
         return treatments;
     }
 
+    public List<Treatment> getAllTreatmentsSorted() {
+        List<Treatment> treatments = new ArrayList<>();
+        treatmentRepository.findAllByOrderByDiagnosis_Consultation_ConsultationDateDesc().forEach(treatments::add);
+        return treatments;
+    }
+
     public Treatment getTreatment(Integer treatmentId) {
         return treatmentRepository.findById(treatmentId).get();
     }

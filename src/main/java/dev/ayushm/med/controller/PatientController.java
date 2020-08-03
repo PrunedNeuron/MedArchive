@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,6 +52,16 @@ public class PatientController {
                 .stream()
                 .map(illness -> String.valueOf(illness.getIllnessName()))
                 .collect(Collectors.joining(", "));
+
+        String[] allergicDrugs = patientService.getPatient(patientId).getPatientAllergicTo().split(" ");
+
+        log.info("Allergic Drugs: " + Arrays.toString(allergicDrugs));
+        log.info("On drugs: " + drugs);
+
+        for (Drug drug : drugList)
+            for (String allergicDrug : allergicDrugs)
+                if (drug.getDrugName().equalsIgnoreCase(allergicDrug))
+                    model.addAttribute("allergyAlert", true);
 
         model.addAttribute("consultations", consultationList);
         model.addAttribute("diagnoses", diagnosisList);

@@ -12,41 +12,44 @@
     <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
+                <div class="formContainer">
+                    <div class="card">
+                        <form:form
+                                modelAttribute="diagnosis"
+                                action="/add/diagnosis"
+                                method="post"
+                                name="diagnosis"
+                                id="diagnosis"
+                        >
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="consultationId">Consultation ID</label>
+                                <br/>
+                                <input class="formInput inputText" id="consultationId" name="consultationId" type="number" min="1" placeholder="12">
+                            </div>
 
-            <div class="formContainer">
-                <form:form modelAttribute="diagnosis" action="/add/diagnosis" method="post" name="diagnosis"
-                           id="diagnosis">
-                    <fieldset class="uk-fieldset">
-                        <legend class="uk-legend">Add a diagnosis</legend>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="consultationId">Consultation ID</label>
-                            <br />
-                            <input id="consultationId" name="consultationId" class="uk-input uk-form-width-large" type="number" placeholder="12">
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="illnessId">Illness ID</label>
-                            <br />
-                            <input id="illnessId" name="illnessId" class="uk-input uk-form-width-large" type="number" placeholder="7">
-                        </div>
-                        <div class="uk-margin">
-                            <button id="submitButton" type="button" class="uk-button uk-button-primary">Submit</button>
-                            &nbsp;&nbsp;
-                            <span id="checkIcon" class="uk-margin-small-right" uk-icon="check" style="color: mediumspringgreen; display: none;"></span>
+                            <div class="formInputContainer">
+                                <label class="formLabel" for="illnessId">Illness ID</label>
+                                <br/>
+                                <input class="formInput inputText" id="illnessId" name="illnessId" type="number" min="1" placeholder="15">
+                            </div>
 
-                        </div>
-                        <div>
-                            <c:if test="submittedForm">
-                                <h6>${status ? "Successfully added " : "Failed to add "}a diagnosis!</h6>
-                            </c:if>
-                        </div>
-                    </fieldset>
-                </form:form>
-            </div>
+                            <div class="formInputContainer">
+                                <button id="submitButton" type="button" class="submitButton">Submit</button>
+                            </div>
+                            <div>
+                                <c:if test="submittedForm">
+                                    <h6>${status ? "Successfully added " : "Failed to add "}a patient!</h6>
+                                </c:if>
+                            </div>
+                        </form:form>
+                    </div>
+                </div>
+
         </div>
     </main>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/add/diagnosis.js"></script>
+<script type="text/javascript" src="../resources/js/forms/diagnosis.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>
