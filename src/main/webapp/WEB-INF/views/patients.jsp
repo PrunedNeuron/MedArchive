@@ -52,24 +52,31 @@
                             </a>
                         </span>
                     </div>
-                    <div class="item capitalize">
-                        <span class="mutedText">
-                            <c:if test="${fn:containsIgnoreCase(illnesses, ',')}">
-                                Diagnoses
-                            </c:if>
-                            <c:if test="${not fn:containsIgnoreCase(illnesses, ',')}">
-                                Diagnosis
-                            </c:if>
-                        </span> ${illnesses}
-                    </div>
+                    <c:if test="${illnesses != null && illnesses != \"\"}">
+                        <div class="item capitalize">
+                            <span class="mutedText">
+                                <c:if test="${fn:containsIgnoreCase(illnesses, ',')}">
+                                    Diagnoses
+                                </c:if>
+                                <c:if test="${not fn:containsIgnoreCase(illnesses, ',')}">
+                                    Diagnosis
+                                </c:if>
+                            </span> ${illnesses}
+                        </div>
+                    </c:if>
 
-                    <div class="item capitalize">
-                        <span class="mutedText">Prescribed</span> ${drugs}
-                    </div>
+                    <c:if test="${drugs != null && drugs != \"\"}">
+                        <div class="item capitalize">
+                            <span class="mutedText">Prescribed</span> ${drugs}
+                        </div>
+                    </c:if>
 
-                    <div class="item capitalize">
-                        <span class="mutedText">Allergic to</span> ${patient.patientAllergicTo}
-                    </div>
+                    <c:if test="${patient.patientAllergicTo != null && patient.patientAllergicTo != \"\"}">
+                        <div class="item capitalize">
+                            <span class="mutedText">Allergic to</span> ${patient.patientAllergicTo}
+                        </div>
+                    </c:if>
+
                     <hr />
                     <div class="item capitalize cardFooterButton noselect">
                         <a href="/patients/${patient.patientId}/history" class="button">View Patient History</a>

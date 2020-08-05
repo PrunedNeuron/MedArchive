@@ -6,7 +6,7 @@ const patientAge = document.getElementById("patientAge");
 const patientPhone = document.getElementById("patientPhone");
 const patientGenderMale = document.getElementById("patientGenderMale");
 const patientGenderFemale = document.getElementById("patientGenderFemale");
-
+const formStatusMessage = document.getElementById("formStatusMessage");
 
 
 patientName.addEventListener("change", function (event) {
@@ -85,3 +85,11 @@ function validatePatient() {
         validateRadios(patientGenderMale, patientGenderFemale)
     );
 }
+
+function hideElement(element) {
+    element.style.display = "none";
+}
+
+setTimeout(function() {
+    hideElement(formStatusMessage);
+}, 5000);

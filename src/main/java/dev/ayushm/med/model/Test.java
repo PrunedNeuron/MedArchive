@@ -11,16 +11,6 @@ public class Test {
     @Column(name = "test_id")
     private Integer testId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "consultation_id",
-            referencedColumnName = "consultation_id",
-            insertable = false,
-            updatable = false)
-    private Consultation consultation;
-
-    @Column(name = "consultation_id")
-    private Integer consultationId;
-
     @Column(name = "test_name")
     private String testName;
 
@@ -30,10 +20,8 @@ public class Test {
     public Test() {
     }
 
-    public Test(Integer testId, Consultation consultation, Integer consultationId, String testName, String testValue) {
+    public Test(Integer testId, String testName, String testValue) {
         this.testId = testId;
-        this.consultation = consultation;
-        this.consultationId = consultationId;
         this.testName = testName;
         this.testValue = testValue;
     }
@@ -44,22 +32,6 @@ public class Test {
 
     public void setTestId(Integer testId) {
         this.testId = testId;
-    }
-
-    public Consultation getConsultation() {
-        return consultation;
-    }
-
-    public void setConsultation(Consultation consultation) {
-        this.consultation = consultation;
-    }
-
-    public Integer getConsultationId() {
-        return consultationId;
-    }
-
-    public void setConsultationId(Integer consultationId) {
-        this.consultationId = consultationId;
     }
 
     public String getTestName() {
@@ -77,16 +49,4 @@ public class Test {
     public void setTestValue(String testValue) {
         this.testValue = testValue;
     }
-
-    @Override
-    public String toString() {
-        return "Test{" +
-                "testId=" + testId +
-                ", consultation=" + consultation +
-                ", consultationId=" + consultationId +
-                ", testName='" + testName + '\'' +
-                ", testValue='" + testValue + '\'' +
-                '}';
-    }
-
 }

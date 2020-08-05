@@ -1,7 +1,6 @@
-const checkIcon = document.getElementById("checkIcon");
 const submitButton = document.getElementById("submitButton");
 
-const addressPattern = /^[a-zA-Z ]+$/;
+const addressPattern = /^[\w\-,\s]+$/
 const namePattern = /^[a-zA-Z ]{2,30}$/;
 const emailPattern = /\S+@\S+\.\S+/;
 const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
@@ -60,4 +59,8 @@ function addAnotherClass(element, addend) {
 
 function removeClass(element, substring) {
     element.className = element.className.replaceAll(substring, "");
+}
+
+function hideElement(element) {
+    element.style.display = "none";
 }

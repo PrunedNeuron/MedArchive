@@ -13,7 +13,6 @@
     <%@include file="components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-
             <div class="cards">
                 <div class="card singleCard">
                     <div class="cardTitle">

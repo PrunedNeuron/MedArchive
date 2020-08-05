@@ -86,4 +86,16 @@ public class Consultant {
     public void setConsultantExperience(Integer consultantExperience) {
         this.consultantExperience = consultantExperience;
     }
+
+    @Override
+    public String toString() {
+        return "Consultant{" +
+                "consultantId=" + consultantId +
+                ", consultantName='" + consultantName + '\'' +
+                ", consultantEmail='" + consultantEmail + '\'' +
+                ", consultantPhone='" + consultantPhone + '\'' +
+                ", consultantSpecialty='" + consultantSpecialty + '\'' +
+                ", consultantExperience=" + consultantExperience +
+                '}';
+    }
 }

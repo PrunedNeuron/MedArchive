@@ -14,10 +14,10 @@
         <div class="mainBody">
 
             <div class="centered addedContainer">
-                <h4>${status ? "Successfully added a " : "Failed to add a "}${modelName}.</h4>
+                <h4>${status ? "Successfully added a " : "Failed to add a "}${modelName} with ID = ${modelId}.</h4>
             </div>
             <div class="centered">
-                <button class="uk-button uk-button-primary">Return</button>
+                <a href="/" class="button">Return home</a>
             </div>
         </div>
     </main>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ConsultantService {
@@ -34,12 +35,20 @@ public class ConsultantService {
         return  consultantRepository.findById(consultantId).get();
     }
 
-    public void addConsultant(Consultant consultant) {
+    public Consultant addConsultant(Consultant consultant) {
 
         logger.info("Adding consultant with name = " + consultant.getConsultantName() + " to the database.");
-        consultantRepository.save(consultant);
-        logger.info("Added consultant with name = " + consultant.getConsultantName() + " to the database.");
+        return consultantRepository.save(consultant);
 
+    }
+
+    public List<String> search(String keyword) {
+        logger.info("SEARCH RESULT = " + consultantRepository.findByConsultantNameContaining(keyword));
+        return consultantRepository.findByConsultantNameContaining(keyword).stream().map(object -> object.getConsultantName()).collect(Collectors.toList());
+    }
+
+    public List<Consultant> getConsultantsByName(String name) {
+        return consultantRepository.findByConsultantNameContaining(name);
     }
 
 }

@@ -16,22 +16,22 @@
             <div class="formContainer">
                 <div class="card">
                     <form:form
-                            modelAttribute="consultation"
+                            modelAttribute="consultationForm"
                             action="/add/consultation"
                             method="post"
                             name="consultation"
                             id="consultation"
                     >
                         <div class="formInputContainer">
-                            <label class="formLabel" for="patientId">Patient ID</label>
+                            <label class="formLabel" for="patientName">Patient Name</label>
                             <br/>
-                            <input class="formInput inputText" id="patientId" name="patientId" type="number" min="1" placeholder="12">
+                            <input class="formInput inputText" id="patientName" name="patientName" type="text" placeholder="Matthew Williams">
                         </div>
 
                         <div class="formInputContainer">
-                            <label class="formLabel" for="consultantId">Consultant ID</label>
+                            <label class="formLabel" for="consultantName">Consultant Name</label>
                             <br/>
-                            <input class="formInput inputText" id="consultantId" name="consultantId" type="number" min="1" placeholder="15">
+                            <input class="formInput inputText" id="consultantName" name="consultantName" type="text" placeholder="Edward Kenway">
                         </div>
 
                         <div class="formInputContainer">
@@ -44,6 +44,30 @@
                             <label class="formLabel" for="consultationDate">Consultation Date</label>
                             <br />
                             <input class="formInput inputText" id="consultationDate" name="consultationDate" type="date" placeholder="Consultation Date">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="illnessName">Diagnosis</label>
+                            <br/>
+                            <input class="formInput inputText" id="illnessName" name="illnessName" type="text" placeholder="Leptospirosis">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="drugName">Drug Prescribed</label>
+                            <br/>
+                            <input class="formInput inputText" id="drugName" name="drugName" type="text" placeholder="Doxycycline">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="testName">Test Performed</label>
+                            <br/>
+                            <input class="formInput inputText" id="testName" name="testName" type="text" placeholder="Alanine Transaminase">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="testValue">Test Result</label>
+                            <br/>
+                            <input class="formInput inputText" id="testValue" name="testValue" type="text" placeholder="24">
                         </div>
 
                         <div class="formInputContainer">
@@ -63,5 +87,29 @@
 
 <script type="text/javascript" src="../resources/js/forms/consultation.js"></script>
 <%@include file="../components/scripts.jsp"%>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#consultantName').autocomplete({
+            source: '${pageContext.request.contextPath}/api/consultants/search'
+        });
+
+        $('#patientName').autocomplete({
+            source: '${pageContext.request.contextPath}/api/patients/search'
+        });
+
+        $('#drugName').autocomplete({
+            source: '${pageContext.request.contextPath}/api/drugs/search'
+        });
+
+        $('#illnessName').autocomplete({
+            source: '${pageContext.request.contextPath}/api/illnesses/search'
+        });
+
+        $('#testName').autocomplete({
+            source: '${pageContext.request.contextPath}/api/tests/search'
+        });
+
+    });
+</script>
 </body>
 </html>

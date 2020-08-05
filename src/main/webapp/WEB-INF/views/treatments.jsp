@@ -18,6 +18,12 @@
                 <c:forEach var="treatment" items="${treatments}">
                     <div class="card subcard">
                         <div class="item capitalize">
+                            <span class="mutedText">Diagnosis ID</span> ${treatment.diagnosisId}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Treatment ID</span> ${treatment.treatmentId}
+                        </div>
+                        <div class="item capitalize">
                             <span class="mutedText">Diagnosis</span> ${treatment.diagnosis.illness.illnessName}
                         </div>
                         <div class="item capitalize">

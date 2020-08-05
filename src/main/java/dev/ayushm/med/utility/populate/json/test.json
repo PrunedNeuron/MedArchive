@@ -1,40 +1,34 @@
 [
   {
-    "consultationId": 1,
     "testName": "LDL Cholesterol",
     "testValue": "146 mg/dl"
   },
   {
-    "consultationId": 2
-  },
-  {
-    "consultationId": 3,
     "testName": "direct fluoroscent antibody study",
     "testValue": "positive"
   },
   {
-    "consultationId": 4,
     "testName": "EEG",
     "testValue": "consistent with epileptic seizures"
   },
   {
-    "consultationId": 5,
     "testName": "direct fluoroscent antibody study",
     "testValue": "positive"
   },
   {
-    "consultationId": 6,
     "testName": "urine culture",
     "testValue": "positive for pyuria"
   },
   {
-    "consultationId": 7,
     "testName": "malaria vivax and falciparum antigen",
     "testValue": "positive"
   },
   {
-    "consultationId": 8,
     "testName": "HbA1C",
     "testValue": "7.9"
+  },
+  {
+    "testName": "nerve conduction study",
+    "testValue": "consistent with nerve damage"
   }
 ]

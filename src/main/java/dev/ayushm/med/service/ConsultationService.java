@@ -41,11 +41,9 @@ public class ConsultationService {
         return  consultationRepository.findById(consultationId).get();
     }
 
-    public void addConsultation(Consultation consultation) {
-
+    public Consultation addConsultation(Consultation consultation) {
         logger.info("Adding consultation with patient ID = " + consultation.getPatientId() + " and consultant ID = " + consultation.getConsultantId() + " to the database.");
-        consultationRepository.save(consultation);
-        logger.info("Added consultation with patient ID = " + consultation.getPatientId() + " and consultant ID = " + consultation.getConsultantId() + " to the database.");
+        return consultationRepository.save(consultation);
     }
 
 }

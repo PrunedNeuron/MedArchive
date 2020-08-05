@@ -15,42 +15,6 @@
         <c:if test="${consultation.consultationId != null}">
 
             <div class="cards">
-                <%--<div class="centered cardContainer" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 250; repeat: true">
-                    <div class="uk-card uk-card-hover uk-card-default">
-
-                        <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Consultation #${consultation.consultationId}</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-card-body">
-                            <div class="uk-card-badge uk-label">${consultationDate}</div>
-                            <div>
-                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Patient</span>
-                                    ${consultation.patient.patientName}
-                            </div>
-                            <div>
-                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Consultant</span>
-                                    ${consultation.consultant.consultantName}
-                            </div>
-                            <div>
-                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Location</span>
-                                    ${consultation.consultationLocation}
-                            </div>
-                            <div>
-                                <span style="display: inline-block" class="uk-text-muted uk-text-small uk-text-uppercase">Diagnosis</span>
-                                    ${diagnoses}
-                            </div>
-                        </div>
-                        <div class="uk-card-footer">
-                            <a href="/patients/${consultation.patient.patientId}" class="uk-button uk-button-default">View Patient</a>
-                            <a href="/consultants/${consultation.consultant.consultantId}" class="uk-button uk-button-default">View Consultant</a>
-                        </div>
-                    </div>
-                </div>--%>
                     <div class="card subcard patientLess">
                         <div class="badge" style="float: right;">${consultationDate}</div>
                         <div class="item capitalize">
@@ -65,8 +29,14 @@
                         <div class="item capitalize">
                             <span class="mutedText">Location</span> ${consultation.consultationLocation}
                         </div>
+                        <div class="item">
+                            <span class="mutedText">Tests</span> <span class="capitalize">${consultation.test.testName}</span> - ${consultation.test.testValue}
+                        </div>
                         <div class="item capitalize">
                             <span class="mutedText">Diagnosis</span> ${diagnoses}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Treated with</span> ${drugs}
                         </div>
                         <hr />
                         <div class="item capitalize cardFooterButton noselect">

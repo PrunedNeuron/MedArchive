@@ -23,14 +23,14 @@ public class PopulatorUtility {
     public static void populate() throws IOException {
 
         headers.setContentType(MediaType.APPLICATION_JSON);
+        populateTests();
+        populateDrugs();
         populatePatients();
         populateConsultants();
         populateConsultations();
         populateIllnesses();
         populateDiagnoses();
-        populateDrugs();
         populateTreatments();
-        populateTests();
 
     }
 

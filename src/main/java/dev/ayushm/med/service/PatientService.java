@@ -2,14 +2,19 @@ package dev.ayushm.med.service;
 
 import dev.ayushm.med.model.*;
 import dev.ayushm.med.repository.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PatientService {
+
+    private static final Logger logger = LoggerFactory.getLogger(PatientService.class);
 
     @Autowired
     private PatientRepository patientRepository;
@@ -36,14 +41,19 @@ public class PatientService {
         return  patientRepository.findById(patientId).get();
     }
 
-    public void addPatient(Patient patient) {
-        patientRepository.save(patient);
+    public Patient addPatient(Patient patient) {
+        return patientRepository.save(patient);
     }
 
     public List<Consultation> getConsultations(Integer patientId) {
         List<Consultation> consultations = consultationRepository.findAllByPatientId(patientId);
 
         return consultations;
+    }
+
+    public List<String> search(String keyword) {
+        logger.info("SEARCH RESULT = " + patientRepository.findByPatientNameContaining(keyword));
+        return patientRepository.findByPatientNameContaining(keyword).stream().map(object -> object.getPatientName()).collect(Collectors.toList());
     }
 
     public List<Diagnosis> getDiagnoses(Integer patientId) {
@@ -85,6 +95,10 @@ public class PatientService {
         });
 
         return illnesses;
+    }
+
+    public List<Patient> getPatientsByName(String name) {
+        return patientRepository.findByPatientNameContaining(name);
     }
 
 }

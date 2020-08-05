@@ -30,8 +30,18 @@ public class TreatmentService {
         return treatmentRepository.findById(treatmentId).get();
     }
 
-    public void addTreatment(Treatment treatment) {
-        treatmentRepository.save(treatment);
+    public Treatment addTreatment(Treatment treatment) {
+        return treatmentRepository.save(treatment);
+    }
+
+    public List<Treatment> getTreatmentsByConsultationId(Integer consultationId) {
+        List<Treatment> treatments = new ArrayList<>();
+        treatmentRepository.findAll().forEach(treatment -> {
+            if (treatment.getDiagnosis().getConsultationId() == consultationId)
+                treatments.add(treatment);
+        });
+
+        return treatments;
     }
 
 }

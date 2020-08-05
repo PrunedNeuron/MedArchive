@@ -45,6 +45,13 @@ public class ApiController {
         patientService.addPatient(patient);
     }
 
+    @GetMapping("/patients/search")
+    public List<String> searchPatients(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
+        System.out.println("Patient search result = " + patientService.search(term));
+
+        return patientService.search(term);
+    }
+
     @GetMapping("/consultants")
     public List<Consultant> getAllConsultants() {
         return consultantService.getAllConsultants();
@@ -53,6 +60,13 @@ public class ApiController {
     @PostMapping("/consultants")
     public void addConsultant(@RequestBody Consultant consultant) {
         consultantService.addConsultant(consultant);
+    }
+
+    @GetMapping("/consultants/search")
+    public List<String> searchConsultants(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
+        System.out.println("Consultant search result = " + illnessService.search(term));
+
+        return consultantService.search(term);
     }
 
     @GetMapping("/illnesses")
@@ -65,6 +79,13 @@ public class ApiController {
         illnessService.addIllness(illness);
     }
 
+    @GetMapping("/illnesses/search")
+    public List<String> searchIllnesses(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
+        System.out.println("Illness search result = " + illnessService.search(term));
+
+        return illnessService.search(term);
+    }
+
     @GetMapping("/drugs")
     public List<Drug> getAllDrugs() {
         return drugService.getAllDrugs();
@@ -73,6 +94,13 @@ public class ApiController {
     @PostMapping("/drugs")
     public void addDrug(@RequestBody Drug drug) {
         drugService.addDrug(drug);
+    }
+
+    @GetMapping("/drugs/search")
+    public List<String> searchDrugs(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
+        System.out.println("Drug search result = " + illnessService.search(term));
+
+        return drugService.search(term);
     }
 
     @GetMapping("/consultations")
@@ -113,6 +141,13 @@ public class ApiController {
     @PostMapping("/tests")
     public void addTest(@RequestBody Test test) {
         testService.addTest(test);
+    }
+
+    @GetMapping("/tests/search")
+    public List<String> searchTests(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
+        System.out.println("Drug search result = " + testService.search(term));
+
+        return testService.search(term);
     }
 
 }

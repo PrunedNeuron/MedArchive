@@ -81,4 +81,15 @@ public class Diagnosis {
     public void setIllnessId(Integer illnessId) {
         this.illnessId = illnessId;
     }
+
+    @Override
+    public String toString() {
+        return "Diagnosis{" +
+                "diagnosisId=" + diagnosisId +
+                ", consultation=" + consultation +
+                ", consultationId=" + consultationId +
+                ", illness=" + illness +
+                ", illnessId=" + illnessId +
+                '}';
+    }
 }

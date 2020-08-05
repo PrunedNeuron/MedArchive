@@ -1,27 +1,27 @@
 
 const consultationForm = document.getElementById("consultation");
 
-const patientId = document.getElementById("patientId");
-const consultantId = document.getElementById("consultantId");
+const patientName = document.getElementById("patientName");
+const consultantName = document.getElementById("consultantName");
 const consultationLocation = document.getElementById("consultationLocation");
 
-patientId.addEventListener("change", function (event) {
-    if (!validateId(patientId.value)) {
-        removeClass(patientId, "formSuccess");
-        addAnotherClass(patientId, "formDanger");
+patientName.addEventListener("change", function (event) {
+    if (!validateName(patientName.value)) {
+        removeClass(patientName, "formSuccess");
+        addAnotherClass(patientName, "formDanger");
     } else {
-        removeClass(patientId, "formDanger");
-        addAnotherClass(patientId, "formSuccess")
+        removeClass(patientName, "formDanger");
+        addAnotherClass(patientName, "formSuccess")
     }
 })
 
-consultantId.addEventListener("change", function (event) {
-    if (!validateId(consultantId.value)) {
-        removeClass(consultantId, "formSuccess");
-        addAnotherClass(consultantId, "formDanger");
+consultantName.addEventListener("change", function (event) {
+    if (!validateAddress(consultantName.value)) {
+        removeClass(consultantName, "formSuccess");
+        addAnotherClass(consultantName, "formDanger");
     } else {
-        removeClass(consultantId, "formDanger");
-        addAnotherClass(consultantId, "formSuccess")
+        removeClass(consultantName, "formDanger");
+        addAnotherClass(consultantName, "formSuccess")
     }
 })
 
@@ -42,7 +42,6 @@ submitButton.addEventListener("click", function() {
         addAnotherClass(submitButton, "buttonPrimary");
         consultationForm.submit();
         setTimeout(function() {
-            makeIconVisible(checkIcon);
             consultationForm.reset();
         }, 3000);
     }
@@ -62,9 +61,9 @@ submitButton.addEventListener("click", function() {
 
 function validateConsultation() {
     return (
-        validateId(patientId.value)
+        validateName(patientName.value)
         &&
-        validateId(consultantId.value)
+        validateName(consultantName.value)
         &&
         validateAddress(consultationLocation.value)
     );
