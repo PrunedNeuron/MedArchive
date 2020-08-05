@@ -1,0 +1,34 @@
+[
+  {
+    "testName": "LDL Cholesterol",
+    "testValue": "146 mg/dl"
+  },
+  {
+    "testName": "direct fluoroscent antibody study",
+    "testValue": "positive"
+  },
+  {
+    "testName": "EEG",
+    "testValue": "consistent with epileptic seizures"
+  },
+  {
+    "testName": "direct fluoroscent antibody study",
+    "testValue": "positive"
+  },
+  {
+    "testName": "urine culture",
+    "testValue": "positive for pyuria"
+  },
+  {
+    "testName": "malaria vivax and falciparum antigen",
+    "testValue": "positive"
+  },
+  {
+    "testName": "HbA1C",
+    "testValue": "7.9"
+  },
+  {
+    "testName": "nerve conduction study",
+    "testValue": "consistent with nerve damage"
+  }
+]

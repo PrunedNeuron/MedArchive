@@ -1,0 +1,58 @@
+[
+  {
+    "patientId": 1,
+    "consultantId": 2,
+    "testId": 1,
+    "consultationLocation": "Saint Louis, MO",
+    "consultationDate": "2020-02-24"
+  },
+  {
+    "patientId": 1,
+    "consultantId": 5,
+    "testId": 8,
+    "consultationLocation": "New York, NY",
+    "consultationDate": "2020-07-12"
+  },
+  {
+    "patientId": 2,
+    "consultantId": 2,
+    "testId": 2,
+    "consultationLocation": "Bethesda, MD",
+    "consultationDate": "2019-11-21"
+  },
+  {
+    "patientId": 4,
+    "consultantId": 4,
+    "testId": 3,
+    "consultationLocation": "Cloverdale, CA",
+    "consultationDate": "2020-05-06"
+  },
+  {
+    "patientId": 3,
+    "consultantId": 1,
+    "testId": 2,
+    "consultationLocation": "Pittsburgh, PA",
+    "consultationDate": "2019-09-18"
+  },
+  {
+    "patientId": 6,
+    "consultantId": 3,
+    "testId": 5,
+    "consultationLocation": "San Francisco, CA",
+    "consultationDate": "2020-05-19"
+  },
+  {
+    "patientId": 5,
+    "consultantId": 6,
+    "testId": 6,
+    "consultationLocation": "Plano, TX",
+    "consultationDate": "2020-01-30"
+  },
+  {
+    "patientId": 6,
+    "consultantId": 2,
+    "testId": 7,
+    "consultationLocation": "Richmond, VA",
+    "consultationDate": "2020-04-12"
+  }
+]
