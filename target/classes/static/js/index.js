@@ -60,3 +60,16 @@ function addAnotherClass(element, addend) {
 function removeClass(element, substring) {
     element.className = element.className.replaceAll(substring, "");
 }
+
+function hideElement(element) {
+    element.style.display = "none";
+}
+
+function validateText(text) {
+    return text != null && text != "";
+}
+
+
+setTimeout(function() {
+    hideElement(formStatusMessage);
+}, 5000);

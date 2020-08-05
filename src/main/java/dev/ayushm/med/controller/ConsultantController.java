@@ -21,7 +21,7 @@ public class ConsultantController {
         List<Consultant> consultants = consultantService.getAllConsultants();
         model.addAttribute("consultants", consultants);
 
-        return "consultants";
+        return "pages/consultants";
     }
 
     @GetMapping("/consultants/{consultantId}")
@@ -29,7 +29,7 @@ public class ConsultantController {
         Consultant consultant = consultantService.getConsultant(consultantId);
         model.addAttribute("consultant", consultant);
 
-        return "consultants";
+        return "pages/consultants";
     }
 
 }

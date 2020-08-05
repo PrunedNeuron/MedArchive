@@ -4,19 +4,19 @@
 <html>
 <head>
     <title>${patient.patientName}'s Medical History</title>
-    <%@include file="components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
             <c:set var="length" scope="session" value="${fn:length(consultations)}" />
             <h4>${consultations[0].patient.patientName} has had ${length} ${length > 1 ? "consultations" : "consultation"}.</h4>
             <div class="cards">
                 <c:forEach var="consultation" items="${consultations}">
-                    <div class="card subcard patientLess">
+                    <div class="card">
                         <div class="item capitalize">
                             <span class="mutedText">Patient</span> ${consultation.patient.patientName}
                         </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </main>
-    <%@include file="components/footer.jsp"%>
+    <%@include file="../components/footer.jsp"%>
 </div>
 
 
@@ -43,6 +43,6 @@
 </html>
 
 
-<%@include file="components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp"%>
 </body>
 </html>

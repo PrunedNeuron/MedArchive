@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Patients</title>
-    <%@include file="components/stylesheets.jsp" %>
+    <%@include file="../components/stylesheets.jsp" %>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 </style>
 
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp" %>
+    <%@include file="../components/navigation.jsp" %>
     <div class="mainBody">
         <c:if test="${patient.patientId != null}">
 
@@ -113,11 +113,11 @@
     </div>
 
     <c:if test="${patient.patientId == null}">
-        <%@include file="components/footer.jsp"%>
+        <%@include file="../components/footer.jsp"%>
     </c:if>
 
 </div>
 
-<%@include file="components/scripts.jsp" %>
+<%@include file="../components/scripts.jsp" %>
 </body>
 </html>

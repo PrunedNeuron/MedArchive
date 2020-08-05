@@ -21,7 +21,7 @@ public class IllnessController {
         List<Illness> illnesses = illnessService.getAllIllnesses();
         model.addAttribute("illnesses", illnesses);
 
-        return "illnesses";
+        return "pages/illnesses";
     }
 
     @GetMapping("/illnesses/{illnessId}")
@@ -29,7 +29,7 @@ public class IllnessController {
         Illness illness = illnessService.getIllness(illnessId);
         model.addAttribute("illness", "illness");
 
-        return "illnesses";
+        return "pages/illnesses";
     }
 
 }

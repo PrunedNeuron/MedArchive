@@ -37,7 +37,7 @@ testValue.addEventListener("change", function (event) {
 
 
 submitButton.addEventListener("click", function() {
-    if (validateConsultation()){
+    if (validateTest()){
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
@@ -62,7 +62,7 @@ function validateDescription(description) {
     return description != null && description != "";
 }
 
-function validateConsultation() {
+function validateTest() {
     return (
         validateId(consultationId.value)
         &&

@@ -32,6 +32,13 @@
 
                         <div class="formInputContainer">
                             <button id="submitButton" type="button" class="submitButton">Submit</button>
+                            <div id="formStatusMessage" class="inlineBlock" style="margin-left: 1rem; color: #00d465">
+                                <c:if test="${status == true}">
+                                    <%--                                    Added patient with ID = ${modelId}--%>
+                                    <i class="fas fa-check"></i>
+                                    Success!
+                                </c:if>
+                            </div>
                         </div>
 
                     </form:form>
@@ -41,7 +48,7 @@
     </main>
 </div>
 
-<script type="text/javascript" src="../resources/js/forms/treatment.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/forms/treatment.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

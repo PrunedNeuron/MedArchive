@@ -21,7 +21,7 @@ public class TestController {
         List<Test> tests = testService.getAllTests();
         model.addAttribute("tests", tests);
 
-        return "tests";
+        return "pages/tests";
     }
 
     @GetMapping("/tests/{testId}")
@@ -29,7 +29,7 @@ public class TestController {
         Test test = testService.getTest(testId);
         model.addAttribute("test", test);
 
-        return "tests";
+        return "pages/tests";
     }
 
 }

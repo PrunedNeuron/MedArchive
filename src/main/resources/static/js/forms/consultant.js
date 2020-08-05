@@ -6,6 +6,7 @@ const consultantEmail = document.getElementById("consultantEmail");
 const consultantPhone = document.getElementById("consultantPhone");
 const consultantSpecialty = document.getElementById("consultantSpecialty");
 const consultantExperience = document.getElementById("consultantExperience");
+const formStatusMessage = document.getElementById("formStatusMessage");
 
 consultantName.addEventListener("change", function (event) {
     if (!namePattern.test(consultantName.value)) {
@@ -102,3 +103,4 @@ function validateConsultant() {
         validateExperience()
     );
 }
+

@@ -86,6 +86,3 @@ function validatePatient() {
     );
 }
 
-setTimeout(function() {
-    hideElement(formStatusMessage);
-}, 5000);

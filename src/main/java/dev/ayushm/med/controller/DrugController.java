@@ -21,7 +21,7 @@ public class DrugController {
         List<Drug> drugs = drugService.getAllDrugs();
         model.addAttribute("drugs", drugs);
 
-        return "drugs";
+        return "pages/drugs";
     }
 
     @GetMapping("/drugs/{drugId}")
@@ -29,7 +29,7 @@ public class DrugController {
         Drug drug = drugService.getDrug(drugId);
         model.addAttribute("drug", drug);
 
-        return "drugs";
+        return "pages/drugs";
     }
 
 }

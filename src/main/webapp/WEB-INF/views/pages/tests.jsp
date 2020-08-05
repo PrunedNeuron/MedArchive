@@ -6,12 +6,12 @@
 <html>
 <head>
     <title>Tests</title>
-    <%@include file="components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
 
@@ -30,9 +30,9 @@
 
         </div>
     </main>
-    <%@include file="components/footer.jsp"%>
+    <%@include file="../components/footer.jsp"%>
 </div>
 
-<%@include file="components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp"%>
 </body>
 </html>

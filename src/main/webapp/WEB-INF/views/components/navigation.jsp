@@ -53,10 +53,10 @@
                     <li><a href="/add/consultant">Consultant</a></li>
                     <li><a href="/add/consultation">Consultation</a></li>
                     <li><a href="/add/illness">Illness</a></li>
-                    <li><a href="/add/diagnosis">Diagnosis</a></li>
+<%--                    <li><a href="/add/diagnosis">Diagnosis</a></li>--%>
                     <li><a href="/add/drug">Drug</a></li>
-                    <li><a href="/add/treatment">Treatment</a></li>
-                    <li><a href="/add/test">Test</a></li>
+<%--                    <li><a href="/add/treatment">Treatment</a></li>--%>
+<%--                    <li><a href="/add/test">Test</a></li>--%>
                 </ul>
             </div>
         </div>

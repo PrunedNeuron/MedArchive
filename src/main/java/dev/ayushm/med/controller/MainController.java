@@ -35,12 +35,12 @@ public class MainController {
         model.addAttribute("consultations", consultations);
         model.addAttribute("treatments", treatments);
 
-        return "index";
+        return "pages/index";
     }
 
     @GetMapping("/error")
     public String error() {
-        return "error";
+        return "pages/error";
     }
 
 }

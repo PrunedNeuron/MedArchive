@@ -64,3 +64,12 @@ function removeClass(element, substring) {
 function hideElement(element) {
     element.style.display = "none";
 }
+
+function validateText(text) {
+    return text != null && text != "";
+}
+
+
+setTimeout(function() {
+    hideElement(formStatusMessage);
+}, 5000);

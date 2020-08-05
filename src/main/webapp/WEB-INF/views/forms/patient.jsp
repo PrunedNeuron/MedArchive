@@ -94,7 +94,7 @@
         </div>
     </main>
 </div>
-<script type="text/javascript" src="../resources/js/forms/patient.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/forms/patient.js"></script>
 <%@include file="../components/scripts.jsp" %>
 </body>
 </html>

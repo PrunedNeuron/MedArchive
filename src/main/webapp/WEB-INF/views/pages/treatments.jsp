@@ -5,12 +5,12 @@
 <html>
 <head>
     <title>Title</title>
-    <%@include file="components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
             <h4>All diagnoses and their treatments</h4>
@@ -18,30 +18,25 @@
                 <c:forEach var="treatment" items="${treatments}">
                     <div class="card subcard">
                         <div class="item capitalize">
-                            <span class="mutedText">Diagnosis ID</span> ${treatment.diagnosisId}
-                        </div>
-                        <div class="item capitalize">
-                            <span class="mutedText">Treatment ID</span> ${treatment.treatmentId}
-                        </div>
-                        <div class="item capitalize">
                             <span class="mutedText">Diagnosis</span> ${treatment.diagnosis.illness.illnessName}
-                        </div>
+                        </div>The following illnesses are currently present in the database.
+                        Amyloidosis
                         <div class="item capitalize">
                             <span class="mutedText">Treated with</span> ${treatment.drug.drugName}
                         </div>
                         <hr />
                         <div class="item capitalize cardFooterButton noselect">
-                            <a href="/drugs" class="button">View drugs</a>
-                            <a href="/illnesses" class="button">View illnesses</a>
+                            <a href="/drugs" class="button">View more drugs</a>
+                            <a href="/illnesses" class="button">View more illnesses</a>
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </div>
     </main>
-    <%@include file="components/footer.jsp"%>
+    <%@include file="../components/footer.jsp"%>
 </div>
 
-<%@include file="components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp"%>
 </body>
 </html>

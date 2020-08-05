@@ -59,14 +59,12 @@ public class FormController {
     @PostMapping("/patient")
     public String postPatientForm(@ModelAttribute("patient") Patient patient, BindingResult result, Model model) {
         if (result.hasErrors())
-            return "error";
-
-        logger.info("Added patient: " + patient.toString());
-        logger.info("Added patient: " + patient.getPatientName());
+            return "pages/error";
 
         Patient addedPatient = patientService.addPatient(patient);
+        logger.info("Added patient: " + addedPatient.toString());
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedPatient != null);
         model.addAttribute("status", patient != null);
         model.addAttribute("modelName", "patient");
         model.addAttribute("modelId", addedPatient.getPatientId());
@@ -84,19 +82,17 @@ public class FormController {
     public String postConsultantForm(@ModelAttribute("consultant") Consultant consultant, BindingResult result, Model model) {
 
         if (result.hasErrors())
-            return "error";
-
-        logger.info("Added consultant: " + consultant.toString());
-        logger.info("Added consultant: " + consultant.getConsultantName());
+            return "pages/error";
 
         Consultant addedConsultant = consultantService.addConsultant(consultant);
+        logger.info("Added consultant: " + addedConsultant.toString());
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedConsultant != null);
         model.addAttribute("status", consultant != null);
         model.addAttribute("modelName", "consultant");
         model.addAttribute("modelId", addedConsultant.getConsultantId());
 
-        return "forms/added";
+        return "forms/consultant";
     }
 
     @GetMapping("/consultation")
@@ -109,7 +105,7 @@ public class FormController {
 
         if (result.hasErrors()) {
             System.out.println(result.toString());
-            return "error";
+            return "pages/error";
         }
 
         logger.info("About to add consultation form: " + consultationForm.toString());
@@ -200,12 +196,12 @@ public class FormController {
         logger.info("Added treatment " + addedTreatment);
 
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedConsultation != null);
         model.addAttribute("status", consultationForm != null);
         model.addAttribute("modelName", "consultation");
         model.addAttribute("modelId", addedConsultation.getConsultationId());
 
-        return "forms/added";
+        return "forms/consultation";
     }
 
     @GetMapping("/illness")
@@ -217,18 +213,18 @@ public class FormController {
     public String postIllnessForm(@ModelAttribute("illness") Illness illness, BindingResult result, Model model) {
 
         if (result.hasErrors())
-            return "error";
+            return "pages/error";
 
         logger.info("Added illness: " + illness.toString());
 
         Illness addedIllness = illnessService.addIllness(illness);
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedIllness != null);
         model.addAttribute("status", illness != null);
         model.addAttribute("modelName", "illness");
         model.addAttribute("modelId", addedIllness.getIllnessId());
 
-        return "forms/added";
+        return "forms/illness";
     }
 
 
@@ -241,18 +237,18 @@ public class FormController {
     public String postDiagnosisForm(@ModelAttribute("diagnosis") Diagnosis diagnosis, BindingResult result, Model model) {
 
         if (result.hasErrors())
-            return "error";
+            return "pages/error";
 
         logger.info("Added diagnosis: " + diagnosis.toString());
 
         Diagnosis addedDiagnosis = diagnosisService.addDiagnosis(diagnosis);
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedDiagnosis != null);
         model.addAttribute("status", diagnosis != null);
         model.addAttribute("modelName", "diagnosis");
         model.addAttribute("modelId", addedDiagnosis.getDiagnosisId());
 
-        return "forms/added";
+        return "forms/diagnosis";
     }
 
     @GetMapping("/drug")
@@ -264,18 +260,18 @@ public class FormController {
     public String postDrugForm(@ModelAttribute("drug") Drug drug, BindingResult result, Model model) {
 
         if (result.hasErrors())
-            return "error";
+            return "pages/error";
 
         logger.info("Added drug: " + drug.toString());
 
         Drug addedDrug = drugService.addDrug(drug);
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedDrug != null);
         model.addAttribute("status", drug != null);
         model.addAttribute("modelName", "drug");
         model.addAttribute("modelId", addedDrug.getDrugId());
 
-        return "forms/added";
+        return "forms/drug";
     }
 
     @GetMapping("/treatment")
@@ -287,18 +283,18 @@ public class FormController {
     public String postTreatmentForm(@ModelAttribute("treatment") Treatment treatment, BindingResult result, Model model) {
 
         if (result.hasErrors())
-            return "error";
+            return "pages/error";
 
         logger.info("Added treatment: " + treatment.toString());
 
         Treatment addedTreatment = treatmentService.addTreatment(treatment);
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedTreatment != null);
         model.addAttribute("status", treatment != null);
         model.addAttribute("modelName", "treatment");
         model.addAttribute("modelId", addedTreatment.getTreatmentId());
 
-        return "forms/added";
+        return "forms/treatment";
     }
 
     @GetMapping("/test")
@@ -310,18 +306,18 @@ public class FormController {
     public String postTestForm(@ModelAttribute("test") Test test, BindingResult result, Model model) {
 
         if (result.hasErrors())
-            return "error";
+            return "pages/error";
 
         logger.info("Added test: " + test.toString());
 
         Test addedTest = testService.addTest(test);
 
-        model.addAttribute("submittedForm", true);
+        model.addAttribute("submittedForm", addedTest != null);
         model.addAttribute("status", test != null);
         model.addAttribute("modelName", "test");
         model.addAttribute("modelId", addedTest.getTestId());
 
-        return "forms/added";
+        return "forms/test";
     }
 
 }

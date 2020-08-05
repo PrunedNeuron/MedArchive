@@ -86,10 +86,3 @@ function validatePatient() {
     );
 }
 
-function hideElement(element) {
-    element.style.display = "none";
-}
-
-setTimeout(function() {
-    hideElement(formStatusMessage);
-}, 5000);

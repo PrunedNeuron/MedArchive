@@ -35,7 +35,7 @@ public class ConsultationController {
         List<Consultation> consultations = consultationService.getAllConsultations();
         model.addAttribute("consultationList", consultations);
 
-        return "consultations";
+        return "pages/consultations";
     }
 
     @GetMapping("/consultations/{consultationId}")
@@ -59,6 +59,6 @@ public class ConsultationController {
         model.addAttribute("diagnoses", illnesses);
         model.addAttribute("drugs", drugs);
 
-        return "consultations";
+        return "pages/consultations";
     }
 }

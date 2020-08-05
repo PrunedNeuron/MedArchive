@@ -31,7 +31,7 @@ public class PatientController {
         List<Patient> patients = patientService.getAllPatients();
         model.addAttribute("patients", patients);
 
-        return "patients";
+        return "pages/patients";
     }
 
     @GetMapping("/{patientId}")
@@ -71,7 +71,7 @@ public class PatientController {
         model.addAttribute("patient", patient);
 
 
-        return "patients";
+        return "pages/patients";
     }
 
     @GetMapping("{patientId}/history")
@@ -80,7 +80,7 @@ public class PatientController {
         model.addAttribute("patient", patientService.getPatient(patientId));
         model.addAttribute("consultations", consultations);
 
-        return "/history";
+        return "pages/history";
     }
 
 }

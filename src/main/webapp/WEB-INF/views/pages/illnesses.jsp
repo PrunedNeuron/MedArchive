@@ -6,23 +6,23 @@
 <html>
 <head>
     <title>Illnesses</title>
-    <%@include file="components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
 
-            <h3 style="text-align: center">The following illnesses are currently present in the database.</h3>
+            <h1>Illnesses</h1>
             <ul class="uk-list">
                 <c:forEach var="illness" items="${illnesses}">
                     <c:set var="illnessUri" value="${fn:replace(illness.illnessName, ' ', '_')}" />
                     <li>
                         <h3 class="uk-heading-bullet">
                             <a href="https://en.wikipedia.org/wiki/${illnessUri}"
-                               target="_blank" rel="noopener noreferrer">
+                               target="_blank" rel="noopener noreferrer">Illnesses
                                     ${illness.illnessName} <i class="fas fa-external-link-alt"></i>
                             </a>
                         </h3>
@@ -37,9 +37,9 @@
 
         </div>
     </main>
-    <%@include file="components/footer.jsp"%>
+    <%@include file="../components/footer.jsp"%>
 </div>
 
-<%@include file="components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp"%>
 </body>
 </html>

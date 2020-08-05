@@ -20,7 +20,7 @@ public class TreatmentController {
         List<Treatment> treatments = treatmentService.getAllTreatments();
         model.addAttribute("treatments", treatments);
 
-        return "treatments";
+        return "pages/treatments";
     }
 
 }

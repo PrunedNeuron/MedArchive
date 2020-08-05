@@ -77,7 +77,15 @@
 
                         <div class="formInputContainer">
                             <button id="submitButton" type="button" class="submitButton">Submit</button>
+                            <div id="formStatusMessage" class="inlineBlock" style="margin-left: 1rem; color: #00d465">
+                                <c:if test="${status == true}">
+                                    <%--                                    Added patient with ID = ${modelId}--%>
+                                    <i class="fas fa-check"></i>
+                                    Success!
+                                </c:if>
+                            </div>
                         </div>
+
                         <div>
                             <c:if test="submittedForm">
                                 <h6>${status ? "Successfully added " : "Failed to add "}a patient!</h6>
@@ -91,7 +99,7 @@
     </main>
 </div>
 
-<script type="text/javascript" src="../resources/js/forms/consultant.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/forms/consultant.js"></script>
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

@@ -6,11 +6,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigiMedArchive</title>
-    <%@include file="components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
             <div class="cards">
@@ -70,9 +70,9 @@
 
         </div>
     </main>
-    <%@include file="components/footer.jsp"%>
+    <%@include file="../components/footer.jsp"%>
 </div>
 
-<%@include file="components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp"%>
 </body>
 </html>

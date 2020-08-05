@@ -5,12 +5,12 @@
 <html>
 <head>
     <title>Title</title>
-    <%@include file="components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp"%>
     <div class="mainBody">
         <c:if test="${consultation.consultationId != null}">
 
@@ -68,12 +68,12 @@
     </div>
 
     <c:if test="${consultation.consultationId == null}">
-        <%@include file="components/footer.jsp"%>
+        <%@include file="../components/footer.jsp"%>
     </c:if>
 
 
 </div>
 
-<%@include file="components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp"%>
 </body>
 </html>

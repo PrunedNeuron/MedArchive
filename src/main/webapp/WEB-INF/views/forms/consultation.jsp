@@ -25,7 +25,7 @@
                         <div class="formInputContainer">
                             <label class="formLabel" for="patientName">Patient Name</label>
                             <br/>
-                            <input class="formInput inputText" id="patientName" name="patientName" type="text" placeholder="Matthew Williams">
+                            <input class="formInput inputText" id="patientName" name="patientName" type="text" placeholder="Nathan Drake">
                         </div>
 
                         <div class="formInputContainer">
@@ -37,7 +37,7 @@
                         <div class="formInputContainer">
                             <label class="formLabel" for="consultationLocation">Consultation Location</label>
                             <br/>
-                            <input class="formInput inputText" id="consultationLocation" name="consultationLocation" type="text" placeholder="Newark, NY">
+                            <input class="formInput inputText" id="consultationLocation" name="consultationLocation" type="text" placeholder="Chicago, IL">
                         </div>
 
                         <div class="formInputContainer">
@@ -47,32 +47,39 @@
                         </div>
 
                         <div class="formInputContainer">
-                            <label class="formLabel" for="illnessName">Diagnosis</label>
-                            <br/>
-                            <input class="formInput inputText" id="illnessName" name="illnessName" type="text" placeholder="Leptospirosis">
-                        </div>
-
-                        <div class="formInputContainer">
-                            <label class="formLabel" for="drugName">Drug Prescribed</label>
-                            <br/>
-                            <input class="formInput inputText" id="drugName" name="drugName" type="text" placeholder="Doxycycline">
-                        </div>
-
-                        <div class="formInputContainer">
                             <label class="formLabel" for="testName">Test Performed</label>
                             <br/>
-                            <input class="formInput inputText" id="testName" name="testName" type="text" placeholder="Alanine Transaminase">
+                            <input class="formInput inputText capitalize" id="testName" name="testName" type="text" placeholder="Alanine Transaminase">
                         </div>
 
                         <div class="formInputContainer">
                             <label class="formLabel" for="testValue">Test Result</label>
                             <br/>
-                            <input class="formInput inputText" id="testValue" name="testValue" type="text" placeholder="24">
+                            <input class="formInput inputText" id="testValue" name="testValue" type="text" placeholder="24 mg/dl">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="illnessName">Diagnosis</label>
+                            <br/>
+                            <input class="formInput inputText capitalize" id="illnessName" name="illnessName" type="text" placeholder="Leptospirosis">
+                        </div>
+
+                        <div class="formInputContainer">
+                            <label class="formLabel" for="drugName">Drug Prescribed</label>
+                            <br/>
+                            <input class="formInput inputText capitalize" id="drugName" name="drugName" type="text" placeholder="Doxycycline">
                         </div>
 
                         <div class="formInputContainer">
                             <button id="submitButton" type="button" class="submitButton">Submit</button>
+                            <div id="formStatusMessage" class="inlineBlock" style="margin-left: 1rem; color: #00d465">
+                                <c:if test="${status == true}">
+                                    <i class="fas fa-check"></i>
+                                    Success!
+                                </c:if>
+                            </div>
                         </div>
+
                         <div>
                             <c:if test="submittedForm">
                                 <h6>${status ? "Successfully added " : "Failed to add "}a patient!</h6>
@@ -85,8 +92,8 @@
     </main>
 </div>
 
-<script type="text/javascript" src="../resources/js/forms/consultation.js"></script>
 <%@include file="../components/scripts.jsp"%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/forms/consultation.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#consultantName').autocomplete({
