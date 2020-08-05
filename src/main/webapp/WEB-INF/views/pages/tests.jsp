@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Tests</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/head.jsp"%>
 </head>
 <body>
 
@@ -14,7 +14,6 @@
     <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-
             <h2>Medical Tests</h2>
             <ul class="list" style="text-align: left">
                 <c:forEach var="test" items="${tests}">

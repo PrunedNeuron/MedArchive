@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Add diagnosis</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/head.jsp"%>
 </head>
 <body>
 

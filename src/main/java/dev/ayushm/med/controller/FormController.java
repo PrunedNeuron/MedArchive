@@ -46,10 +46,7 @@ public class FormController {
     @Autowired
     private TestService testService;
 
-    @GetMapping("/added")
-    public String getAddedPage() {
-        return "/forms/added";
-    }
+
 
     @GetMapping("/patient")
     public String getPatientForm() {

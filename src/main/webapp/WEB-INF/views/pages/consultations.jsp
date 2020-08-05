@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Consultations</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/head.jsp"%>
 </head>
 <body>
 <div class="bodyContainer">

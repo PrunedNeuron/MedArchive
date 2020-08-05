@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Patients treated by ${consultant.consultantName}</title>
-    <%@include file="../components/stylesheets.jsp" %>
+    <%@include file="../components/head.jsp" %>
 </head>
 <body>
 

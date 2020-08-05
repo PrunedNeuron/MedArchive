@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>${patient.patientName}'s Medical History</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/head.jsp"%>
 </head>
 <body>
 

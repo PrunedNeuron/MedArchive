@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Drugs</title>
-    <%@include file="../components/stylesheets.jsp" %>
+    <%@include file="../components/head.jsp" %>
 </head>
 <body>
 

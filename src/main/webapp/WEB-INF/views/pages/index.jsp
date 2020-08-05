@@ -6,7 +6,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigiMedArchive</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/head.jsp"%>
 </head>
 <body>
 <div class="bodyContainer">
