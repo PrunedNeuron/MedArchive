@@ -17,7 +17,7 @@ public class TreatmentController {
 
     @GetMapping("/treatments")
     public String getAllTreatments(Model model) {
-        List<Treatment> treatments = treatmentService.getAllTreatments();
+        List<Treatment> treatments = treatmentService.getAllTreatmentsSorted();
         model.addAttribute("treatments", treatments);
 
         return "pages/treatments";

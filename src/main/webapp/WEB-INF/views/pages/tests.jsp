@@ -15,14 +15,19 @@
     <main class="main">
         <div class="mainBody">
 
-            <h3 style="text-align: center">The following tests are currently present in the database.</h3>
-            <ul class="list">
+            <h2>Medical Tests</h2>
+            <ul class="list" style="text-align: left">
                 <c:forEach var="test" items="${tests}">
                     <c:if test="${test.testName != null}">
+                        <c:set var="testUri" value="${fn:replace(test.testName, ' ', '_')}"/>
                         <li>
-                            <h3 class="capitalize">
-                                    ${test.testName}
-                            </h3>
+                            <p class="capitalize">
+
+                                <a href="https://en.wikipedia.org/wiki/${testUri}"
+                                   target="_blank" rel="noopener noreferrer">
+                                        ${test.testName} <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </p>
                         </li>
                     </c:if>
                 </c:forEach>

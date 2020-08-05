@@ -10,10 +10,9 @@
 
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp"%>
-    <main class="main">
         <div class="mainBody">
             <c:set var="length" scope="session" value="${fn:length(consultations)}" />
-            <h4>${consultations[0].patient.patientName} has had ${length} ${length > 1 ? "consultations" : "consultation"}.</h4>
+            <h2 style="text-align: center;"><a href="/patients/${consultations[0].patient.patientId}">${consultations[0].patient.patientName}</a> has had ${length} ${length > 1 ? "consultations" : "consultation"}.</h2>
             <div class="cards">
                 <c:forEach var="consultation" items="${consultations}">
                     <div class="card">
@@ -34,8 +33,7 @@
                 </c:forEach>
             </div>
         </div>
-    </main>
-    <%@include file="../components/footer.jsp"%>
+<%--    <%@include file="../components/footer.jsp"%>--%>
 </div>
 
 

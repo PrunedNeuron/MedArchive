@@ -36,12 +36,20 @@
                 <ul class="dropdown-content">
                     <li><a href="/consultants">Consultants</a></li>
                     <li><a href="/illnesses">Illnesses</a></li>
-                    <li><a href="/treatments">Diagnoses</a></li>
+<%--                    <li><a href="/treatments">Diagnoses</a></li>--%>
                     <li><a href="/drugs">Drugs</a></li>
                     <li><a href="/treatments">Treatments</a></li>
                     <li><a href="/tests">Tests</a></li>
                 </ul>
             </div>
+        </div>
+
+        <style>
+
+        </style>
+
+        <div class="navCenter">
+            DigiMedArchive
         </div>
         <div class="navRight">
             <div class="dropdown">

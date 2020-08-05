@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Add consultation</title>
     <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
@@ -94,29 +94,5 @@
 
 <%@include file="../components/scripts.jsp"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/forms/consultation.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#consultantName').autocomplete({
-            source: '${pageContext.request.contextPath}/api/consultants/search'
-        });
-
-        $('#patientName').autocomplete({
-            source: '${pageContext.request.contextPath}/api/patients/search'
-        });
-
-        $('#drugName').autocomplete({
-            source: '${pageContext.request.contextPath}/api/drugs/search'
-        });
-
-        $('#illnessName').autocomplete({
-            source: '${pageContext.request.contextPath}/api/illnesses/search'
-        });
-
-        $('#testName').autocomplete({
-            source: '${pageContext.request.contextPath}/api/tests/search'
-        });
-
-    });
-</script>
 </body>
 </html>

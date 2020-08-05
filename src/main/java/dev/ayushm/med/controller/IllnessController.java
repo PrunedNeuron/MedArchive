@@ -27,7 +27,7 @@ public class IllnessController {
     @GetMapping("/illnesses/{illnessId}")
     public String getIllness(@PathVariable Integer illnessId, Model model) {
         Illness illness = illnessService.getIllness(illnessId);
-        model.addAttribute("illness", "illness");
+        model.addAttribute("illness", illness);
 
         return "pages/illnesses";
     }

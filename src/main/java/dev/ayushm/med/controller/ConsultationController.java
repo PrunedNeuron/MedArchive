@@ -32,7 +32,12 @@ public class ConsultationController {
     @GetMapping("/consultations")
     public String getAllConsultations(Model model) {
 
-        List<Consultation> consultations = consultationService.getAllConsultations();
+        List<Consultation> consultations = consultationService
+                .getAllConsultations()
+                .stream()
+                .distinct()
+                .collect(Collectors.toList());
+
         model.addAttribute("consultationList", consultations);
 
         return "pages/consultations";
@@ -44,12 +49,12 @@ public class ConsultationController {
         List<Diagnosis> diagnoses = diagnosisService.geDiagnosisByConsultationId(consultationId);
         List<Treatment> treatments = treatmentService.getTreatmentsByConsultationId(consultationId);
 
-        String illnesses = new HashSet<Diagnosis>(diagnoses)
+        String illnesses = new HashSet<>(diagnoses)
                 .stream()
                 .map(diagnosis -> String.valueOf(diagnosis.getIllness().getIllnessName()))
                 .collect(Collectors.joining(", "));
 
-        String drugs = new HashSet<Treatment>(treatments)
+        String drugs = new HashSet<>(treatments)
                 .stream()
                 .map(treatment -> String.valueOf(treatment.getDrug().getDrugName()))
                 .collect(Collectors.joining(", "));

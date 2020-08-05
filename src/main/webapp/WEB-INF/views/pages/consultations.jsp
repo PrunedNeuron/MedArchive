@@ -4,16 +4,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Consultations</title>
     <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
-
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp"%>
     <div class="mainBody">
         <c:if test="${consultation.consultationId != null}">
-
             <div class="cards">
                     <div class="card subcard patientLess">
                         <div class="badge" style="float: right;">${consultationDate}</div>
@@ -47,10 +45,10 @@
             </div>
         </c:if>
         <c:if test="${consultation.consultationId == null}">
-            <h4>All Consultations</h4>
+            <h2 style="text-align: center;">All Consultations</h2>
             <div class="cards">
                 <c:forEach var="consultation" items="${consultationList}">
-                    <div class="card subcard patientLess">
+                    <div class="card">
                         <div class="item capitalize">
                             <span class="mutedText">Patient</span> ${consultation.patient.patientName}
                         </div>
@@ -66,14 +64,10 @@
             </div>
         </c:if>
     </div>
-
     <c:if test="${consultation.consultationId == null}">
         <%@include file="../components/footer.jsp"%>
     </c:if>
-
-
 </div>
-
 <%@include file="../components/scripts.jsp"%>
 </body>
 </html>

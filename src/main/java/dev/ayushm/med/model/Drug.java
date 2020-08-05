@@ -1,6 +1,7 @@
 package dev.ayushm.med.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "drug")
@@ -72,4 +73,18 @@ public class Drug {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drug drug = (Drug) o;
+        return Objects.equals(drugName, drug.drugName) &&
+                Objects.equals(drugClassification, drug.drugClassification) &&
+                Objects.equals(drugMechanism, drug.drugMechanism);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(drugName, drugClassification, drugMechanism);
+    }
 }

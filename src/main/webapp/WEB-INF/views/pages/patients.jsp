@@ -21,7 +21,6 @@
     <%@include file="../components/navigation.jsp" %>
     <div class="mainBody">
         <c:if test="${patient.patientId != null}">
-
             <div class="cards">
                 <div class="card subcard">
                     <c:if test="${allergyAlert == true}">
@@ -86,10 +85,10 @@
             </div>
         </c:if>
         <c:if test="${patient.patientId == null}">
-            <h4>All patients</h4>
+            <h2 style="text-align: center;">All Patients</h2>
             <div class="cards">
                 <c:forEach var="patient" items="${patients}">
-                    <div class="card subcard patientLess">
+                    <div class="card">
                         <div class="item capitalize">
                             <span class="mutedText">ID</span> ${patient.patientId}
                         </div>

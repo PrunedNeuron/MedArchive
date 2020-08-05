@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Consultants</title>
     <%@include file="../components/stylesheets.jsp" %>
 </head>
 <body>
@@ -38,19 +38,27 @@
                         </span>
                     </div>
 
+                    <hr />
+                    <div class="item capitalize cardFooterButton noselect">
+                        <a href="/consultants/${consultant.consultantId}/patients" class="button">View Patients</a>
+                    </div>
+
                 </div>
             </div>
         </c:if>
         <c:if test="${consultant.consultantId == null}">
-            <h4>All consultants</h4>
+            <h2 style="text-align: center;">All Consultants</h2>
             <div class="cards">
                 <c:forEach var="consultant" items="${consultants}">
-                    <div class="card subcard">
+                    <div class="card">
                         <div class="item capitalize">
                             <span class="mutedText">Name</span> ${consultant.consultantName}
                         </div>
                         <div class="item capitalize">
                             <span class="mutedText">Specialty</span> ${consultant.consultantSpecialty}
+                        </div>
+                        <div class="item capitalize">
+                            <span class="mutedText">Experience</span> ${consultant.consultantExperience}
                         </div>
                         <hr />
                         <div class="item capitalize cardFooterButton noselect">

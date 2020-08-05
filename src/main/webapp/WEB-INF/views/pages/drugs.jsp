@@ -6,39 +6,64 @@
 <html>
 <head>
     <title>Drugs</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp" %>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="../components/navigation.jsp"%>
-    <main class="main">
-        <div class="mainBody">
+    <%@include file="../components/navigation.jsp" %>
+    <div class="mainBody">
 
-            <h3 style="text-align: center">The following drugs are currently present in the database.</h3>
-            <ul class="uk-list">
+        <c:if test="${drug.drugId != null}">
+            <div class="cards">
+                <div class="card subcard">
+                    <div class="item capitalize">
+                        <span class="mutedText">Name</span> ${drug.drugName}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Classification</span> ${drug.drugClassification}
+                    </div>
+                    <div class="item">
+                        <span class="mutedText">Mechanism of Action</span> ${drug.drugMechanism}
+                    </div>
+                    <hr/>
+                    <div class="item capitalize cardFooterButton noselect">
+                        <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://en.wikipedia.org/wiki/${drug.drugName}"
+                                class="button"
+                        >
+                            View on Wikipedia
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+
+        <c:if test="${drug.drugId == null}">
+            <h2>Medications / Drugs</h2>
+            <ul class="list">
                 <c:forEach var="drug" items="${drugs}">
                     <li>
-                        <h3 class="uk-heading-bullet">
-                            <a href="https://en.wikipedia.org/wiki/${drug.drugName}"
-                               target="_blank" rel="noopener noreferrer">
-                                    ${drug.drugName} <i class="fas fa-external-link-alt"></i>
+                        <h3>
+                            <a href="/drugs/${drug.drugId}">
+                                    ${drug.drugName} <i class="fas fa-link"></i>
                             </a>
-                            <br />
-                            <span class="uk-text-muted" style="text-transform: capitalize; font-size: 1rem; font-weight: 300;">${drug.drugClassification}</span>
+                            <br/>
+                            <span style="text-transform: capitalize; font-size: 1rem; font-weight: 300;">${drug.drugClassification}</span>
                         </h3>
-
-                        <p>${drug.drugMechanism}</p>
                     </li>
-                    <br />
+                    <br/>
                 </c:forEach>
             </ul>
-
-        </div>
-    </main>
-    <%@include file="../components/footer.jsp"%>
+        </c:if>
+    </div>
+    <c:if test="${drug.drugId == null}">
+        <%@include file="../components/footer.jsp" %>
+    </c:if>
 </div>
 
-<%@include file="../components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp" %>
 </body>
 </html>

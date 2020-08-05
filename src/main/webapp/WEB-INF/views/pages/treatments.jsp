@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Treatments</title>
     <%@include file="../components/stylesheets.jsp"%>
 </head>
 <body>
@@ -13,14 +13,13 @@
     <%@include file="../components/navigation.jsp"%>
     <main class="main">
         <div class="mainBody">
-            <h4>All diagnoses and their treatments</h4>
+            <h2 style="text-align: center;">Diagnoses and their treatments.</h2>
             <div class="cards">
                 <c:forEach var="treatment" items="${treatments}">
                     <div class="card subcard">
                         <div class="item capitalize">
                             <span class="mutedText">Diagnosis</span> ${treatment.diagnosis.illness.illnessName}
-                        </div>The following illnesses are currently present in the database.
-                        Amyloidosis
+                        </div>
                         <div class="item capitalize">
                             <span class="mutedText">Treated with</span> ${treatment.drug.drugName}
                         </div>

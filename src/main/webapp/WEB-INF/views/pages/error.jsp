@@ -4,13 +4,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <title>Error</title>
+    <%@include file="../components/stylesheets.jsp" %>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="../components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp" %>
     <main class="main">
         <div class="mainBody">
             <div style="display: flex; justify-content: left; align-items: center; flex-wrap: wrap;">
@@ -19,9 +19,9 @@
             </div>
         </div>
     </main>
-    <%@include file="../components/footer.jsp"%>
+    <%@include file="../components/footer.jsp" %>
 </div>
 
-<%@include file="../components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp" %>
 </body>
 </html>

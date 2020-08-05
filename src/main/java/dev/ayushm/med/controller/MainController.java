@@ -4,7 +4,6 @@ import dev.ayushm.med.model.Consultation;
 import dev.ayushm.med.model.Treatment;
 import dev.ayushm.med.service.ConsultationService;
 import dev.ayushm.med.service.TreatmentService;
-import dev.ayushm.med.utility.populate.PopulatorUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +16,7 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    private static Integer counter = 0;
+    private static final Integer counter = 6;
 
     @Autowired
     ConsultationService consultationService;
@@ -27,8 +26,6 @@ public class MainController {
 
     @GetMapping("/")
     public String index(Model model) throws IOException {
-
-        if (counter++ <= 0) PopulatorUtility.populate();
 
         List<Consultation> consultations = new ArrayList<>(new ArrayList<>(consultationService.getAllConsultationsSorted()).subList(0, 5));
         List<Treatment> treatments = new ArrayList<>(new ArrayList<>(treatmentService.getAllTreatmentsSorted()).subList(0, 5));

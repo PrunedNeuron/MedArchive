@@ -1,3 +1,28 @@
+// JQuery
+$(document).ready(function () {
+    $('#consultantName').autocomplete({
+        source: '/api/consultants/search'
+    });
+
+    $('#patientName').autocomplete({
+        source: '/api/patients/search'
+    });
+
+    $('#drugName').autocomplete({
+        source: '/api/drugs/search'
+    });
+
+    $('#illnessName').autocomplete({
+        source: '/api/illnesses/search'
+    });
+
+    $('#testName').autocomplete({
+        source: '/api/tests/search'
+    });
+
+});
+// JQuery end
+
 
 const consultationForm = document.getElementById("consultation");
 
@@ -92,8 +117,7 @@ submitButton.addEventListener("click", function() {
         setTimeout(function() {
             consultationForm.reset();
         }, 3000);
-    }
-    else {
+    } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
         setTimeout(function() {
@@ -104,7 +128,6 @@ submitButton.addEventListener("click", function() {
     }
 
 })
-
 
 
 function validateConsultation() {

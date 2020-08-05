@@ -6,40 +6,73 @@
 <html>
 <head>
     <title>Illnesses</title>
-    <%@include file="../components/stylesheets.jsp"%>
+    <%@include file="../components/stylesheets.jsp" %>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="../components/navigation.jsp"%>
-    <main class="main">
-        <div class="mainBody">
+    <%@include file="../components/navigation.jsp" %>
+    <div class="mainBody">
 
-            <h1>Illnesses</h1>
-            <ul class="uk-list">
+        <c:if test="${illness.illnessId != null}">
+            <c:set var="illnessUri" value="${fn:replace(illness.illnessName, ' ', '_')}"/>
+            <div class="cards">
+                <div class="card subcard">
+                    <div class="item capitalize">
+                        <span class="mutedText">Name</span> ${illness.illnessName}
+                    </div>
+                    <div class="item">
+                        <span class="mutedText">Description</span> ${illness.illnessDescription}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Symptoms</span> ${illness.illnessSymptoms}
+                    </div>
+                    <hr/>
+                    <div class="item capitalize cardFooterButton noselect">
+                        <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://en.wikipedia.org/wiki/${illnessUri}"
+                                class="button"
+                        >
+                            View on Wikipedia
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+
+        <c:if test="${illness.illnessId == null}">
+            <h2>Illnesses</h2>
+            <ul class="list">
                 <c:forEach var="illness" items="${illnesses}">
-                    <c:set var="illnessUri" value="${fn:replace(illness.illnessName, ' ', '_')}" />
                     <li>
-                        <h3 class="uk-heading-bullet">
-                            <a href="https://en.wikipedia.org/wiki/${illnessUri}"
-                               target="_blank" rel="noopener noreferrer">Illnesses
-                                    ${illness.illnessName} <i class="fas fa-external-link-alt"></i>
+                        <h3>
+                            <a href="/illnesses/${illness.illnessId}"
+                               target="_blank" rel="noopener noreferrer">
+                                    ${illness.illnessName} <i class="fas fa-link"></i>
                             </a>
                         </h3>
-                        <p>${illness.illnessDescription}
-                            <br />
-                            Symptoms include ${illness.illnessSymptoms}, etc.
+                        <p>
+                            <c:if test="${illness.illnessDescription != null}">
+                                ${illness.illnessDescription}
+                            </c:if>
+                            <br/>
+                            <c:if test="${illness.illnessSymptoms != null}">
+                                Symptoms include ${illness.illnessSymptoms}, etc.
+                            </c:if>
                         </p>
                     </li>
-                    <br />
+                    <br/>
                 </c:forEach>
             </ul>
-
-        </div>
-    </main>
-    <%@include file="../components/footer.jsp"%>
+        </c:if>
+    </div>
+    <c:if test="${illness.illnessId == null}">
+        <%@include file="../components/footer.jsp" %>
+    </c:if>
 </div>
 
-<%@include file="../components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp" %>
 </body>
 </html>

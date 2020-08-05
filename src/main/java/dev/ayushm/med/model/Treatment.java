@@ -1,6 +1,7 @@
 package dev.ayushm.med.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "treatment")
@@ -81,4 +82,32 @@ public class Treatment {
     public void setDrugId(Integer drugId) {
         this.drugId = drugId;
     }
+
+    @Override
+    public String toString() {
+        return "Treatment{" +
+                "treatmentId=" + treatmentId +
+                ", diagnosis=" + diagnosis +
+                ", diagnosisId=" + diagnosisId +
+                ", drug=" + drug +
+                ", drugId=" + drugId +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Treatment treatment = (Treatment) o;
+        return Objects.equals(diagnosis, treatment.diagnosis) &&
+                Objects.equals(diagnosisId, treatment.diagnosisId) &&
+                Objects.equals(drug, treatment.drug) &&
+                Objects.equals(drugId, treatment.drugId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(diagnosis, diagnosisId, drug, drugId);
+    }
+
 }

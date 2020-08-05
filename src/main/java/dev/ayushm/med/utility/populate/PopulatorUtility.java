@@ -5,24 +5,34 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.ayushm.med.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class PopulatorUtility {
+@Component
+@ConditionalOnProperty(
+        value = "prepopulate.sampleData",
+        havingValue = "true",
+        matchIfMissing = true)
+public class PopulatorUtility implements CommandLineRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(PopulatorUtility.class);
 
     static final String BASE_URL = "http://localhost:8080/api";
     static RestTemplate restTemplate = new RestTemplate();
     static HttpHeaders headers = new HttpHeaders();
 
-    public static void populate() throws IOException {
-
-        headers.setContentType(MediaType.APPLICATION_JSON);
+    public void populate() throws IOException {
         populateTests();
         populateDrugs();
         populatePatients();
@@ -31,7 +41,22 @@ public class PopulatorUtility {
         populateIllnesses();
         populateDiagnoses();
         populateTreatments();
+    }
 
+    @Override
+    public void run(String... args) throws Exception {
+        log.info("Setting headers, application/json.");
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        log.info("Populating database...");
+
+        long start = System.currentTimeMillis();
+        populate();
+        long delta = System.currentTimeMillis() - start;
+        double elapsedSeconds = delta / 1000.0;
+
+        log.info("The database has been populated with sample data.");
+        log.info("Insertion took " + elapsedSeconds + " seconds.");
     }
 
     public static void populatePatients() throws IOException {
@@ -157,5 +182,6 @@ public class PopulatorUtility {
         }
 
     }
+
 
 }

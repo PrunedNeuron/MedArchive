@@ -3,6 +3,7 @@ package dev.ayushm.med.model.form;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class ConsultationForm {
 
@@ -96,4 +97,39 @@ public class ConsultationForm {
     public void setTestValue(String testValue) {
         this.testValue = testValue;
     }
+
+    @Override
+    public String toString() {
+        return "ConsultationForm{" +
+                "patientName='" + patientName + '\'' +
+                ", consultantName='" + consultantName + '\'' +
+                ", consultationLocation='" + consultationLocation + '\'' +
+                ", consultationDate=" + consultationDate +
+                ", illnessName='" + illnessName + '\'' +
+                ", drugName='" + drugName + '\'' +
+                ", testName='" + testName + '\'' +
+                ", testValue='" + testValue + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ConsultationForm that = (ConsultationForm) o;
+        return Objects.equals(patientName, that.patientName) &&
+                Objects.equals(consultantName, that.consultantName) &&
+                Objects.equals(consultationLocation, that.consultationLocation) &&
+                Objects.equals(consultationDate, that.consultationDate) &&
+                Objects.equals(illnessName, that.illnessName) &&
+                Objects.equals(drugName, that.drugName) &&
+                Objects.equals(testName, that.testName) &&
+                Objects.equals(testValue, that.testValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(patientName, consultantName, consultationLocation, consultationDate, illnessName, drugName, testName, testValue);
+    }
+
 }
