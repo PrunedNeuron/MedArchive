@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class TreatmentController {
@@ -23,7 +26,15 @@ public class TreatmentController {
     @GetMapping("/treatments")
     public String getAllTreatments(Model model) {
         log.info("Retrieving list of treatments...");
-        List<Treatment> treatments = treatmentService.getAllTreatmentsSorted();
+        Set<String> seen = new HashSet<>();
+        List<Treatment> treatments = new ArrayList<>();
+        treatmentService.getAllTreatmentsSorted().forEach(treatment -> {
+            String joined = treatment.getDiagnosis().getIllness().getIllnessName() + treatment.getDrug().getDrugName();
+            if (!seen.contains(joined))
+                treatments.add(treatment);
+            seen.add(joined);
+        });
+
         model.addAttribute("treatments", treatments);
 
         return "pages/treatments";
@@ -35,7 +46,8 @@ public class TreatmentController {
         Treatment treatment = treatmentService.getTreatment(treatmentId);
         model.addAttribute("treatment", treatment);
 
-        return "pages/tests";
+//        return "pages/treatments";
+        return "pages/error";
     }
 
 }

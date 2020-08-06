@@ -25,7 +25,7 @@
                                     <div class="badge noselect">
                                         <fmt:formatDate value="${treatment.diagnosis.consultation.consultationDate}" pattern="dd MMMM, yyyy" />
                                     </div>
-                                    <a href="/drugs">
+                                    <a href="/drugs/${treatment.drug.drugId}">
                                             ${treatment.drug.drugName}
                                     </a>
                                     was prescribed as a treatment for

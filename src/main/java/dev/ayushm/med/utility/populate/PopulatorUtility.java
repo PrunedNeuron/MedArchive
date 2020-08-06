@@ -48,9 +48,10 @@ public class PopulatorUtility implements CommandLineRunner {
         log.info("Setting headers, application/json.");
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        log.info("Populating database...");
+
 
         long start = System.currentTimeMillis();
+        log.info("Populating database...");
         populate();
         long delta = System.currentTimeMillis() - start;
         double elapsedSeconds = delta / 1000.0;

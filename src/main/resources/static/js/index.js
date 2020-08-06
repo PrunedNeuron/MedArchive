@@ -37,7 +37,6 @@ function validateAge(age) {
     return parseInt(age) <= 122 && parseInt(age) >= 1;
 }
 
-
 function validateId(id) {
     return id > 0;
 }
@@ -51,14 +50,17 @@ function makeIconInvisible(icon) {
 }
 
 function addAnotherClass(element, addend) {
-    const array = element.className.split(" ");
+    /*const array = element.className.split(" ");
     if (array.indexOf(addend) == -1) {
         element.className += " " + addend;
-    }
+    }*/
+    $(element).addClass(addend)
 }
 
 function removeClass(element, substring) {
-    element.className = element.className.replaceAll(substring, "");
+    /*if (element.className != "")
+        element.className = element.className.replaceAll(substring, "");*/
+    $(element).removeClass(substring);
 }
 
 function hideElement(element) {
