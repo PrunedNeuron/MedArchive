@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -11,7 +11,6 @@
 <body>
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp"%>
-    <main class="main">
         <div class="mainBody">
             <div class="cards">
                 <div class="card singleCard">
@@ -23,13 +22,14 @@
                             <c:forEach var="treatment" items="${treatments}">
                                 <li style="margin: 1rem;">
                                     <div class="badge noselect">
-                                        <fmt:formatDate value="${treatment.diagnosis.consultation.consultationDate}" pattern="dd MMMM, yyyy" />
+                                        <fmt:formatDate value="${treatment.diagnosis.consultation.consultationDate}"
+                                                        pattern="dd MMMM, yyyy"/>
                                     </div>
                                     <a href="/drugs/${treatment.drug.drugId}">
                                             ${treatment.drug.drugName}
                                     </a>
                                     was prescribed as a treatment for
-                                    <a href="/illnesses">
+                                    <a href="/illnesses/${treatment.diagnosis.illnessId}">
                                             ${treatment.diagnosis.illness.illnessName}
                                     </a>
                                     by
@@ -69,7 +69,6 @@
             </div>
 
         </div>
-    </main>
     <%@include file="../components/footer.jsp"%>
 </div>
 

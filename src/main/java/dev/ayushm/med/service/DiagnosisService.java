@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -22,6 +23,8 @@ public class DiagnosisService {
         log.info("Retrieving all diagnoses from the repository...");
         List<Diagnosis> diagnoses = new ArrayList<>();
         diagnosisRepository.findAll().forEach(diagnoses::add);
+
+        Collections.reverse(diagnoses);
         return diagnoses;
     }
 
@@ -40,7 +43,7 @@ public class DiagnosisService {
 
         log.info("Finding diagnoses with matching consultation ID...");
         diagnosisRepository.findAll().forEach(diagnosis -> {
-            if (diagnosis.getConsultationId() == consultationId)
+            if (diagnosis.getConsultationId().equals(consultationId))
                 diagnoses.add(diagnosis);
         });
 

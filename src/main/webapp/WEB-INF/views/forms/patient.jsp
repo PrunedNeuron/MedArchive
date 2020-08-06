@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -10,7 +10,6 @@
 
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp" %>
-    <main class="main">
         <div class="mainBody">
             <div class="formContainer">
 
@@ -61,7 +60,7 @@
                             </label>
                             <br/>
                             <input class="formInput inputText" id="patientPhone" name="patientPhone" type="number"
-                                   min="6000000000" minlength="10" maxlength="10" placeholder="8485517336">
+                                   min="0" minlength="10" maxlength="10" placeholder="8485517336">
                         </div>
 
                         <div class="formInputContainer">
@@ -92,7 +91,7 @@
             </div>
 
         </div>
-    </main>
+    <%@include file="../components/footer.jsp" %>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/forms/patient.js"></script>
 <%@include file="../components/scripts.jsp" %>

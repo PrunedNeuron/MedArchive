@@ -89,7 +89,7 @@ testValue.addEventListener("change", function (event) {
 })
 
 illnessName.addEventListener("change", function (event) {
-    if (!validateName(illnessName.value)) {
+    if (!validateText(illnessName.value)) {
         removeClass(illnessName, "formSuccess");
         addAnotherClass(illnessName, "formDanger");
     } else {
@@ -99,7 +99,7 @@ illnessName.addEventListener("change", function (event) {
 })
 
 drugName.addEventListener("change", function (event) {
-    if (!namePattern.test(drugName.value)) {
+    if (!validateText(drugName.value)) {
         removeClass(drugName, "formSuccess");
         addAnotherClass(drugName, "formDanger");
     } else {

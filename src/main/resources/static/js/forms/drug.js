@@ -55,11 +55,11 @@ submitButton.addEventListener("click", function () {
 })
 
 function validateMechanism(mechanism) {
-    return mechanism.length >= 1 && mechanism != null;
+    return mechanism.length >= 1 && mechanism != undefined;
 }
 
 function validateClassification(classification) {
-    return classification.length >= 1 && classification != null;
+    return classification.length >= 1 && classification != undefined;
 }
 
 function validateDrug() {

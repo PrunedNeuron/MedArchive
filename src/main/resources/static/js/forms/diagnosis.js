@@ -31,7 +31,6 @@ submitButton.addEventListener("click", function() {
         addAnotherClass(submitButton, "buttonPrimary");
         diagnosisForm.submit();
         setTimeout(function() {
-            makeIconVisible(checkIcon);
             diagnosisForm.reset();
         }, 3000);
     }

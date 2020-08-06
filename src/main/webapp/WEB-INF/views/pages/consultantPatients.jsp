@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -30,9 +30,7 @@
             </c:forEach>
         </div>
     </div>
-    <c:if test="${consultant.consultantId == null}">
-        <%@include file="../components/footer.jsp"%>
-    </c:if>
+    <%@include file="../components/footer.jsp" %>
 </div>
 
 <%@include file="../components/scripts.jsp" %>

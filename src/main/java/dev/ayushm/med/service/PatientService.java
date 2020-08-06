@@ -1,7 +1,10 @@
 package dev.ayushm.med.service;
 
 import dev.ayushm.med.model.*;
-import dev.ayushm.med.repository.*;
+import dev.ayushm.med.repository.ConsultationRepository;
+import dev.ayushm.med.repository.DiagnosisRepository;
+import dev.ayushm.med.repository.PatientRepository;
+import dev.ayushm.med.repository.TreatmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +35,21 @@ public class PatientService {
         log.info("Retrieving list of all patients from the repository...");
         List<Patient> patients = new ArrayList<>();
         patientRepository.findAll().forEach(patients::add);
+
         return patients;
     }
 
     public Patient getPatient(Integer patientId) {
         log.info("Retrieving patient with given patient ID from the repository...");
-        return  patientRepository.findById(patientId).get();
+        return patientRepository.findById(patientId).get();
     }
 
     public Patient addPatient(Patient patient) {
         return patientRepository.save(patient);
+    }
+
+    public void deletePatient(Integer patientId) {
+        patientRepository.deleteById(patientId);
     }
 
     public List<Consultation> getConsultations(Integer patientId) {
@@ -62,7 +70,7 @@ public class PatientService {
         log.info("Retrieving given patient's diagnoses from the repository...");
         List<Diagnosis> diagnoses = new ArrayList<>();
         diagnosisRepository.findAll().forEach(diagnosis -> {
-            if (diagnosis.getConsultation().getPatientId() == patientId)
+            if (diagnosis.getConsultation().getPatientId().equals(patientId))
                 diagnoses.add(diagnosis);
         });
 
@@ -73,7 +81,7 @@ public class PatientService {
         log.info("Retrieving given patient's treatments from the repository...");
         List<Treatment> treatments = new ArrayList<>();
         treatmentRepository.findAll().forEach(treatment -> {
-            if (treatment.getDiagnosis().getConsultation().getPatientId() == patientId)
+            if (treatment.getDiagnosis().getConsultation().getPatientId().equals(patientId))
                 treatments.add(treatment);
         });
 
@@ -84,8 +92,8 @@ public class PatientService {
         log.info("Retrieving given patient's prescribed drugs from the repository...");
         List<Drug> drugs = new ArrayList<>();
         treatmentRepository.findAll().forEach(treatment -> {
-           if (treatment.getDiagnosis().getConsultation().getPatientId() == patientId)
-               drugs.add(treatment.getDrug());
+            if (treatment.getDiagnosis().getConsultation().getPatientId().equals(patientId))
+                drugs.add(treatment.getDrug());
         });
 
         return drugs;
@@ -94,7 +102,7 @@ public class PatientService {
     public List<Illness> getIllnesses(Integer patientId) {
         List<Illness> illnesses = new ArrayList<>();
         diagnosisRepository.findAll().forEach(diagnosis -> {
-            if (diagnosis.getConsultation().getPatientId() == patientId)
+            if (diagnosis.getConsultation().getPatientId().equals(patientId))
                 illnesses.add(diagnosis.getIllness());
         });
 

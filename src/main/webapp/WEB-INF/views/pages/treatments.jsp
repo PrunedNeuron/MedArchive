@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Treatments</title>
@@ -16,7 +16,7 @@
             <h2 style="text-align: center;">Diagnoses and their treatments.</h2>
             <div class="cards">
                 <c:forEach var="treatment" items="${treatments}">
-                    <div class="card subcard">
+                    <div class="card">
                         <div class="item capitalize">
                             <span class="mutedText">Diagnosis</span> ${treatment.diagnosis.illness.illnessName}
                         </div>

@@ -66,7 +66,6 @@ submitButton.addEventListener("click", function() {
         addAnotherClass(submitButton, "buttonPrimary");
         consultantForm.submit();
         setTimeout(function() {
-            makeIconVisible(checkIcon);
             consultantForm.reset();
         }, 3000);
     }

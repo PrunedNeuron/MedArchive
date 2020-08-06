@@ -2,7 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Drugs</title>
@@ -59,9 +59,7 @@
             </ul>
         </c:if>
     </div>
-    <c:if test="${drug.drugId == null}">
-        <%@include file="../components/footer.jsp" %>
-    </c:if>
+    <%@include file="../components/footer.jsp" %>
 </div>
 
 <%@include file="../components/scripts.jsp" %>

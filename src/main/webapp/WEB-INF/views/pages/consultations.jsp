@@ -1,5 +1,5 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -13,18 +13,18 @@
     <div class="mainBody">
         <c:if test="${consultation.consultationId != null}">
             <div class="cards">
-                    <div class="card subcard patientLess">
-                        <div class="badge" style="float: right;">${consultationDate}</div>
-                        <div class="item capitalize">
-                            <span class="mutedText">ID</span> ${consultation.consultationId}
-                        </div>
-                        <div class="item capitalize">
-                            <span class="mutedText">Patient</span> ${consultation.patient.patientName}
-                        </div>
-                        <div class="item capitalize">
-                            <span class="mutedText">Consultant</span> ${consultation.consultant.consultantName}
-                        </div>
-                        <div class="item capitalize">
+                <div class="card subcard patientLess">
+                    <div class="badge noselect" style="float: right;">${consultationDate}</div>
+                    <div class="item capitalize">
+                        <span class="mutedText">ID</span> ${consultation.consultationId}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Patient</span> ${consultation.patient.patientName}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Consultant</span> ${consultation.consultant.consultantName}
+                    </div>
+                    <div class="item capitalize">
                             <span class="mutedText">Location</span> ${consultation.consultationLocation}
                         </div>
                         <div class="item">
@@ -48,7 +48,7 @@
             <h2 style="text-align: center;">All Consultations</h2>
             <div class="cards">
                 <c:forEach var="consultation" items="${consultationList}">
-                    <div class="card">
+                    <div class="card multicard">
                         <div class="item capitalize">
                             <span class="mutedText">Patient</span> ${consultation.patient.patientName}
                         </div>
@@ -64,9 +64,7 @@
             </div>
         </c:if>
     </div>
-    <c:if test="${consultation.consultationId == null}">
-        <%@include file="../components/footer.jsp"%>
-    </c:if>
+    <%@include file="../components/footer.jsp" %>
 </div>
 <%@include file="../components/scripts.jsp"%>
 </body>

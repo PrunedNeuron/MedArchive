@@ -51,14 +51,13 @@ public class ConsultantController {
         Consultant consultant = consultantService.getConsultant(consultantId);
         List<Patient> patients = new ArrayList<>();
 
-        consultationService
+        patients.addAll(consultationService
                 .getAllConsultations()
                 .stream()
                 .filter(consultation -> consultation.getConsultant().equals(consultant))
                 .map(consultation -> consultation.getPatient())
                 .distinct()
-                .collect(Collectors.toList())
-                .forEach(patients::add);
+                .collect(Collectors.toList()));
 
         patients.forEach(patient -> log.info(patient.toString()));
 

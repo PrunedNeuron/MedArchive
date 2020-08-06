@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -50,7 +50,7 @@
             <h2 style="text-align: center;">All Consultants</h2>
             <div class="cards">
                 <c:forEach var="consultant" items="${consultants}">
-                    <div class="card">
+                    <div class="card multicard">
                         <div class="item capitalize">
                             <span class="mutedText">Name</span> ${consultant.consultantName}
                         </div>
@@ -69,9 +69,7 @@
             </div>
         </c:if>
     </div>
-    <c:if test="${consultant.consultantId == null}">
-        <%@include file="../components/footer.jsp"%>
-    </c:if>
+    <%@include file="../components/footer.jsp" %>
 </div>
 
 <%@include file="../components/scripts.jsp" %>

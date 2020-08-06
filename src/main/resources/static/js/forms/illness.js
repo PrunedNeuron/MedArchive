@@ -58,11 +58,11 @@ submitButton.addEventListener("click", function() {
 })
 
 function validateDescription(description) {
-    return description != null && description != "";
+    return description != null && description !== "";
 }
 
 function validateSymptoms(symptoms) {
-    return symptoms != null && symptoms != "";
+    return symptoms != null && symptoms !== "";
 }
 
 function validateIllness() {

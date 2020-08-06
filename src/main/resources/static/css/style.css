@@ -35,7 +35,7 @@ hr {
 
 .mainBody {
     margin: 2rem;
-
+    flex: 1;
 }
 
 .cards {
@@ -49,13 +49,6 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 ::selection {
@@ -104,10 +97,6 @@ hr {
 }
 
 .navItem:hover {
-    background-color: #e2edff;
-}
-
-.active {
     background-color: #e2edff;
 }
 
@@ -165,7 +154,7 @@ i {
 .noselect {
     -webkit-user-select: none;
     -khtml-user-select: none;
-    -moz-user-select: -moz-none;
+    -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
 }
@@ -426,4 +415,9 @@ footer {
 .navItem a {
     display: flex;
     align-items: center;
+}
+
+.multicard {
+    width: 20%;
+    min-width: 12rem;
 }

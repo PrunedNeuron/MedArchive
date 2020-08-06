@@ -61,10 +61,7 @@ public class FormController {
         Patient addedPatient = patientService.addPatient(patient);
         log.info("Added patient: " + addedPatient.toString());
 
-        model.addAttribute("submittedForm", addedPatient != null);
         model.addAttribute("status", patient != null);
-        model.addAttribute("modelName", "patient");
-        model.addAttribute("modelId", addedPatient.getPatientId());
 
         return "/forms/patient";
     }
@@ -84,10 +81,7 @@ public class FormController {
         Consultant addedConsultant = consultantService.addConsultant(consultant);
         log.info("Added consultant: " + addedConsultant.toString());
 
-        model.addAttribute("submittedForm", addedConsultant != null);
         model.addAttribute("status", consultant != null);
-        model.addAttribute("modelName", "consultant");
-        model.addAttribute("modelId", addedConsultant.getConsultantId());
 
         return "forms/consultant";
     }
@@ -156,7 +150,7 @@ public class FormController {
                         consultationForm.getConsultationDate());
 
         Consultation addedConsultation = consultationService.addConsultation(consultation);
-        log.info("Added consultation ", addedConsultation);
+        log.info("Added consultation " + addedConsultation);
 
         Diagnosis diagnosis = new Diagnosis(
                 null,
@@ -179,10 +173,7 @@ public class FormController {
         log.info("Added treatment " + addedTreatment);
 
 
-        model.addAttribute("submittedForm", addedConsultation != null); // TODO: Remove this since it is redundant
-        model.addAttribute("status", consultationForm != null); // to check whether the form has been filled
-        model.addAttribute("modelName", "consultation"); // to identify which entity is being returned
-        model.addAttribute("modelId", addedConsultation.getConsultationId()); // to identify the entity being returned
+        model.addAttribute("status", consultationForm != null);
 
         return "forms/consultation";
     }
@@ -230,10 +221,7 @@ public class FormController {
         Diagnosis addedDiagnosis = diagnosisService.addDiagnosis(diagnosis);
         log.info("Added diagnosis from form.");
 
-        model.addAttribute("submittedForm", addedDiagnosis != null);
         model.addAttribute("status", diagnosis != null);
-        model.addAttribute("modelName", "diagnosis");
-        model.addAttribute("modelId", addedDiagnosis.getDiagnosisId());
 
         return "forms/diagnosis";
     }
@@ -255,10 +243,7 @@ public class FormController {
         Drug addedDrug = drugService.addDrug(drug);
         log.info("Added drug from form.");
 
-        model.addAttribute("submittedForm", addedDrug != null);
         model.addAttribute("status", drug != null);
-        model.addAttribute("modelName", "drug");
-        model.addAttribute("modelId", addedDrug.getDrugId());
 
         return "forms/drug";
     }
@@ -280,10 +265,7 @@ public class FormController {
         Treatment addedTreatment = treatmentService.addTreatment(treatment);
         log.info("Added treatment from form.");
 
-        model.addAttribute("submittedForm", addedTreatment != null);
         model.addAttribute("status", treatment != null);
-        model.addAttribute("modelName", "treatment");
-        model.addAttribute("modelId", addedTreatment.getTreatmentId());
 
         return "forms/treatment";
     }
@@ -305,10 +287,7 @@ public class FormController {
         Test addedTest = testService.addTest(test);
         log.info("Added test from form.");
 
-        model.addAttribute("submittedForm", addedTest != null);
         model.addAttribute("status", test != null);
-        model.addAttribute("modelName", "test");
-        model.addAttribute("modelId", addedTest.getTestId());
 
         return "forms/test";
     }

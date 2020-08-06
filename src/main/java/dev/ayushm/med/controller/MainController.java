@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class MainController {
     TreatmentService treatmentService;
 
     @GetMapping("/")
-    public String index(Model model) throws IOException {
+    public String index(Model model) {
 
         log.info("Retrieving list of consultations and treatments, both sorted and sliced.");
         List<Consultation> consultations = new ArrayList<>(new ArrayList<>(consultationService.getAllConsultationsSorted()).subList(0, 5));

@@ -1,17 +1,9 @@
-const submitButton = document.getElementById("submitButton");
 
+const submitButton = document.getElementById("submitButton");
 const addressPattern = /^[\w\-,\s]+$/
 const namePattern = /^[a-zA-Z ]{2,30}$/;
 const emailPattern = /\S+@\S+\.\S+/;
-const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
+const phonePattern = /^[1-9][0-9]{9}$/;
 
 function validatePhone(phone) {
     return phonePattern.test(phone)
@@ -41,25 +33,11 @@ function validateId(id) {
     return id > 0;
 }
 
-function makeIconVisible(icon) {
-    icon.style.display = "";
-}
-
-function makeIconInvisible(icon) {
-    icon.style.display = "none";
-}
-
 function addAnotherClass(element, addend) {
-    /*const array = element.className.split(" ");
-    if (array.indexOf(addend) == -1) {
-        element.className += " " + addend;
-    }*/
     $(element).addClass(addend)
 }
 
 function removeClass(element, substring) {
-    /*if (element.className != "")
-        element.className = element.className.replaceAll(substring, "");*/
     $(element).removeClass(substring);
 }
 
@@ -68,7 +46,7 @@ function hideElement(element) {
 }
 
 function validateText(text) {
-    return text != null && text != "";
+    return text != null && text !== "";
 }
 
 

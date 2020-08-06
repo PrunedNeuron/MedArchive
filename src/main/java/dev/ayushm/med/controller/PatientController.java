@@ -53,13 +53,13 @@ public class PatientController {
         List<Illness> illnessList = patientService.getIllnesses(patientId);
 
         log.info("Converting the list of drugs into a comma separated string");
-        String drugs = new HashSet<Drug>(drugList)
+        String drugs = new HashSet<>(drugList)
                 .stream()
                 .map(drug -> String.valueOf(drug.getDrugName()))
                 .collect(Collectors.joining(", "));
 
         log.info("Converting the list of diagnoses/illnesses into a comma separated string...");
-        String illnesses = new HashSet<Illness>(illnessList)
+        String illnesses = new HashSet<>(illnessList)
                 .stream()
                 .map(illness -> String.valueOf(illness.getIllnessName()))
                 .collect(Collectors.joining(", "));

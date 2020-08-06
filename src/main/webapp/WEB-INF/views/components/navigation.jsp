@@ -43,11 +43,6 @@
                 </ul>
             </div>
         </div>
-
-        <style>
-
-        </style>
-
         <div class="navCenter">
             DigiMedArchive
         </div>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,12 +27,14 @@ public class ConsultantService {
         List<Consultant> consultants = new ArrayList<>();
         consultantRepository.findAll().forEach(consultants::add);
 
-        log.info("Retrieved all consultants from the database, returning.");
+        log.info("Retrieved all consultants from the repository, returning.");
 
+        Collections.reverse(consultants);
         return consultants;
     }
 
     public Consultant getConsultant(Integer consultantId) {
+        log.info("Retrieving consultant with given ID form the repository.");
         return  consultantRepository.findById(consultantId).get();
     }
 

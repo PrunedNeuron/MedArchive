@@ -59,6 +59,20 @@ public class ApiController {
         return "Successfully added patient.";
     }
 
+    @DeleteMapping("/patients/{patientId}")
+    public String deletePatient(@PathVariable Integer patientId) {
+        log.info("Received a DELETE request on /api/patients/{patientId}, deleting patient");
+
+        try {
+            patientService.deletePatient(patientId);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return "Failed to delete patient.";
+        }
+
+        return "Successfully deleted patient.";
+    }
+
     @GetMapping("/patients/search")
     public List<String> searchPatients(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
         log.info("Received GET request on /api/patients/search, responding with search result.");

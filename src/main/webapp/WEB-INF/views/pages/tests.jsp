@@ -2,7 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Tests</title>
@@ -12,7 +12,6 @@
 
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp"%>
-    <main class="main">
         <div class="mainBody">
             <h2>Medical Tests</h2>
             <ul class="list" style="text-align: left">
@@ -33,7 +32,6 @@
             </ul>
 
         </div>
-    </main>
     <%@include file="../components/footer.jsp"%>
 </div>
 

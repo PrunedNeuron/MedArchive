@@ -2,7 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Illnesses</title>
@@ -48,29 +48,17 @@
                 <c:forEach var="illness" items="${illnesses}">
                     <li>
                         <h3>
-                            <a href="/illnesses/${illness.illnessId}"
-                               target="_blank" rel="noopener noreferrer">
+                            <a href="/illnesses/${illness.illnessId}">
                                     ${illness.illnessName} <i class="fas fa-link"></i>
                             </a>
                         </h3>
-                        <p>
-                            <c:if test="${illness.illnessDescription != null}">
-                                ${illness.illnessDescription}
-                            </c:if>
-                            <br/>
-                            <c:if test="${illness.illnessSymptoms != null}">
-                                Symptoms include ${illness.illnessSymptoms}, etc.
-                            </c:if>
-                        </p>
+
                     </li>
-                    <br/>
                 </c:forEach>
             </ul>
         </c:if>
     </div>
-    <c:if test="${illness.illnessId == null}">
-        <%@include file="../components/footer.jsp" %>
-    </c:if>
+    <%@include file="../components/footer.jsp" %>
 </div>
 
 <%@include file="../components/scripts.jsp" %>

@@ -59,7 +59,7 @@ submitButton.addEventListener("click", function() {
 })
 
 function validateDescription(description) {
-    return description != null && description != "";
+    return description != null && description !== "";
 }
 
 function validateTest() {

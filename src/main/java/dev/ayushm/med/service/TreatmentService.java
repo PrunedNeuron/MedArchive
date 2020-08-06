@@ -28,7 +28,7 @@ public class TreatmentService {
     public List<Treatment> getAllTreatmentsSorted() {
         log.info("Retrieving sorted list of all treatments from the repository...");
         List<Treatment> treatments = new ArrayList<>();
-        treatmentRepository.findAllByOrderByDiagnosis_Consultation_ConsultationDateDesc().forEach(treatments::add);
+        treatments.addAll(treatmentRepository.findAllByOrderByDiagnosis_Consultation_ConsultationDateDesc());
         return treatments;
     }
 
@@ -44,7 +44,7 @@ public class TreatmentService {
         log.info("Retrieving list of treatments with a matching consultation ID...");
         List<Treatment> treatments = new ArrayList<>();
         treatmentRepository.findAll().forEach(treatment -> {
-            if (treatment.getDiagnosis().getConsultationId() == consultationId)
+            if (treatment.getDiagnosis().getConsultationId().equals(consultationId))
                 treatments.add(treatment);
         });
 

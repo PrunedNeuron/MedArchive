@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -32,8 +33,10 @@ public class ConsultationService {
     public List<Consultation> getAllConsultationsSorted() {
         logger.info("Retrieving all consultants from the database ordered by date desc.");
         List<Consultation> consultations = new ArrayList<>();
-        consultationRepository.findAllByOrderByConsultationDateDesc().forEach(consultations::add);
+        consultations.addAll(consultationRepository.findAllByOrderByConsultationDateDesc());
         logger.info("Retrieved all consultants from the database ordered by date desc.");
+
+        Collections.reverse(consultations);
         return consultations;
     }
 
