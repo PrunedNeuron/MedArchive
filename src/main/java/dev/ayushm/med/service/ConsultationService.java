@@ -42,7 +42,7 @@ public class ConsultationService {
     }
 
     public Consultation addConsultation(Consultation consultation) {
-        logger.info("Adding consultation with patient ID = " + consultation.getPatientId() + " and consultant ID = " + consultation.getConsultantId() + " to the database.");
+        logger.info("Adding consultation with given patient ID and consultant ID to the database.");
         return consultationRepository.save(consultation);
     }
 

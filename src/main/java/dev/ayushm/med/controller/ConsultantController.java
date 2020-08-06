@@ -29,6 +29,7 @@ public class ConsultantController {
 
     @GetMapping("/consultants")
     public String getAllConsultants(Model model) {
+        log.info("Retrieving list of all consultants...");
         List<Consultant> consultants = consultantService.getAllConsultants();
         model.addAttribute("consultants", consultants);
 
@@ -37,6 +38,7 @@ public class ConsultantController {
 
     @GetMapping("/consultants/{consultantId}")
     public String getConsultant(@PathVariable Integer consultantId, Model model) {
+        log.info("Retrieving consultant with the given ID...");
         Consultant consultant = consultantService.getConsultant(consultantId);
         model.addAttribute("consultant", consultant);
 
@@ -45,7 +47,7 @@ public class ConsultantController {
 
     @GetMapping("/consultants/{consultantId}/patients")
     public String getConsultantPatients(@PathVariable Integer consultantId, Model model) {
-
+        log.info("Retrieving patients treated by the consultant with the given ID...");
         Consultant consultant = consultantService.getConsultant(consultantId);
         List<Patient> patients = new ArrayList<>();
 
@@ -58,7 +60,6 @@ public class ConsultantController {
                 .collect(Collectors.toList())
                 .forEach(patients::add);
 
-        log.info("Retrieved patients: ");
         patients.forEach(patient -> log.info(patient.toString()));
 
         model.addAttribute("consultant", consultant);

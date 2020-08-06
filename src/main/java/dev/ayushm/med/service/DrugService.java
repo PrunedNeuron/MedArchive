@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 public class DrugService {
 
-    private static final Logger logger = LoggerFactory.getLogger(DrugService.class);
+    private static final Logger log = LoggerFactory.getLogger(DrugService.class);
 
     @Autowired
     private DrugRepository drugRepository;
@@ -38,8 +38,12 @@ public class DrugService {
     }
 
     public List<String> search(String keyword) {
-        logger.info("SEARCH RESULT = " + drugRepository.findByDrugNameContaining(keyword));
-        return drugRepository.findByDrugNameContaining(keyword).stream().map(object -> object.getDrugName()).collect(Collectors.toList());
+        log.info("Searching for a drug with a matching name...");
+        return drugRepository
+                .findByDrugNameContaining(keyword)
+                .stream()
+                .map(drug -> drug.getDrugName())
+                .collect(Collectors.toList());
     }
 
 }

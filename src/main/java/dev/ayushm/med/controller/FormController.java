@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/add")
 public class FormController {
 
-    private static final Logger logger = LoggerFactory.getLogger(FormController.class);
+    private static final Logger log = LoggerFactory.getLogger(FormController.class);
 
     @Autowired
     private PatientService patientService;
@@ -59,7 +59,7 @@ public class FormController {
             return "pages/error";
 
         Patient addedPatient = patientService.addPatient(patient);
-        logger.info("Added patient: " + addedPatient.toString());
+        log.info("Added patient: " + addedPatient.toString());
 
         model.addAttribute("submittedForm", addedPatient != null);
         model.addAttribute("status", patient != null);
@@ -82,7 +82,7 @@ public class FormController {
             return "pages/error";
 
         Consultant addedConsultant = consultantService.addConsultant(consultant);
-        logger.info("Added consultant: " + addedConsultant.toString());
+        log.info("Added consultant: " + addedConsultant.toString());
 
         model.addAttribute("submittedForm", addedConsultant != null);
         model.addAttribute("status", consultant != null);
@@ -105,7 +105,7 @@ public class FormController {
             return "pages/error";
         }
 
-        logger.info("About to add consultation form: " + consultationForm.toString());
+        log.info("About to add consultation form: " + consultationForm.toString());
 
         List<Patient> formPatients = patientService.getPatientsByName(consultationForm.getPatientName());
         List<Consultant> formConsultants = consultantService.getConsultantsByName(consultationForm.getConsultantName());
@@ -117,24 +117,10 @@ public class FormController {
         Illness formIllness, addedIllness;
         Drug formDrug, addedDrug;
 
-        /*try {
-            formPatient = formPatients.get(0);
-        } catch (IndexOutOfBoundsException e) {
-            logger.error("Could not find a patient with name '" + consultationForm.getPatientName() + "'.");
-            logger.info("Create patient in /add/patient and then try again!");
-        }
-
-        try {
-            formConsultant = formConsultants.get(0);
-        } catch (IndexOutOfBoundsException e) {
-            logger.error("Could not find a consultant with name '" + consultationForm.getConsultantName() + "'.");
-            logger.info("Create consultant in /add/consultant and then try again!");
-        }*/
-
         try {
             formDrug = formDrugs.get(0);
         } catch (IndexOutOfBoundsException e) {
-            logger.error("Could not find a drug that matches the name '" + consultationForm.getDrugName() + "'.");
+            log.error("Could not find a drug that matches the name '" + consultationForm.getDrugName() + "'.");
             Drug drug = new Drug(null, consultationForm.getDrugName(), null, null);
             addedDrug = drugService.addDrug(drug);
             formDrug = addedDrug;
@@ -144,7 +130,7 @@ public class FormController {
             formIllness = formIllnesses.get(0);
         } catch (IndexOutOfBoundsException e) {
             // Add
-            logger.error("Could not find an illness that matches the name '" + consultationForm.getIllnessName() + "'.");
+            log.error("Could not find an illness that matches the name '" + consultationForm.getIllnessName() + "'.");
             Illness illness = new Illness(
                     null,
                     consultationForm.getIllnessName(),
@@ -156,7 +142,7 @@ public class FormController {
 
         Test test = new Test(null, consultationForm.getTestName(), consultationForm.getTestValue());
         Test addedTest = testService.addTest(test);
-        logger.info("Added test " + addedTest);
+        log.info("Added test " + addedTest);
 
         Consultation consultation = new Consultation(
                 null,
@@ -170,7 +156,7 @@ public class FormController {
                         consultationForm.getConsultationDate());
 
         Consultation addedConsultation = consultationService.addConsultation(consultation);
-        logger.info("Added consultation ", addedConsultation);
+        log.info("Added consultation ", addedConsultation);
 
         Diagnosis diagnosis = new Diagnosis(
                 null,
@@ -180,7 +166,7 @@ public class FormController {
                 formIllness.getIllnessId());
 
         Diagnosis addedDiagnosis = diagnosisService.addDiagnosis(diagnosis);
-        logger.info("Added diagnosis " + addedDiagnosis);
+        log.info("Added diagnosis " + addedDiagnosis);
 
         Treatment treatment = new Treatment(
                 null,
@@ -190,31 +176,33 @@ public class FormController {
                 formDrug.getDrugId());
 
         Treatment addedTreatment = treatmentService.addTreatment(treatment);
-        logger.info("Added treatment " + addedTreatment);
+        log.info("Added treatment " + addedTreatment);
 
 
-        model.addAttribute("submittedForm", addedConsultation != null);
-        model.addAttribute("status", consultationForm != null);
-        model.addAttribute("modelName", "consultation");
-        model.addAttribute("modelId", addedConsultation.getConsultationId());
+        model.addAttribute("submittedForm", addedConsultation != null); // TODO: Remove this since it is redundant
+        model.addAttribute("status", consultationForm != null); // to check whether the form has been filled
+        model.addAttribute("modelName", "consultation"); // to identify which entity is being returned
+        model.addAttribute("modelId", addedConsultation.getConsultationId()); // to identify the entity being returned
 
         return "forms/consultation";
     }
 
     @GetMapping("/illness")
     public String getIllnessForm() {
+        log.info("Returning illness form view...");
         return "/forms/illness";
     }
 
     @PostMapping("/illness")
     public String postIllnessForm(@ModelAttribute("illness") Illness illness, BindingResult result, Model model) {
 
-        if (result.hasErrors())
+        if (result.hasErrors()) {
+            log.error("Encountered errors. Returning error page."); // TODO: Add more error details
             return "pages/error";
-
-        logger.info("Added illness: " + illness.toString());
+        }
 
         Illness addedIllness = illnessService.addIllness(illness);
+        log.info("Added illness from form.");
 
         model.addAttribute("submittedForm", addedIllness != null);
         model.addAttribute("status", illness != null);
@@ -227,18 +215,20 @@ public class FormController {
 
     @GetMapping("/diagnosis")
     public String getDiagnosisForm() {
+        log.info("Returning diagnosis form view...");
         return "/forms/diagnosis";
     }
 
     @PostMapping("/diagnosis")
     public String postDiagnosisForm(@ModelAttribute("diagnosis") Diagnosis diagnosis, BindingResult result, Model model) {
 
-        if (result.hasErrors())
+        if (result.hasErrors()) {
+            log.error("Encountered errors. Returning error page."); // TODO: Add more error details
             return "pages/error";
-
-        logger.info("Added diagnosis: " + diagnosis.toString());
+        }
 
         Diagnosis addedDiagnosis = diagnosisService.addDiagnosis(diagnosis);
+        log.info("Added diagnosis from form.");
 
         model.addAttribute("submittedForm", addedDiagnosis != null);
         model.addAttribute("status", diagnosis != null);
@@ -250,18 +240,20 @@ public class FormController {
 
     @GetMapping("/drug")
     public String getDrugForm() {
+        log.info("Returning drug form view...");
         return "/forms/drug";
     }
 
     @PostMapping("/drug")
     public String postDrugForm(@ModelAttribute("drug") Drug drug, BindingResult result, Model model) {
 
-        if (result.hasErrors())
+        if (result.hasErrors()) {
+            log.error("Encountered errors. Returning error page."); // TODO: Add more error details
             return "pages/error";
-
-        logger.info("Added drug: " + drug.toString());
+        }
 
         Drug addedDrug = drugService.addDrug(drug);
+        log.info("Added drug from form.");
 
         model.addAttribute("submittedForm", addedDrug != null);
         model.addAttribute("status", drug != null);
@@ -273,18 +265,20 @@ public class FormController {
 
     @GetMapping("/treatment")
     public String getTreatmentForm() {
+        log.info("Returning treatment form view...");
         return "/forms/treatment";
     }
 
     @PostMapping("/treatment")
     public String postTreatmentForm(@ModelAttribute("treatment") Treatment treatment, BindingResult result, Model model) {
 
-        if (result.hasErrors())
+        if (result.hasErrors()) {
+            log.error("Encountered errors. Returning error page."); // TODO: Add more error details
             return "pages/error";
-
-        logger.info("Added treatment: " + treatment.toString());
+        }
 
         Treatment addedTreatment = treatmentService.addTreatment(treatment);
+        log.info("Added treatment from form.");
 
         model.addAttribute("submittedForm", addedTreatment != null);
         model.addAttribute("status", treatment != null);
@@ -296,18 +290,20 @@ public class FormController {
 
     @GetMapping("/test")
     public String getTestForm() {
+        log.info("Returning test form view...");
         return "/forms/test";
     }
 
     @PostMapping("/test")
     public String postTestForm(@ModelAttribute("test") Test test, BindingResult result, Model model) {
 
-        if (result.hasErrors())
+        if (result.hasErrors()) {
+            log.error("Encountered errors. Returning error page."); // TODO: Add more error details
             return "pages/error";
-
-        logger.info("Added test: " + test.toString());
+        }
 
         Test addedTest = testService.addTest(test);
+        log.info("Added test from form.");
 
         model.addAttribute("submittedForm", addedTest != null);
         model.addAttribute("status", test != null);

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 public class PatientService {
 
-    private static final Logger logger = LoggerFactory.getLogger(PatientService.class);
+    private static final Logger log = LoggerFactory.getLogger(PatientService.class);
 
     @Autowired
     private PatientRepository patientRepository;
@@ -28,16 +28,15 @@ public class PatientService {
     @Autowired
     private TreatmentRepository treatmentRepository;
 
-    @Autowired
-    private DrugRepository drugRepository;
-
     public List<Patient> getAllPatients() {
+        log.info("Retrieving list of all patients from the repository...");
         List<Patient> patients = new ArrayList<>();
         patientRepository.findAll().forEach(patients::add);
         return patients;
     }
 
     public Patient getPatient(Integer patientId) {
+        log.info("Retrieving patient with given patient ID from the repository...");
         return  patientRepository.findById(patientId).get();
     }
 
@@ -47,16 +46,20 @@ public class PatientService {
 
     public List<Consultation> getConsultations(Integer patientId) {
         List<Consultation> consultations = consultationRepository.findAllByPatientId(patientId);
-
         return consultations;
     }
 
     public List<String> search(String keyword) {
-        logger.info("SEARCH RESULT = " + patientRepository.findByPatientNameContaining(keyword));
-        return patientRepository.findByPatientNameContaining(keyword).stream().map(object -> object.getPatientName()).collect(Collectors.toList());
+        log.info("Searching for patients with a matching name...");
+        return patientRepository
+                .findByPatientNameContaining(keyword)
+                .stream()
+                .map(patient -> patient.getPatientName())
+                .collect(Collectors.toList());
     }
 
     public List<Diagnosis> getDiagnoses(Integer patientId) {
+        log.info("Retrieving given patient's diagnoses from the repository...");
         List<Diagnosis> diagnoses = new ArrayList<>();
         diagnosisRepository.findAll().forEach(diagnosis -> {
             if (diagnosis.getConsultation().getPatientId() == patientId)
@@ -67,6 +70,7 @@ public class PatientService {
     }
 
     public List<Treatment> getTreatments(Integer patientId) {
+        log.info("Retrieving given patient's treatments from the repository...");
         List<Treatment> treatments = new ArrayList<>();
         treatmentRepository.findAll().forEach(treatment -> {
             if (treatment.getDiagnosis().getConsultation().getPatientId() == patientId)
@@ -77,8 +81,8 @@ public class PatientService {
     }
 
     public List<Drug> getDrugs(Integer patientId) {
+        log.info("Retrieving given patient's prescribed drugs from the repository...");
         List<Drug> drugs = new ArrayList<>();
-
         treatmentRepository.findAll().forEach(treatment -> {
            if (treatment.getDiagnosis().getConsultation().getPatientId() == patientId)
                drugs.add(treatment.getDrug());

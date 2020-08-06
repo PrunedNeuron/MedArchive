@@ -14,12 +14,13 @@ import java.util.stream.Collectors;
 @Service
 public class TestService {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestService.class);
+    private static final Logger log = LoggerFactory.getLogger(TestService.class);
 
     @Autowired
     private TestRepository testRepository;
 
     public List<Test> getAllTests() {
+        log.info("Retrieving list of all tests in the repository...");
         List<Test> tests = new ArrayList<>();
         testRepository.findAll().forEach(tests::add);
         return tests;
@@ -34,7 +35,7 @@ public class TestService {
     }
 
     public List<String> search(String keyword) {
-        logger.info("SEARCH RESULT = " + testRepository.findByTestNameContaining(keyword));
+        log.info("Searching for tests with a matching name...");
         return testRepository.findByTestNameContaining(keyword).stream().map(object -> object.getTestName()).collect(Collectors.toList());
     }
 

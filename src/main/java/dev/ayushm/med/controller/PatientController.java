@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,32 +35,45 @@ public class PatientController {
 
     @GetMapping("/{patientId}")
     public String getPatient(@PathVariable Integer patientId, Model model) {
+
+        log.info("Retrieving patient with the given patient ID...");
         Patient patient = patientService.getPatient(patientId);
+
+        log.info("Retrieving consultations attended by the patient with the given patient ID...");
         List<Consultation> consultationList = patientService.getConsultations(patientId);
+
+        log.info("Retrieving diagnoses of the patient with the given patient ID...");
         List<Diagnosis> diagnosisList = patientService.getDiagnoses(patientId);
+
+        log.info("Retrieving treatments associated with the patient with the given patient ID...");
         List<Treatment> treatmentList = patientService.getTreatments(patientId);
+
+        log.info("Retrieving drugs prescribed to the patient with the given patient ID...");
         List<Drug> drugList = patientService.getDrugs(patientId);
         List<Illness> illnessList = patientService.getIllnesses(patientId);
 
+        log.info("Converting the list of drugs into a comma separated string");
         String drugs = new HashSet<Drug>(drugList)
                 .stream()
                 .map(drug -> String.valueOf(drug.getDrugName()))
                 .collect(Collectors.joining(", "));
 
+        log.info("Converting the list of diagnoses/illnesses into a comma separated string...");
         String illnesses = new HashSet<Illness>(illnessList)
                 .stream()
                 .map(illness -> String.valueOf(illness.getIllnessName()))
                 .collect(Collectors.joining(", "));
 
+        log.info("Converting the list of drugs that the patient is allergic to into an array of strings...");
         String[] allergicDrugs = patientService.getPatient(patientId).getPatientAllergicTo().split(" ");
-
-        log.info("Allergic Drugs: " + Arrays.toString(allergicDrugs));
-        log.info("On drugs: " + drugs);
 
         for (Drug drug : drugList)
             for (String allergicDrug : allergicDrugs)
-                if (drug.getDrugName().equalsIgnoreCase(allergicDrug))
+                if (drug.getDrugName().equalsIgnoreCase(allergicDrug)) {
                     model.addAttribute("allergyAlert", true);
+                    break;
+                }
+
 
         model.addAttribute("consultations", consultationList);
         model.addAttribute("diagnoses", diagnosisList);
@@ -76,6 +88,8 @@ public class PatientController {
 
     @GetMapping("{patientId}/history")
     public String getPatientHistory(@PathVariable Integer patientId, Model model) {
+
+        log.info("Retrieving consultations attended by the patient with the given patient ID...");
         List<Consultation> consultations = patientService.getConsultations(patientId);
         model.addAttribute("patient", patientService.getPatient(patientId));
         model.addAttribute("consultations", consultations);

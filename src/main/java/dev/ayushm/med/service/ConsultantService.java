@@ -14,19 +14,19 @@ import java.util.stream.Collectors;
 @Service
 public class ConsultantService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ConsultationService.class);
+    private static final Logger log = LoggerFactory.getLogger(ConsultationService.class);
 
     @Autowired
     private ConsultantRepository consultantRepository;
 
     public List<Consultant> getAllConsultants() {
 
-        logger.info("Retrieving all consultants from the database.");
+        log.info("Retrieving all consultants from the database.");
 
         List<Consultant> consultants = new ArrayList<>();
         consultantRepository.findAll().forEach(consultants::add);
 
-        logger.info("Retrieved all consultants from the database, returning.");
+        log.info("Retrieved all consultants from the database, returning.");
 
         return consultants;
     }
@@ -37,17 +37,22 @@ public class ConsultantService {
 
     public Consultant addConsultant(Consultant consultant) {
 
-        logger.info("Adding consultant with name = " + consultant.getConsultantName() + " to the database.");
+        log.info("Adding consultant to the database.");
         return consultantRepository.save(consultant);
 
     }
 
     public List<String> search(String keyword) {
-        logger.info("SEARCH RESULT = " + consultantRepository.findByConsultantNameContaining(keyword));
-        return consultantRepository.findByConsultantNameContaining(keyword).stream().map(object -> object.getConsultantName()).collect(Collectors.toList());
+        log.info("Searching...");
+        return consultantRepository
+                .findByConsultantNameContaining(keyword)
+                .stream()
+                .map(consultant -> consultant.getConsultantName())
+                .collect(Collectors.toList());
     }
 
     public List<Consultant> getConsultantsByName(String name) {
+        log.info("Retrieving consultant with the given name...");
         return consultantRepository.findByConsultantNameContaining(name);
     }
 
