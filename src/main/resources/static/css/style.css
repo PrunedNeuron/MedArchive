@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
-
 html {
     height: 100%;
 }
@@ -53,12 +51,12 @@ hr {
 
 ::selection {
     color: black;
-    background: #74ffe1; /* WebKit/Blink Browsers */
+    background: #74ffe1;
 }
 
 ::-moz-selection {
     color: black;
-    background: #74ffe1; /* Gecko Browsers */
+    background: #74ffe1;
 }
 
 .navContainer {

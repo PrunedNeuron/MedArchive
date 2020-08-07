@@ -40,7 +40,7 @@ public class MainController implements ErrorController {
 
     @GetMapping("/error")
     public String error() {
-        log.info("Probably encountered an error, returning error page!");
+        log.info("Encountered an error or a static resource is missing, returning error page!");
         return "pages/error";
     }
 
