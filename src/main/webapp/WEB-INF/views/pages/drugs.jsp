@@ -54,7 +54,6 @@
                             <span style="text-transform: capitalize; font-size: 1rem; font-weight: 300;">${drug.drugClassification}</span>
                         </h3>
                     </li>
-                    <br/>
                 </c:forEach>
             </ul>
         </c:if>
