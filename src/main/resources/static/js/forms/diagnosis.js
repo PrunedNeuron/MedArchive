@@ -4,7 +4,7 @@ const diagnosisForm = document.getElementById("diagnosis");
 const consultationId = document.getElementById("consultationId");
 const illnessId = document.getElementById("illnessId");
 
-consultationId.addEventListener("change", function (event) {
+consultationId.addEventListener("change", function () {
     if (!validateId(consultationId.value)) {
         removeClass(consultationId, "formSuccess");
         addAnotherClass(consultationId, "formDanger");
@@ -14,7 +14,7 @@ consultationId.addEventListener("change", function (event) {
     }
 })
 
-illnessId.addEventListener("change", function (event) {
+illnessId.addEventListener("change", function () {
     if (!validateId(illnessId.value)) {
         removeClass(illnessId, "formSuccess");
         addAnotherClass(illnessId, "formDanger");

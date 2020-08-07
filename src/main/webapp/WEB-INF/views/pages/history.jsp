@@ -12,7 +12,7 @@
     <%@include file="../components/navigation.jsp"%>
         <div class="mainBody">
             <c:set var="length" scope="session" value="${fn:length(consultations)}" />
-            <h2 style="text-align: center;"><a href="/patients/${consultations[0].patient.patientId}">${consultations[0].patient.patientName}</a> has had ${length} ${length > 1 ? "consultations" : "consultation"}.</h2>
+            <h2 style="text-align: center;"><a href="/patients/${consultations[0].patient.patientId}">${patient.patientName}</a> has had ${length} ${length != 1 ? "consultations" : "consultation"}.</h2>
             <div class="cards">
                 <c:forEach var="consultation" items="${consultations}">
                     <div class="card">

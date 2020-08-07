@@ -27,13 +27,11 @@ public class TreatmentService {
 
     public List<Treatment> getAllTreatmentsSorted() {
         log.info("Retrieving sorted list of all treatments from the repository...");
-        List<Treatment> treatments = new ArrayList<>();
-        treatments.addAll(treatmentRepository.findAllByOrderByDiagnosis_Consultation_ConsultationDateDesc());
-        return treatments;
+        return new ArrayList<>(treatmentRepository.findAllByOrderByDiagnosis_Consultation_ConsultationDateDesc());
     }
 
     public Treatment getTreatment(Integer treatmentId) {
-        return treatmentRepository.findById(treatmentId).get();
+        return treatmentRepository.findById(treatmentId).orElse(null);
     }
 
     public Treatment addTreatment(Treatment treatment) {

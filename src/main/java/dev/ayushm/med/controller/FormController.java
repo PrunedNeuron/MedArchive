@@ -106,7 +106,7 @@ public class FormController {
         List<Illness> formIllnesses = illnessService.getIllnessesByName(consultationForm.getIllnessName());
         List<Drug> formDrugs = drugService.getDrugsByName(consultationForm.getDrugName());
 
-        Patient formPatient = formPatients.get(0);;
+        Patient formPatient = formPatients.get(0);
         Consultant formConsultant = formConsultants.get(0);
         Illness formIllness, addedIllness;
         Drug formDrug, addedDrug;
@@ -173,7 +173,7 @@ public class FormController {
         log.info("Added treatment from form.");
 
 
-        model.addAttribute("status", consultationForm != null);
+        model.addAttribute("status", consultationForm.getPatientName() != null);
 
         return "forms/consultation";
     }
@@ -195,10 +195,7 @@ public class FormController {
         Illness addedIllness = illnessService.addIllness(illness);
         log.info("Added illness from form.");
 
-        model.addAttribute("submittedForm", addedIllness != null);
         model.addAttribute("status", illness != null);
-        model.addAttribute("modelName", "illness");
-        model.addAttribute("modelId", addedIllness.getIllnessId());
 
         return "forms/illness";
     }

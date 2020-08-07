@@ -8,7 +8,7 @@ const consultantSpecialty = document.getElementById("consultantSpecialty");
 const consultantExperience = document.getElementById("consultantExperience");
 const formStatusMessage = document.getElementById("formStatusMessage");
 
-consultantName.addEventListener("change", function (event) {
+consultantName.addEventListener("change", function () {
     if (!namePattern.test(consultantName.value)) {
         removeClass(consultantName, "formSuccess");
         addAnotherClass(consultantName, "formDanger");
@@ -18,7 +18,7 @@ consultantName.addEventListener("change", function (event) {
     }
 })
 
-consultantEmail.addEventListener("change", function (event) {
+consultantEmail.addEventListener("change", function () {
     if (!emailPattern.test(consultantEmail.value)) {
         removeClass(consultantEmail, "formSuccess");
         addAnotherClass(consultantEmail, "formDanger");
@@ -28,7 +28,7 @@ consultantEmail.addEventListener("change", function (event) {
     }
 })
 
-consultantPhone.addEventListener("change", function (event) {
+consultantPhone.addEventListener("change", function () {
     if (!phonePattern.test(consultantPhone.value)) {
         removeClass(consultantPhone, "formSuccess");
         addAnotherClass(consultantPhone, "formDanger");
@@ -38,7 +38,7 @@ consultantPhone.addEventListener("change", function (event) {
     }
 })
 
-consultantSpecialty.addEventListener("change", function (event) {
+consultantSpecialty.addEventListener("change", function () {
     if (!validateSpecialty(consultantSpecialty.value)) {
         removeClass(consultantSpecialty, "formSuccess");
         addAnotherClass(consultantSpecialty, "formDanger");
@@ -48,7 +48,7 @@ consultantSpecialty.addEventListener("change", function (event) {
     }
 })
 
-consultantExperience.addEventListener("change", function (event) {
+consultantExperience.addEventListener("change", function () {
     if (!validateExperience(consultantExperience.value)) {
         removeClass(consultantExperience, "formSuccess");
         addAnotherClass(consultantExperience, "formDanger");

@@ -28,9 +28,9 @@ public class PopulatorUtility implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(PopulatorUtility.class);
 
-    static final String BASE_URL = "http://localhost:8080/api";
-    static RestTemplate restTemplate = new RestTemplate();
-    static HttpHeaders headers = new HttpHeaders();
+    private static final String BASE_URL = "http://localhost:8080/api";
+    private static RestTemplate restTemplate = new RestTemplate();
+    private static HttpHeaders headers = new HttpHeaders();
 
     public void populate() throws IOException {
         populateTests();

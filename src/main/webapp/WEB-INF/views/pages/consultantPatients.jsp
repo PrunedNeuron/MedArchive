@@ -12,7 +12,7 @@
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp" %>
     <div class="mainBody">
-        <h2 style="text-align: center;">Dr. <a href="/consultants/${consultant.consultantId}">${consultant.consultantName}</a> has treated ${fn:length(patients)} ${fn:length(patients) > 1 ? "patients" : "patient"}.</h2>
+        <h2 style="text-align: center;">Dr. <a href="/consultants/${consultant.consultantId}">${consultant.consultantName}</a> has treated ${fn:length(patients)} ${fn:length(patients) != 1 ? "patients" : "patient"}.</h2>
         <div class="cards">
             <c:forEach var="patient" items="${patients}">
                 <div class="card">

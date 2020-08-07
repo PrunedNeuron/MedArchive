@@ -46,12 +46,10 @@
                             <br/>
                             <input class="formInput inputRadio" id="patientGenderMale" type="radio" name="patientGender"
                                    value="male">
-                            Male
-                            <label>
-                                <input class="formInput inputRadio" id="patientGenderFemale" type="radio"
-                                       name="patientGender" value="female">
-                                Female
-                            </label>
+                            <label for="patientGenderMale">Male</label>
+                            <input class="formInput inputRadio" id="patientGenderFemale" type="radio"
+                                   name="patientGender" value="female">
+                            <label for="patientGenderFemale">Female</label>
                         </div>
 
                         <div class="formInputContainer">

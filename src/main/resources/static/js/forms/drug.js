@@ -3,7 +3,7 @@ const drugName = document.getElementById("drugName");
 const drugClassification = document.getElementById("drugClassification");
 const drugMechanism = document.getElementById("drugMechanism");
 
-drugName.addEventListener("change", function (event) {
+drugName.addEventListener("change", function () {
     if (!namePattern.test(drugName.value)) {
         removeClass(drugName, "formSuccess");
         addAnotherClass(drugName, "formDanger");
@@ -13,7 +13,7 @@ drugName.addEventListener("change", function (event) {
     }
 })
 
-drugClassification.addEventListener("change", function (event) {
+drugClassification.addEventListener("change", function () {
     if (!validateClassification(drugClassification.value)) {
         removeClass(drugClassification, "formSuccess");
         addAnotherClass(drugClassification, "formDanger");
@@ -23,7 +23,7 @@ drugClassification.addEventListener("change", function (event) {
     }
 })
 
-drugMechanism.addEventListener("change", function (event) {
+drugMechanism.addEventListener("change", function () {
     if (!validateMechanism(drugMechanism.value)) {
         removeClass(drugMechanism, "formSuccess");
         addAnotherClass(drugMechanism, "formDanger");
@@ -55,11 +55,11 @@ submitButton.addEventListener("click", function () {
 })
 
 function validateMechanism(mechanism) {
-    return mechanism.length >= 1 && mechanism != undefined;
+    return mechanism.length !== 1;
 }
 
 function validateClassification(classification) {
-    return classification.length >= 1 && classification != undefined;
+    return classification.length >= 1;
 }
 
 function validateDrug() {

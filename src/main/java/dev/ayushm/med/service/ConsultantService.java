@@ -35,7 +35,7 @@ public class ConsultantService {
 
     public Consultant getConsultant(Integer consultantId) {
         log.info("Retrieving consultant with given ID form the repository.");
-        return  consultantRepository.findById(consultantId).get();
+        return  consultantRepository.findById(consultantId).orElse(null);
     }
 
     public Consultant addConsultant(Consultant consultant) {
@@ -50,7 +50,7 @@ public class ConsultantService {
         return consultantRepository
                 .findByConsultantNameContaining(keyword)
                 .stream()
-                .map(consultant -> consultant.getConsultantName())
+                .map(Consultant::getConsultantName)
                 .collect(Collectors.toList());
     }
 

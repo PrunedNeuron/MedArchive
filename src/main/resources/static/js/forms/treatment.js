@@ -4,7 +4,7 @@ const diagnosisId = document.getElementById("diagnosisId");
 const drugId = document.getElementById("drugId");
 
 
-diagnosisId.addEventListener("change", function (event) {
+diagnosisId.addEventListener("change", function () {
     if (!validateId(diagnosisId.value)) {
         removeClass(diagnosisId, "formSuccess");
         addAnotherClass(diagnosisId, "formDanger");
@@ -14,7 +14,7 @@ diagnosisId.addEventListener("change", function (event) {
     }
 })
 
-drugId.addEventListener("change", function (event) {
+drugId.addEventListener("change", function () {
     if (!validateId(drugId.value)) {
         removeClass(drugId, "formSuccess");
         addAnotherClass(drugId, "formDanger");

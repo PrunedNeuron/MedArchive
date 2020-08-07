@@ -26,7 +26,7 @@ public class DrugService {
     }
 
     public Drug getDrug(Integer drugId) {
-        return drugRepository.findById(drugId).get();
+        return drugRepository.findById(drugId).orElse(null);
     }
 
     public Drug addDrug(Drug drug) {
@@ -42,7 +42,7 @@ public class DrugService {
         return drugRepository
                 .findByDrugNameContaining(keyword)
                 .stream()
-                .map(drug -> drug.getDrugName())
+                .map(Drug::getDrugName)
                 .collect(Collectors.toList());
     }
 

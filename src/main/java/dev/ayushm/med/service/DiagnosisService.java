@@ -30,7 +30,7 @@ public class DiagnosisService {
 
     public Diagnosis getDiagnosis(Integer diagnosisId) {
         log.info("Retrieving diagnosis with the given diagnosis ID from the repository...");
-        return diagnosisRepository.findById(diagnosisId).get();
+        return diagnosisRepository.findById(diagnosisId).orElse(null);
     }
 
     public Diagnosis addDiagnosis(Diagnosis diagnosis) {

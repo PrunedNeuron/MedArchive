@@ -9,7 +9,7 @@ const patientGenderFemale = document.getElementById("patientGenderFemale");
 const formStatusMessage = document.getElementById("formStatusMessage");
 
 
-patientName.addEventListener("change", function (event) {
+patientName.addEventListener("change", function () {
     if (!namePattern.test(patientName.value)) {
         removeClass(patientName, "formSuccess");
         addAnotherClass(patientName, "formDanger");
@@ -19,7 +19,7 @@ patientName.addEventListener("change", function (event) {
     }
 })
 
-patientEmail.addEventListener("change", function (event) {
+patientEmail.addEventListener("change", function () {
     if (!emailPattern.test(patientEmail.value)) {
         removeClass(patientEmail, "formSuccess");
         addAnotherClass(patientEmail, "formDanger");
@@ -29,7 +29,7 @@ patientEmail.addEventListener("change", function (event) {
     }
 })
 
-patientAge.addEventListener("change", function (event) {
+patientAge.addEventListener("change", function () {
     if (!validateAge(patientAge.value)) {
         removeClass(patientAge, "formSuccess");
         addAnotherClass(patientAge, "formDanger");
@@ -39,7 +39,7 @@ patientAge.addEventListener("change", function (event) {
     }
 })
 
-patientPhone.addEventListener("change", function (event) {
+patientPhone.addEventListener("change", function () {
     if (!phonePattern.test(patientPhone.value)) {
         removeClass(patientPhone, "formSuccess");
         addAnotherClass(patientPhone, "formDanger");

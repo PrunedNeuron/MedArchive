@@ -1,6 +1,7 @@
 package dev.ayushm.med.controller;
 
 import dev.ayushm.med.model.Consultant;
+import dev.ayushm.med.model.Consultation;
 import dev.ayushm.med.model.Patient;
 import dev.ayushm.med.service.ConsultantService;
 import dev.ayushm.med.service.ConsultationService;
@@ -12,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,15 +49,14 @@ public class ConsultantController {
     public String getConsultantPatients(@PathVariable Integer consultantId, Model model) {
         log.info("Retrieving patients treated by the consultant with the given ID...");
         Consultant consultant = consultantService.getConsultant(consultantId);
-        List<Patient> patients = new ArrayList<>();
 
-        patients.addAll(consultationService
+        List<Patient> patients = consultationService
                 .getAllConsultations()
                 .stream()
                 .filter(consultation -> consultation.getConsultant().equals(consultant))
-                .map(consultation -> consultation.getPatient())
+                .map(Consultation::getPatient)
                 .distinct()
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
 
         patients.forEach(patient -> log.info(patient.toString()));
 

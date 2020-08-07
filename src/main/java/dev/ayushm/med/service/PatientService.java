@@ -41,7 +41,7 @@ public class PatientService {
 
     public Patient getPatient(Integer patientId) {
         log.info("Retrieving patient with given patient ID from the repository...");
-        return patientRepository.findById(patientId).get();
+        return patientRepository.findById(patientId).orElse(null);
     }
 
     public Patient addPatient(Patient patient) {
@@ -53,8 +53,7 @@ public class PatientService {
     }
 
     public List<Consultation> getConsultations(Integer patientId) {
-        List<Consultation> consultations = consultationRepository.findAllByPatientId(patientId);
-        return consultations;
+        return consultationRepository.findAllByPatientId(patientId);
     }
 
     public List<String> search(String keyword) {
@@ -62,7 +61,7 @@ public class PatientService {
         return patientRepository
                 .findByPatientNameContaining(keyword)
                 .stream()
-                .map(patient -> patient.getPatientName())
+                .map(Patient::getPatientName)
                 .collect(Collectors.toList());
     }
 

@@ -38,7 +38,7 @@ const illnessName = document.getElementById("illnessName");
 const drugName = document.getElementById("drugName");
 
 
-patientName.addEventListener("change", function (event) {
+patientName.addEventListener("change", function () {
     if (!validateName(patientName.value)) {
         removeClass(patientName, "formSuccess");
         addAnotherClass(patientName, "formDanger");
@@ -48,7 +48,7 @@ patientName.addEventListener("change", function (event) {
     }
 })
 
-consultantName.addEventListener("change", function (event) {
+consultantName.addEventListener("change", function () {
     if (!validateAddress(consultantName.value)) {
         removeClass(consultantName, "formSuccess");
         addAnotherClass(consultantName, "formDanger");
@@ -58,7 +58,7 @@ consultantName.addEventListener("change", function (event) {
     }
 })
 
-consultationLocation.addEventListener("change", function (event) {
+consultationLocation.addEventListener("change", function () {
     if (!validateAddress(consultationLocation.value)) {
         removeClass(consultationLocation, "formSuccess");
         addAnotherClass(consultationLocation, "formDanger");
@@ -68,7 +68,7 @@ consultationLocation.addEventListener("change", function (event) {
     }
 })
 
-testName.addEventListener("change", function (event) {
+testName.addEventListener("change", function () {
     if (!validateText(testName.value)) {
         removeClass(testName, "formSuccess");
         addAnotherClass(testName, "formDanger");
@@ -78,7 +78,7 @@ testName.addEventListener("change", function (event) {
     }
 })
 
-testValue.addEventListener("change", function (event) {
+testValue.addEventListener("change", function () {
     if (!validateText(testValue.value)) {
         removeClass(testValue, "formSuccess");
         addAnotherClass(testValue, "formDanger");
@@ -88,7 +88,7 @@ testValue.addEventListener("change", function (event) {
     }
 })
 
-illnessName.addEventListener("change", function (event) {
+illnessName.addEventListener("change", function () {
     if (!validateText(illnessName.value)) {
         removeClass(illnessName, "formSuccess");
         addAnotherClass(illnessName, "formDanger");
@@ -98,7 +98,7 @@ illnessName.addEventListener("change", function (event) {
     }
 })
 
-drugName.addEventListener("change", function (event) {
+drugName.addEventListener("change", function () {
     if (!validateText(drugName.value)) {
         removeClass(drugName, "formSuccess");
         addAnotherClass(drugName, "formDanger");

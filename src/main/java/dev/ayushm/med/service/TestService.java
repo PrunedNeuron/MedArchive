@@ -27,7 +27,7 @@ public class TestService {
     }
 
     public Test getTest(Integer testId) {
-        return testRepository.findById(testId).get();
+        return testRepository.findById(testId).orElse(null);
     }
 
     public Test addTest(Test test) {
@@ -36,7 +36,7 @@ public class TestService {
 
     public List<String> search(String keyword) {
         log.info("Searching for tests with a matching name...");
-        return testRepository.findByTestNameContaining(keyword).stream().map(object -> object.getTestName()).collect(Collectors.toList());
+        return testRepository.findByTestNameContaining(keyword).stream().map(Test::getTestName).collect(Collectors.toList());
     }
 
 

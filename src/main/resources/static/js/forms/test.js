@@ -5,7 +5,7 @@ const consultationId = document.getElementById("consultationId")
 const testName = document.getElementById("testName");
 const testValue = document.getElementById("testValue");
 
-consultationId.addEventListener("change", function (event) {
+consultationId.addEventListener("change", function () {
     if (!validateId(consultationId.value)) {
         removeClass(consultationId, "formSuccess");
         addAnotherClass(consultationId, "formDanger");
@@ -15,7 +15,7 @@ consultationId.addEventListener("change", function (event) {
     }
 })
 
-testName.addEventListener("change", function (event) {
+testName.addEventListener("change", function () {
     if (!validateDescription(testName.value)) {
         removeClass(testName, "formSuccess");
         addAnotherClass(testName, "formDanger");
@@ -25,7 +25,7 @@ testName.addEventListener("change", function (event) {
     }
 })
 
-testValue.addEventListener("change", function (event) {
+testValue.addEventListener("change", function () {
     if (!validateDescription(testValue.value)) {
         removeClass(testValue, "formSuccess");
         addAnotherClass(testValue, "formDanger");

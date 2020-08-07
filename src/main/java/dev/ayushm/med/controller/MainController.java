@@ -30,8 +30,8 @@ public class MainController implements ErrorController {
     public String index(Model model) {
 
         log.info("Retrieving list of consultations and treatments, both sorted and sliced.");
-        List<Consultation> consultations = new ArrayList<>(new ArrayList<>(consultationService.getAllConsultationsSorted()).subList(0, 5));
-        List<Treatment> treatments = new ArrayList<>(new ArrayList<>(treatmentService.getAllTreatmentsSorted()).subList(0, 5));
+        List<Consultation> consultations = new ArrayList<>(consultationService.getAllConsultationsSorted()).subList(0, 5);
+        List<Treatment> treatments = new ArrayList<>(treatmentService.getAllTreatmentsSorted()).subList(0, 5);
         model.addAttribute("consultations", consultations);
         model.addAttribute("treatments", treatments);
 

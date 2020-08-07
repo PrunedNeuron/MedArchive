@@ -5,7 +5,7 @@ const illnessDescription = document.getElementById("illnessDescription");
 const illnessSymptoms = document.getElementById("illnessSymptoms");
 
 
-illnessName.addEventListener("change", function (event) {
+illnessName.addEventListener("change", function () {
     if (!validateName(illnessName.value)) {
         removeClass(illnessName, "formSuccess");
         addAnotherClass(illnessName, "formDanger");
@@ -15,7 +15,7 @@ illnessName.addEventListener("change", function (event) {
     }
 })
 
-illnessDescription.addEventListener("change", function (event) {
+illnessDescription.addEventListener("change", function () {
     if (!validateDescription(illnessName.value)) {
         removeClass(illnessDescription, "formSuccess");
         addAnotherClass(illnessDescription, "formDanger");
@@ -25,7 +25,7 @@ illnessDescription.addEventListener("change", function (event) {
     }
 })
 
-illnessSymptoms.addEventListener("change", function (event) {
+illnessSymptoms.addEventListener("change", function () {
     if (!validateSymptoms(illnessSymptoms.value)) {
         removeClass(illnessSymptoms, "formSuccess");
         addAnotherClass(illnessSymptoms, "formDanger");

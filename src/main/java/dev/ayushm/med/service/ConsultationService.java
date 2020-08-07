@@ -32,8 +32,7 @@ public class ConsultationService {
 
     public List<Consultation> getAllConsultationsSorted() {
         logger.info("Retrieving all consultants from the database ordered by date desc.");
-        List<Consultation> consultations = new ArrayList<>();
-        consultations.addAll(consultationRepository.findAllByOrderByConsultationDateDesc());
+        List<Consultation> consultations = new ArrayList<>(consultationRepository.findAllByOrderByConsultationDateDesc());
         logger.info("Retrieved all consultants from the database ordered by date desc.");
 
         Collections.reverse(consultations);
@@ -41,7 +40,7 @@ public class ConsultationService {
     }
 
     public Consultation getConsultation(Integer consultationId) {
-        return  consultationRepository.findById(consultationId).get();
+        return  consultationRepository.findById(consultationId).orElse(null);
     }
 
     public Consultation addConsultation(Consultation consultation) {

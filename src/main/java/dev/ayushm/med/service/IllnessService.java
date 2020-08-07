@@ -26,7 +26,7 @@ public class IllnessService {
     }
 
     public Illness getIllness(Integer illnessId) {
-        return illnessRepository.findById(illnessId).get();
+        return illnessRepository.findById(illnessId).orElse(null);
     }
 
     public Illness addIllness(Illness illness) {
@@ -38,7 +38,7 @@ public class IllnessService {
         return illnessRepository
                 .findByIllnessNameContaining(keyword)
                 .stream()
-                .map(illness -> illness.getIllnessName())
+                .map(Illness::getIllnessName)
                 .collect(Collectors.toList());
     }
 

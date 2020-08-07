@@ -25,8 +25,8 @@
                         </div>
                         <hr />
                         <div class="item capitalize cardFooterButton noselect">
-                            <a href="/drugs" class="button">View more drugs</a>
-                            <a href="/illnesses" class="button">View more illnesses</a>
+                            <a href="/drugs/${treatment.drugId}" class="button">View drug</a>
+                            <a href="/illnesses/${treatment.diagnosis.illnessId}" class="button">View illness</a>
                         </div>
                     </div>
                 </c:forEach>

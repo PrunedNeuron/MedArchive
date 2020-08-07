@@ -153,9 +153,8 @@ i {
 
 .noselect {
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
-    -o-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -355,10 +354,6 @@ textarea:focus, input:focus, button:focus {
     align-items: center;
     border-top: 1px solid #ededed;
     padding: 1rem;
-}
-
-* {
-    font-display: auto;
 }
 
 .bodyContainer {
