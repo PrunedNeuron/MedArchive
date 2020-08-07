@@ -59,7 +59,7 @@ public class FormController {
             return "pages/error";
 
         Patient addedPatient = patientService.addPatient(patient);
-        log.info("Added patient: " + addedPatient.toString());
+        log.info("Added patient from form.");
 
         model.addAttribute("status", patient != null);
 
@@ -79,7 +79,7 @@ public class FormController {
             return "pages/error";
 
         Consultant addedConsultant = consultantService.addConsultant(consultant);
-        log.info("Added consultant: " + addedConsultant.toString());
+        log.info("Added consultant from form.");
 
         model.addAttribute("status", consultant != null);
 
@@ -99,7 +99,7 @@ public class FormController {
             return "pages/error";
         }
 
-        log.info("About to add consultation form: " + consultationForm.toString());
+        log.info("About to add consultation.");
 
         List<Patient> formPatients = patientService.getPatientsByName(consultationForm.getPatientName());
         List<Consultant> formConsultants = consultantService.getConsultantsByName(consultationForm.getConsultantName());
@@ -140,17 +140,17 @@ public class FormController {
 
         Consultation consultation = new Consultation(
                 null,
-                        formPatient,
-                        formPatient.getPatientId(),
-                        formConsultant,
-                        formConsultant.getConsultantId(),
-                        addedTest,
-                        addedTest.getTestId(),
-                        consultationForm.getConsultationLocation(),
-                        consultationForm.getConsultationDate());
+                formPatient,
+                formPatient.getPatientId(),
+                formConsultant,
+                formConsultant.getConsultantId(),
+                addedTest,
+                addedTest.getTestId(),
+                consultationForm.getConsultationLocation(),
+                consultationForm.getConsultationDate());
 
         Consultation addedConsultation = consultationService.addConsultation(consultation);
-        log.info("Added consultation " + addedConsultation);
+        log.info("Added consultation from form.");
 
         Diagnosis diagnosis = new Diagnosis(
                 null,
@@ -160,7 +160,7 @@ public class FormController {
                 formIllness.getIllnessId());
 
         Diagnosis addedDiagnosis = diagnosisService.addDiagnosis(diagnosis);
-        log.info("Added diagnosis " + addedDiagnosis);
+        log.info("Added diagnosis from form.");
 
         Treatment treatment = new Treatment(
                 null,
@@ -170,7 +170,7 @@ public class FormController {
                 formDrug.getDrugId());
 
         Treatment addedTreatment = treatmentService.addTreatment(treatment);
-        log.info("Added treatment " + addedTreatment);
+        log.info("Added treatment from form.");
 
 
         model.addAttribute("status", consultationForm != null);
