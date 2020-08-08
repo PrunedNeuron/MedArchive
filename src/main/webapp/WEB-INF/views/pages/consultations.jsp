@@ -1,15 +1,14 @@
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Consultations</title>
-    <%@include file="../components/head.jsp"%>
+    <%@include file="../components/head.jsp" %>
 </head>
 <body>
 <div class="bodyContainer">
-    <%@include file="../components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp" %>
     <div class="mainBody">
         <c:if test="${consultation.consultationId != null}">
             <div class="cards">
@@ -25,23 +24,24 @@
                         <span class="mutedText">Consultant</span> ${consultation.consultant.consultantName}
                     </div>
                     <div class="item capitalize">
-                            <span class="mutedText">Location</span> ${consultation.consultationLocation}
-                        </div>
-                        <div class="item">
-                            <span class="mutedText">Tests</span> <span class="capitalize">${consultation.test.testName}</span> - ${consultation.test.testValue}
-                        </div>
-                        <div class="item capitalize">
-                            <span class="mutedText">Diagnosis</span> ${diagnoses}
-                        </div>
-                        <div class="item capitalize">
-                            <span class="mutedText">Treated with</span> ${drugs}
-                        </div>
-                        <hr />
-                        <div class="item capitalize cardFooterButton noselect">
-                            <a href="/patients/${consultation.patientId}" class="button">View Patient</a>
-                            <a href="/consultants/${consultation.consultantId}" class="button">View Consultant</a>
-                        </div>
+                        <span class="mutedText">Location</span> ${consultation.consultationLocation}
                     </div>
+                    <div class="item">
+                        <span class="mutedText">Tests</span> <span
+                            class="capitalize">${consultation.test.testName}</span> - ${consultation.test.testValue}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Diagnosis</span> ${diagnoses}
+                    </div>
+                    <div class="item capitalize">
+                        <span class="mutedText">Treated with</span> ${drugs}
+                    </div>
+                    <hr/>
+                    <div class="item capitalize cardFooterButton noselect">
+                        <a href="/patients/${consultation.patientId}" class="button">View Patient</a>
+                        <a href="/consultants/${consultation.consultantId}" class="button">View Consultant</a>
+                    </div>
+                </div>
             </div>
         </c:if>
         <c:if test="${consultation.consultationId == null}">
@@ -55,7 +55,7 @@
                         <div class="item capitalize">
                             <span class="mutedText">Consultant</span> ${consultation.consultant.consultantName}
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="item capitalize cardFooterButton noselect">
                             <a href="/consultations/${consultation.consultationId}" class="button">View Consultation</a>
                         </div>
@@ -66,6 +66,6 @@
     </div>
     <%@include file="../components/footer.jsp" %>
 </div>
-<%@include file="../components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp" %>
 </body>
 </html>

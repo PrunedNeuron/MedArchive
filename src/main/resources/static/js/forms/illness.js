@@ -1,4 +1,3 @@
-
 const illnessForm = document.getElementById("illness");
 const illnessName = document.getElementById("illnessName");
 const illnessDescription = document.getElementById("illnessDescription");
@@ -35,20 +34,19 @@ illnessSymptoms.addEventListener("change", function () {
     }
 })
 
-submitButton.addEventListener("click", function() {
-    if (validateIllness()){
+submitButton.addEventListener("click", function () {
+    if (validateIllness()) {
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
         illnessForm.submit();
-        setTimeout(function() {
+        setTimeout(function () {
             illnessForm.reset();
         }, 3000);
-    }
-    else {
+    } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
-        setTimeout(function() {
+        setTimeout(function () {
             removeClass(submitButton, "shakeAnimation");
             removeClass(submitButton, "buttonDanger");
             addAnotherClass(submitButton, "buttonPrimary");

@@ -1,4 +1,3 @@
-
 const testForm = document.getElementById("test");
 
 const consultationId = document.getElementById("consultationId")
@@ -36,20 +35,19 @@ testValue.addEventListener("change", function () {
 })
 
 
-submitButton.addEventListener("click", function() {
-    if (validateTest()){
+submitButton.addEventListener("click", function () {
+    if (validateTest()) {
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
         testForm.submit();
-        setTimeout(function() {
+        setTimeout(function () {
             testForm.reset();
         }, 3000);
-    }
-    else {
+    } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
-        setTimeout(function() {
+        setTimeout(function () {
             removeClass(submitButton, "shakeAnimation");
             removeClass(submitButton, "buttonDanger");
             addAnotherClass(submitButton, "buttonPrimary");

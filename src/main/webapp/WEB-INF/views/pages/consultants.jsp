@@ -38,7 +38,7 @@
                         </span>
                     </div>
 
-                    <hr />
+                    <hr/>
                     <div class="item capitalize cardFooterButton noselect">
                         <a href="/consultants/${consultant.consultantId}/patients" class="button">View Patients</a>
                     </div>
@@ -60,7 +60,7 @@
                         <div class="item capitalize">
                             <span class="mutedText">Experience</span> ${consultant.consultantExperience}
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="item capitalize cardFooterButton noselect">
                             <a href="/consultants/${consultant.consultantId}" class="button">View Consultant</a>
                         </div>

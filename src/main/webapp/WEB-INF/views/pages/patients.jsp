@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -76,7 +76,7 @@
                         </div>
                     </c:if>
 
-                    <hr />
+                    <hr/>
                     <div class="item capitalize cardFooterButton noselect">
                         <a href="/patients/${patient.patientId}/history" class="button">View Patient History</a>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="item capitalize">
                             <span class="mutedText">Gender</span> ${patient.patientGender}
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="item capitalize cardFooterButton noselect">
                             <a href="/patients/${patient.patientId}" class="button">View Patient</a>
                         </div>

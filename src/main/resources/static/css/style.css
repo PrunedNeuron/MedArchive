@@ -297,7 +297,7 @@ textarea:focus, input:focus, button:focus {
 }
 
 .shakeAnimation {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
@@ -330,8 +330,8 @@ textarea:focus, input:focus, button:focus {
 .select {
     background-color: white;
     color: #666666;
-    border:0;
-    outline:0;
+    border: 0;
+    outline: 0;
     scroll-behavior: smooth;
 }
 
@@ -374,7 +374,7 @@ footer {
     flex: 0 1 auto;
 }
 
-.greenFilter{
+.greenFilter {
     filter: invert(52%) sepia(100%) saturate(392%) hue-rotate(87deg) brightness(94%) contrast(96%);
 }
 

@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface ConsultationRepository extends CrudRepository<Consultation, Integer> {
     List<Consultation> findAllByOrderByConsultationDateDesc();
+
     List<Consultation> findAllByOrderByConsultationDateAsc();
+
     List<Consultation> findAllByPatientId(Integer patientId);
 }

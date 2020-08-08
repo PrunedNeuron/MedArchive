@@ -7,7 +7,7 @@
         </div>
         <div class="footerCenter">
             <p class="smallFooterText">
-<%--                Center--%>
+                <%--                Center--%>
             </p>
         </div>
         <div class="footerRight">
@@ -16,7 +16,8 @@
                     Built with
                 </p>
                 <a href="https://spring.io">
-                    <img class="greenFilter" height="16" width="16" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/spring.svg"  alt="spring"/>
+                    <img class="greenFilter" height="16" width="16"
+                         src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/spring.svg" alt="spring"/>
                 </a>
             </div>
         </div>

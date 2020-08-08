@@ -1,4 +1,3 @@
-
 const patientForm = document.getElementById("patient");
 const patientName = document.getElementById("patientName");
 const patientEmail = document.getElementById("patientEmail");
@@ -49,20 +48,19 @@ patientPhone.addEventListener("change", function () {
     }
 })
 
-submitButton.addEventListener("click", function() {
-    if (validatePatient()){
+submitButton.addEventListener("click", function () {
+    if (validatePatient()) {
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
         patientForm.submit();
-        setTimeout(function() {
+        setTimeout(function () {
             patientForm.reset();
         }, 3000);
-    }
-    else {
+    } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
-        setTimeout(function() {
+        setTimeout(function () {
             removeClass(submitButton, "shakeAnimation");
             removeClass(submitButton, "buttonDanger");
             addAnotherClass(submitButton, "buttonPrimary");

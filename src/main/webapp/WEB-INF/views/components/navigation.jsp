@@ -1,4 +1,3 @@
-
 <style>
 
     .navItem a {
@@ -36,7 +35,7 @@
                 <ul class="dropdown-content">
                     <li><a href="/consultants">Consultants</a></li>
                     <li><a href="/illnesses">Illnesses</a></li>
-<%--                    <li><a href="/treatments">Diagnoses</a></li>--%>
+                    <%--                    <li><a href="/treatments">Diagnoses</a></li>--%>
                     <li><a href="/drugs">Drugs</a></li>
                     <li><a href="/treatments">Treatments</a></li>
                     <li><a href="/tests">Tests</a></li>
@@ -56,10 +55,10 @@
                     <li><a href="/add/consultant">Consultant</a></li>
                     <li><a href="/add/consultation">Consultation</a></li>
                     <li><a href="/add/illness">Illness</a></li>
-<%--                    <li><a href="/add/diagnosis">Diagnosis</a></li>--%>
+                    <%--                    <li><a href="/add/diagnosis">Diagnosis</a></li>--%>
                     <li><a href="/add/drug">Drug</a></li>
-<%--                    <li><a href="/add/treatment">Treatment</a></li>--%>
-<%--                    <li><a href="/add/test">Test</a></li>--%>
+                    <%--                    <li><a href="/add/treatment">Treatment</a></li>--%>
+                    <%--                    <li><a href="/add/test">Test</a></li>--%>
                 </ul>
             </div>
         </div>

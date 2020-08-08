@@ -5,12 +5,12 @@
 <html>
 <head>
     <title>Treatments</title>
-    <%@include file="../components/head.jsp"%>
+    <%@include file="../components/head.jsp" %>
 </head>
 <body>
 
 <div class="bodyContainer">
-    <%@include file="../components/navigation.jsp"%>
+    <%@include file="../components/navigation.jsp" %>
     <main class="main">
         <div class="mainBody">
             <h2 style="text-align: center;">Diagnoses and their treatments.</h2>
@@ -23,7 +23,7 @@
                         <div class="item capitalize">
                             <span class="mutedText">Treated with</span> ${treatment.drug.drugName}
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="item capitalize cardFooterButton noselect">
                             <a href="/drugs/${treatment.drugId}" class="button">View drug</a>
                             <a href="/illnesses/${treatment.diagnosis.illnessId}" class="button">View illness</a>
@@ -33,9 +33,9 @@
             </div>
         </div>
     </main>
-    <%@include file="../components/footer.jsp"%>
+    <%@include file="../components/footer.jsp" %>
 </div>
 
-<%@include file="../components/scripts.jsp"%>
+<%@include file="../components/scripts.jsp" %>
 </body>
 </html>

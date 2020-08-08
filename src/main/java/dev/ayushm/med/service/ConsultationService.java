@@ -42,7 +42,7 @@ public class ConsultationService {
     }
 
     public Consultation getConsultation(Integer consultationId) {
-        return  consultationRepository.findById(consultationId).orElse(null);
+        return consultationRepository.findById(consultationId).orElse(null);
     }
 
     public Consultation addConsultation(Consultation consultation) {

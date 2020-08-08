@@ -4,7 +4,6 @@ import dev.ayushm.med.model.*;
 import dev.ayushm.med.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,29 +14,25 @@ public class ApiController {
 
     private static final Logger log = LoggerFactory.getLogger(ApiController.class);
 
-    @Autowired
-    private PatientService patientService;
+    private final PatientService patientService;
+    private final ConsultantService consultantService;
+    private final IllnessService illnessService;
+    private final DrugService drugService;
+    private final ConsultationService consultationService;
+    private final DiagnosisService diagnosisService;
+    private final TreatmentService treatmentService;
+    private final TestService testService;
 
-    @Autowired
-    private ConsultantService consultantService;
-
-    @Autowired
-    private IllnessService illnessService;
-
-    @Autowired
-    private DrugService drugService;
-
-    @Autowired
-    private ConsultationService consultationService;
-
-    @Autowired
-    private DiagnosisService diagnosisService;
-
-    @Autowired
-    private TreatmentService treatmentService;
-
-    @Autowired
-    private TestService testService;
+    public ApiController(PatientService patientService, ConsultantService consultantService, IllnessService illnessService, DrugService drugService, ConsultationService consultationService, DiagnosisService diagnosisService, TreatmentService treatmentService, TestService testService) {
+        this.patientService = patientService;
+        this.consultantService = consultantService;
+        this.illnessService = illnessService;
+        this.drugService = drugService;
+        this.consultationService = consultationService;
+        this.diagnosisService = diagnosisService;
+        this.treatmentService = treatmentService;
+        this.testService = testService;
+    }
 
     @GetMapping("/patients")
     public List<Patient> getAllPatients() {

@@ -1,4 +1,3 @@
-
 const submitButton = document.getElementById("submitButton");
 const addressPattern = /^[\w\-,\s]+$/
 const namePattern = /^[a-zA-Z ]{2,30}$/;
@@ -50,6 +49,6 @@ function validateText(text) {
 }
 
 
-setTimeout(function() {
+setTimeout(function () {
     hideElement(formStatusMessage);
 }, 5000);

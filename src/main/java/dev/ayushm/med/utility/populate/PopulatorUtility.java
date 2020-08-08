@@ -32,34 +32,6 @@ public class PopulatorUtility implements CommandLineRunner {
     private static RestTemplate restTemplate = new RestTemplate();
     private static HttpHeaders headers = new HttpHeaders();
 
-    public void populate() throws IOException {
-        populateTests();
-        populateDrugs();
-        populatePatients();
-        populateConsultants();
-        populateConsultations();
-        populateIllnesses();
-        populateDiagnoses();
-        populateTreatments();
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        log.info("Setting headers, application/json.");
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-
-
-        long start = System.currentTimeMillis();
-        log.info("Populating database...");
-        populate();
-        long delta = System.currentTimeMillis() - start;
-        double elapsedSeconds = delta / 1000.0;
-
-        log.info("The database has been populated with sample data.");
-        log.info("Insertion took " + elapsedSeconds + " seconds.");
-    }
-
     public static void populatePatients() throws IOException {
         String url = BASE_URL + "/patients";
 
@@ -182,6 +154,33 @@ public class PopulatorUtility implements CommandLineRunner {
             restTemplate.postForObject(url, entity, String.class);
         }
 
+    }
+
+    public void populate() throws IOException {
+        populateTests();
+        populateDrugs();
+        populatePatients();
+        populateConsultants();
+        populateConsultations();
+        populateIllnesses();
+        populateDiagnoses();
+        populateTreatments();
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        log.info("Setting headers, application/json.");
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+        long start = System.currentTimeMillis();
+        log.info("Populating database...");
+        populate();
+        long delta = System.currentTimeMillis() - start;
+        double elapsedSeconds = delta / 1000.0;
+
+        log.info("The database has been populated with sample data.");
+        log.info("Insertion took " + elapsedSeconds + " seconds.");
     }
 
 

@@ -1,4 +1,3 @@
-
 const treatmentForm = document.getElementById("treatment");
 const diagnosisId = document.getElementById("diagnosisId");
 const drugId = document.getElementById("drugId");
@@ -24,20 +23,19 @@ drugId.addEventListener("change", function () {
     }
 })
 
-submitButton.addEventListener("click", function() {
-    if (validateTreatment()){
+submitButton.addEventListener("click", function () {
+    if (validateTreatment()) {
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
         treatmentForm.submit();
-        setTimeout(function() {
+        setTimeout(function () {
             treatmentForm.reset();
         }, 3000);
-    }
-    else {
+    } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
-        setTimeout(function() {
+        setTimeout(function () {
             removeClass(submitButton, "shakeAnimation");
             removeClass(submitButton, "buttonDanger");
             addAnotherClass(submitButton, "buttonPrimary");

@@ -16,9 +16,9 @@ public class Consultation {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patient_id",
-                referencedColumnName = "patient_id",
-                insertable = false,
-                updatable = false)
+            referencedColumnName = "patient_id",
+            insertable = false,
+            updatable = false)
     private Patient patient;
 
     @Column(name = "patient_id")

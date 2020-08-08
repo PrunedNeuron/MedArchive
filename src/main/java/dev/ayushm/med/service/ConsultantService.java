@@ -37,7 +37,7 @@ public class ConsultantService {
 
     public Consultant getConsultant(Integer consultantId) {
         log.info("Retrieving consultant with given ID form the repository.");
-        return  consultantRepository.findById(consultantId).orElse(null);
+        return consultantRepository.findById(consultantId).orElse(null);
     }
 
     public Consultant addConsultant(Consultant consultant) {

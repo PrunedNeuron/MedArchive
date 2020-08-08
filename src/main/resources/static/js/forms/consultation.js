@@ -108,19 +108,19 @@ drugName.addEventListener("change", function () {
     }
 })
 
-submitButton.addEventListener("click", function() {
-    if (validateConsultation()){
+submitButton.addEventListener("click", function () {
+    if (validateConsultation()) {
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
         consultationForm.submit();
-        setTimeout(function() {
+        setTimeout(function () {
             consultationForm.reset();
         }, 3000);
     } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
-        setTimeout(function() {
+        setTimeout(function () {
             removeClass(submitButton, "shakeAnimation");
             removeClass(submitButton, "buttonDanger");
             addAnotherClass(submitButton, "buttonPrimary");

@@ -1,4 +1,3 @@
-
 const consultantForm = document.getElementById("consultant");
 
 const consultantName = document.getElementById("consultantName");
@@ -59,20 +58,19 @@ consultantExperience.addEventListener("change", function () {
 })
 
 
-submitButton.addEventListener("click", function() {
-    if (validateConsultant()){
+submitButton.addEventListener("click", function () {
+    if (validateConsultant()) {
         removeClass(submitButton, "shakeAnimation");
         removeClass(submitButton, "buttonDanger");
         addAnotherClass(submitButton, "buttonPrimary");
         consultantForm.submit();
-        setTimeout(function() {
+        setTimeout(function () {
             consultantForm.reset();
         }, 3000);
-    }
-    else {
+    } else {
         addAnotherClass(submitButton, "shakeAnimation");
         addAnotherClass(submitButton, "buttonDanger");
-        setTimeout(function() {
+        setTimeout(function () {
             removeClass(submitButton, "shakeAnimation");
             removeClass(submitButton, "buttonDanger");
             addAnotherClass(submitButton, "buttonPrimary");
