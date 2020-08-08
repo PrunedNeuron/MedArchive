@@ -5,6 +5,7 @@ import dev.ayushm.med.model.form.ConsultationForm;
 import dev.ayushm.med.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,6 +31,7 @@ public class FormController {
     private final TreatmentService treatmentService;
     private final TestService testService;
 
+    @Autowired
     public FormController(PatientService patientService, ConsultantService consultantService, ConsultationService consultationService, IllnessService illnessService, DiagnosisService diagnosisService, DrugService drugService, TreatmentService treatmentService, TestService testService) {
         this.patientService = patientService;
         this.consultantService = consultantService;

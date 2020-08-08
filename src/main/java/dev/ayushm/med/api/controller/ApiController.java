@@ -4,6 +4,7 @@ import dev.ayushm.med.model.*;
 import dev.ayushm.med.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class ApiController {
     private final TreatmentService treatmentService;
     private final TestService testService;
 
+    @Autowired
     public ApiController(PatientService patientService, ConsultantService consultantService, IllnessService illnessService, DrugService drugService, ConsultationService consultationService, DiagnosisService diagnosisService, TreatmentService treatmentService, TestService testService) {
         this.patientService = patientService;
         this.consultantService = consultantService;

@@ -9,6 +9,7 @@ import dev.ayushm.med.service.TreatmentService;
 import dev.ayushm.med.utility.DateFormatUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class ConsultationController {
     private final DiagnosisService diagnosisService;
     private final TreatmentService treatmentService;
 
+    @Autowired
     public ConsultationController(ConsultationService consultationService, DiagnosisService diagnosisService, TreatmentService treatmentService) {
         this.consultationService = consultationService;
         this.diagnosisService = diagnosisService;

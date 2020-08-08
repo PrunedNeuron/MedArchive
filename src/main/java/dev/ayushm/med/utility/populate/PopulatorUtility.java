@@ -29,8 +29,8 @@ public class PopulatorUtility implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(PopulatorUtility.class);
 
     private static final String BASE_URL = "http://localhost:8080/api";
-    private static RestTemplate restTemplate = new RestTemplate();
-    private static HttpHeaders headers = new HttpHeaders();
+    private static final RestTemplate restTemplate = new RestTemplate();
+    private static final HttpHeaders headers = new HttpHeaders();
 
     public static void populatePatients() throws IOException {
         String url = BASE_URL + "/patients";
