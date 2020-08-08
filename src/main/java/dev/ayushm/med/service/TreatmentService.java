@@ -4,7 +4,6 @@ import dev.ayushm.med.model.Treatment;
 import dev.ayushm.med.repository.TreatmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,8 +14,11 @@ public class TreatmentService {
 
     private static final Logger log = LoggerFactory.getLogger(TreatmentService.class);
 
-    @Autowired
-    private TreatmentRepository treatmentRepository;
+    private final TreatmentRepository treatmentRepository;
+
+    public TreatmentService(TreatmentRepository treatmentRepository) {
+        this.treatmentRepository = treatmentRepository;
+    }
 
     public List<Treatment> getAllTreatments() {
         log.info("Retrieving list of all treatments from the repository...");

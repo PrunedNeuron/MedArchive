@@ -4,7 +4,6 @@ import dev.ayushm.med.model.Treatment;
 import dev.ayushm.med.service.TreatmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +19,11 @@ public class TreatmentController {
 
     private static final Logger log = LoggerFactory.getLogger(TreatmentController.class);
 
-    @Autowired
-    private TreatmentService treatmentService;
+    private final TreatmentService treatmentService;
+
+    public TreatmentController(TreatmentService treatmentService) {
+        this.treatmentService = treatmentService;
+    }
 
     @GetMapping("/treatments")
     public String getAllTreatments(Model model) {

@@ -72,7 +72,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Patient patient = mapper.readValue(parser, Patient.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(patient), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
 
     }
@@ -88,7 +88,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Consultant consultant = mapper.readValue(parser, Consultant.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(consultant), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
     }
 
@@ -103,7 +103,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Consultation consultation = mapper.readValue(parser, Consultation.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(consultation), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
     }
 
@@ -118,7 +118,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Illness illness = mapper.readValue(parser, Illness.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(illness), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
     }
 
@@ -133,7 +133,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Diagnosis diagnosis = mapper.readValue(parser, Diagnosis.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(diagnosis), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
     }
 
@@ -148,7 +148,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Drug drug = mapper.readValue(parser, Drug.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(drug), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
     }
 
@@ -163,7 +163,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Treatment treatment = mapper.readValue(parser, Treatment.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(treatment), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
     }
 
@@ -179,7 +179,7 @@ public class PopulatorUtility implements CommandLineRunner {
         while (parser.nextToken() == JsonToken.START_OBJECT) {
             Test test = mapper.readValue(parser, Test.class);
             HttpEntity<String> entity = new HttpEntity<>(mapper.writeValueAsString(test), headers);
-            String answer = restTemplate.postForObject(url, entity, String.class);
+            restTemplate.postForObject(url, entity, String.class);
         }
 
     }

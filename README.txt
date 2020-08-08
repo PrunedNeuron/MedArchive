@@ -37,3 +37,8 @@ STEPS TO RUN
 					java -jar target/medarchive.jar
 
 	5. Open `localhost:8080` in your browser. 
+
+
+Ayush Mishra (849014)
+ayushm017@gmail.com
+9133000003

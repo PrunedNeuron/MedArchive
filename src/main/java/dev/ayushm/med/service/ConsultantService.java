@@ -4,7 +4,6 @@ import dev.ayushm.med.model.Consultant;
 import dev.ayushm.med.repository.ConsultantRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,8 +16,11 @@ public class ConsultantService {
 
     private static final Logger log = LoggerFactory.getLogger(ConsultationService.class);
 
-    @Autowired
-    private ConsultantRepository consultantRepository;
+    private final ConsultantRepository consultantRepository;
+
+    public ConsultantService(ConsultantRepository consultantRepository) {
+        this.consultantRepository = consultantRepository;
+    }
 
     public List<Consultant> getAllConsultants() {
 

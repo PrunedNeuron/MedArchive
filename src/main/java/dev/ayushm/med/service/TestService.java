@@ -4,7 +4,6 @@ import dev.ayushm.med.model.Test;
 import dev.ayushm.med.repository.TestRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,8 +15,11 @@ public class TestService {
 
     private static final Logger log = LoggerFactory.getLogger(TestService.class);
 
-    @Autowired
-    private TestRepository testRepository;
+    private final TestRepository testRepository;
+
+    public TestService(TestRepository testRepository) {
+        this.testRepository = testRepository;
+    }
 
     public List<Test> getAllTests() {
         log.info("Retrieving list of all tests in the repository...");

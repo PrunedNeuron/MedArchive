@@ -9,7 +9,6 @@ import dev.ayushm.med.service.TreatmentService;
 import dev.ayushm.med.utility.DateFormatUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +23,15 @@ public class ConsultationController {
 
     private static final Logger log = LoggerFactory.getLogger(ConsultationController.class);
 
-    @Autowired
-    private ConsultationService consultationService;
+    private final ConsultationService consultationService;
+    private final DiagnosisService diagnosisService;
+    private final TreatmentService treatmentService;
 
-    @Autowired
-    private DiagnosisService diagnosisService;
-
-    @Autowired
-    private TreatmentService treatmentService;
+    public ConsultationController(ConsultationService consultationService, DiagnosisService diagnosisService, TreatmentService treatmentService) {
+        this.consultationService = consultationService;
+        this.diagnosisService = diagnosisService;
+        this.treatmentService = treatmentService;
+    }
 
     @GetMapping("/consultations")
     public String getAllConsultations(Model model) {

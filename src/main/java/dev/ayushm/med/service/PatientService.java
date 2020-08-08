@@ -7,7 +7,6 @@ import dev.ayushm.med.repository.PatientRepository;
 import dev.ayushm.med.repository.TreatmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,17 +18,17 @@ public class PatientService {
 
     private static final Logger log = LoggerFactory.getLogger(PatientService.class);
 
-    @Autowired
-    private PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
+    private final ConsultationRepository consultationRepository;
+    private final DiagnosisRepository diagnosisRepository;
+    private final TreatmentRepository treatmentRepository;
 
-    @Autowired
-    private ConsultationRepository consultationRepository;
-
-    @Autowired
-    private DiagnosisRepository diagnosisRepository;
-
-    @Autowired
-    private TreatmentRepository treatmentRepository;
+    public PatientService(PatientRepository patientRepository, ConsultationRepository consultationRepository, DiagnosisRepository diagnosisRepository, TreatmentRepository treatmentRepository) {
+        this.patientRepository = patientRepository;
+        this.consultationRepository = consultationRepository;
+        this.diagnosisRepository = diagnosisRepository;
+        this.treatmentRepository = treatmentRepository;
+    }
 
     public List<Patient> getAllPatients() {
         log.info("Retrieving list of all patients from the repository...");

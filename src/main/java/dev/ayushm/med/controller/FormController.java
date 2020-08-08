@@ -5,7 +5,6 @@ import dev.ayushm.med.model.form.ConsultationForm;
 import dev.ayushm.med.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,30 +21,25 @@ public class FormController {
 
     private static final Logger log = LoggerFactory.getLogger(FormController.class);
 
-    @Autowired
-    private PatientService patientService;
+    private final PatientService patientService;
+    private final ConsultantService consultantService;
+    private final ConsultationService consultationService;
+    private final IllnessService illnessService;
+    private final DiagnosisService diagnosisService;
+    private final DrugService drugService;
+    private final TreatmentService treatmentService;
+    private final TestService testService;
 
-    @Autowired
-    private ConsultantService consultantService;
-
-    @Autowired
-    private ConsultationService consultationService;
-
-    @Autowired
-    private IllnessService illnessService;
-
-    @Autowired
-    private DiagnosisService diagnosisService;
-
-    @Autowired
-    private DrugService drugService;
-
-    @Autowired
-    private TreatmentService treatmentService;
-
-    @Autowired
-    private TestService testService;
-
+    public FormController(PatientService patientService, ConsultantService consultantService, ConsultationService consultationService, IllnessService illnessService, DiagnosisService diagnosisService, DrugService drugService, TreatmentService treatmentService, TestService testService) {
+        this.patientService = patientService;
+        this.consultantService = consultantService;
+        this.consultationService = consultationService;
+        this.illnessService = illnessService;
+        this.diagnosisService = diagnosisService;
+        this.drugService = drugService;
+        this.treatmentService = treatmentService;
+        this.testService = testService;
+    }
 
 
     @GetMapping("/patient")
@@ -58,7 +52,7 @@ public class FormController {
         if (result.hasErrors())
             return "pages/error";
 
-        Patient addedPatient = patientService.addPatient(patient);
+        patientService.addPatient(patient);
         log.info("Added patient from form.");
 
         model.addAttribute("status", patient != null);
@@ -78,7 +72,7 @@ public class FormController {
         if (result.hasErrors())
             return "pages/error";
 
-        Consultant addedConsultant = consultantService.addConsultant(consultant);
+        consultantService.addConsultant(consultant);
         log.info("Added consultant from form.");
 
         model.addAttribute("status", consultant != null);
@@ -169,7 +163,7 @@ public class FormController {
                 formDrug,
                 formDrug.getDrugId());
 
-        Treatment addedTreatment = treatmentService.addTreatment(treatment);
+        treatmentService.addTreatment(treatment);
         log.info("Added treatment from form.");
 
 
@@ -192,7 +186,7 @@ public class FormController {
             return "pages/error";
         }
 
-        Illness addedIllness = illnessService.addIllness(illness);
+        illnessService.addIllness(illness);
         log.info("Added illness from form.");
 
         model.addAttribute("status", illness != null);
@@ -215,7 +209,7 @@ public class FormController {
             return "pages/error";
         }
 
-        Diagnosis addedDiagnosis = diagnosisService.addDiagnosis(diagnosis);
+        diagnosisService.addDiagnosis(diagnosis);
         log.info("Added diagnosis from form.");
 
         model.addAttribute("status", diagnosis != null);
@@ -237,7 +231,7 @@ public class FormController {
             return "pages/error";
         }
 
-        Drug addedDrug = drugService.addDrug(drug);
+        drugService.addDrug(drug);
         log.info("Added drug from form.");
 
         model.addAttribute("status", drug != null);
@@ -259,7 +253,7 @@ public class FormController {
             return "pages/error";
         }
 
-        Treatment addedTreatment = treatmentService.addTreatment(treatment);
+        treatmentService.addTreatment(treatment);
         log.info("Added treatment from form.");
 
         model.addAttribute("status", treatment != null);
@@ -281,7 +275,7 @@ public class FormController {
             return "pages/error";
         }
 
-        Test addedTest = testService.addTest(test);
+        testService.addTest(test);
         log.info("Added test from form.");
 
         model.addAttribute("status", test != null);

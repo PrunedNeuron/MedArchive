@@ -4,7 +4,6 @@ import dev.ayushm.med.model.Illness;
 import dev.ayushm.med.repository.IllnessRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,8 +15,11 @@ public class IllnessService {
 
     private static final Logger log = LoggerFactory.getLogger(IllnessService.class);
 
-    @Autowired
-    private IllnessRepository illnessRepository;
+    private final IllnessRepository illnessRepository;
+
+    public IllnessService(IllnessRepository illnessRepository) {
+        this.illnessRepository = illnessRepository;
+    }
 
     public List<Illness> getAllIllnesses() {
         List<Illness> illnesses = new ArrayList<>();
