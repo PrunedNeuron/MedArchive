@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -33,8 +32,10 @@ public class MainController implements ErrorController {
     public String index(Model model) {
 
         log.info("Retrieving list of consultations and treatments, both sorted and sliced.");
-        List<Consultation> consultations = new ArrayList<>(consultationService.getAllConsultationsSorted()).subList(0, 5);
-        List<Treatment> treatments = new ArrayList<>(treatmentService.getAllTreatmentsSorted()).subList(0, 5);
+        List<Consultation> consultations = consultationService.getAllConsultationsSorted();
+        consultations = consultations.subList(0, Math.min(consultations.size(), 5));
+        List<Treatment> treatments = treatmentService.getAllTreatmentsSorted();
+        treatments = treatments.subList(0, Math.min(treatments.size(), 5));
         model.addAttribute("consultations", consultations);
         model.addAttribute("treatments", treatments);
 

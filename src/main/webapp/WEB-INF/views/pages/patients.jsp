@@ -10,13 +10,6 @@
 </head>
 <body>
 
-<style>
-    .cards .badge {
-        float: right;
-        background-color: #ff1b3d;
-    }
-</style>
-
 <div class="bodyContainer">
     <%@include file="../components/navigation.jsp" %>
     <div class="mainBody">
@@ -89,6 +82,11 @@
             <div class="cards">
                 <c:forEach var="patient" items="${patients}">
                     <div class="card multicard">
+                        <div class="deleteButtonContainer" title="Delete">
+                            <div class="deleteButton" onclick="deletePatient(${patient.patientId})">
+                                <i class="fas fa-minus"></i>
+                            </div>
+                        </div>
                         <div class="item capitalize">
                             <span class="mutedText">Name</span> ${patient.patientName}
                         </div>
@@ -111,7 +109,6 @@
     <%@include file="../components/footer.jsp" %>
 
 </div>
-
 <%@include file="../components/scripts.jsp" %>
 </body>
 </html>

@@ -48,6 +48,21 @@ function validateText(text) {
     return text != null && text !== "";
 }
 
+function deletePatient(id) {
+    console.log("About to delete patient #" + id)
+    $.ajax({
+        url: "/api/patients/" + id,
+        type: 'DELETE',
+        failure: function () {
+            console.log("Failed to delete patient.");
+        },
+        success: function () {
+            console.log("Deleted patient successfully.");
+            location.reload();
+        }
+    });
+}
+
 
 setTimeout(function () {
     hideElement(formStatusMessage);

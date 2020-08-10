@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "consultation")
@@ -153,4 +154,23 @@ public class Consultation {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Consultation that = (Consultation) o;
+        return Objects.equals(patient, that.patient) &&
+                Objects.equals(patientId, that.patientId) &&
+                Objects.equals(consultant, that.consultant) &&
+                Objects.equals(consultantId, that.consultantId) &&
+                Objects.equals(test, that.test) &&
+                Objects.equals(testId, that.testId) &&
+                Objects.equals(consultationLocation, that.consultationLocation) &&
+                Objects.equals(consultationDate, that.consultationDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(patient, patientId, consultant, consultantId, test, testId, consultationLocation, consultationDate);
+    }
 }

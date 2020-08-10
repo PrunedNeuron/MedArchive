@@ -6,8 +6,8 @@ import java.util.Date;
 public class DateFormatUtility {
 
     public static String formatIntoWords(Date date) {
-        SimpleDateFormat df = new SimpleDateFormat("dd MMMM, yyyy");
-        return df.format(date);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+        return dateFormat.format(date);
     }
 
 }

@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PatientRepository extends CrudRepository<Patient, Integer> {
-
     List<Patient> findByPatientNameContaining(String query);
-
 }

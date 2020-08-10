@@ -50,6 +50,27 @@ public class PatientService {
     }
 
     public void deletePatient(Integer patientId) {
+
+        consultationRepository.findAll().forEach(consultation -> {
+            if (consultation.getPatientId().equals(patientId)) {
+                log.info("Deleting patient's treatments...");
+                treatmentRepository.findAll().forEach(treatment -> {
+                    if (treatment.getDiagnosis().getConsultation().getConsultationId().equals(consultation.getConsultationId()))
+                        treatmentRepository.delete(treatment);
+                });
+
+                log.info("Deleting patient's diagnoses...");
+                diagnosisRepository.findAll().forEach(diagnosis -> {
+                    if (diagnosis.getConsultationId().equals(consultation.getConsultationId()))
+                        diagnosisRepository.delete(diagnosis);
+                });
+
+                log.info("Deleting patient's consultations...");
+                consultationRepository.delete(consultation);
+            }
+        });
+
+        log.info("Deleting patient...");
         patientRepository.deleteById(patientId);
     }
 

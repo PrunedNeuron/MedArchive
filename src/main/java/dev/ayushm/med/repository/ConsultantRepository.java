@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ConsultantRepository extends CrudRepository<Consultant, Integer> {
-
     List<Consultant> findByConsultantNameContaining(String query);
-
 }

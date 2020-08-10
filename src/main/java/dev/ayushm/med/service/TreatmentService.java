@@ -31,6 +31,7 @@ public class TreatmentService {
 
     public List<Treatment> getAllTreatmentsSorted() {
         log.info("Retrieving sorted list of all treatments from the repository...");
+
         return new ArrayList<>(treatmentRepository.findAllByOrderByDiagnosis_Consultation_ConsultationDateDesc());
     }
 

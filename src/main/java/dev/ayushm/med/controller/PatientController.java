@@ -54,18 +54,20 @@ public class PatientController {
 
         log.info("Retrieving drugs prescribed to the patient with the given patient ID...");
         List<Drug> drugList = patientService.getDrugs(patientId);
+
+        log.info("Retrieving illnesses associated with the given patient ID...");
         List<Illness> illnessList = patientService.getIllnesses(patientId);
 
         log.info("Converting the list of drugs into a comma separated string");
         String drugs = new HashSet<>(drugList)
                 .stream()
-                .map(drug -> String.valueOf(drug.getDrugName()))
+                .map(Drug::getDrugName)
                 .collect(Collectors.joining(", "));
 
         log.info("Converting the list of diagnoses/illnesses into a comma separated string...");
         String illnesses = new HashSet<>(illnessList)
                 .stream()
-                .map(illness -> String.valueOf(illness.getIllnessName()))
+                .map(Illness::getIllnessName)
                 .collect(Collectors.joining(", "));
 
         log.info("Converting the list of drugs that the patient is allergic to into an array of strings...");
@@ -90,7 +92,7 @@ public class PatientController {
         return "pages/patients";
     }
 
-    @GetMapping("{patientId}/history")
+    @GetMapping("/{patientId}/history")
     public String getPatientHistory(@PathVariable Integer patientId, Model model) {
 
         log.info("Retrieving consultations attended by the patient with the given patient ID...");

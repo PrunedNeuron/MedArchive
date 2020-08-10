@@ -28,7 +28,11 @@ public class TestController {
     @GetMapping("/tests")
     public String getAllTests(Model model) {
         log.info("Retrieving list of all tests...");
-        List<Test> tests = testService.getAllTests().stream().distinct().collect(Collectors.toList());
+        List<Test> tests = testService
+                .getAllTests()
+                .stream()
+                .distinct()
+                .collect(Collectors.toList());
         model.addAttribute("tests", tests);
 
         return "pages/tests";

@@ -29,7 +29,6 @@ public class DiagnosisController {
         List<Diagnosis> diagnoses = diagnosisService.getAllDiagnoses();
         model.addAttribute("diagnoses", diagnoses);
 
-//        return "pages/diagnoses";
         return "pages/error";
     }
 

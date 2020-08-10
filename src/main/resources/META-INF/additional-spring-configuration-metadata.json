@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "prepopulate.sampleData",
+      "type": "java.lang.String",
+      "description": "Custom property to toggle sample data addition on startup."
+    }
+  ]
+}

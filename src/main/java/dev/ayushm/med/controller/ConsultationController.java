@@ -57,12 +57,12 @@ public class ConsultationController {
 
         String illnesses = new HashSet<>(diagnoses)
                 .stream()
-                .map(diagnosis -> String.valueOf(diagnosis.getIllness().getIllnessName()))
+                .map(diagnosis -> diagnosis.getIllness().getIllnessName())
                 .collect(Collectors.joining(", "));
 
         String drugs = new HashSet<>(treatments)
                 .stream()
-                .map(treatment -> String.valueOf(treatment.getDrug().getDrugName()))
+                .map(treatment -> treatment.getDrug().getDrugName())
                 .collect(Collectors.joining(", "));
 
         model.addAttribute("consultation", consultation);

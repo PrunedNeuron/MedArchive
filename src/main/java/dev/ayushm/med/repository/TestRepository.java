@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface TestRepository extends CrudRepository<Test, Integer> {
-
     List<Test> findByTestNameContaining(String query);
-
 }

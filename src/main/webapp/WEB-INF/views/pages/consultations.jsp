@@ -49,6 +49,11 @@
             <div class="cards">
                 <c:forEach var="consultation" items="${consultationList}">
                     <div class="card multicard">
+                        <div class="deleteButtonContainer" title="Delete">
+                            <div class="deleteButton" onclick="deleteConsultation(${consultation.consultationId})">
+                                <i class="fas fa-minus"></i>
+                            </div>
+                        </div>
                         <div class="item capitalize">
                             <span class="mutedText">Patient</span> ${consultation.patient.patientName}
                         </div>
@@ -66,6 +71,24 @@
     </div>
     <%@include file="../components/footer.jsp" %>
 </div>
+
+<script>
+    function deleteConsultation(id) {
+        console.log("About to delete consultation #" + id)
+        $.ajax({
+            url: "/api/consultations/" + id,
+            type: 'DELETE',
+            failure: function () {
+                console.log("Failed to delete consultation.");
+            },
+            success: function () {
+                console.log("Deleted consultation successfully.");
+                location.reload();
+            }
+        });
+    }
+</script>
+
 <%@include file="../components/scripts.jsp" %>
 </body>
 </html>
